@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,7 @@ using System.Xml.Linq;
 
 namespace BDL
 {
-    public class Downloader
+    public static class Downloader
     {
         public static string X_CLIENT_ID = "";
         
@@ -17,16 +19,24 @@ namespace BDL
             X_CLIENT_ID = newClientId;
         }
 
-        public static async Task<XDocument> DownloadXML(string requestUri)
+        public static XDocument DownloadXML(string requestUri)
         {
-            using (HttpClient client = new HttpClient())
+            using (WebClient wc = new WebClient())
             {
-                client.DefaultRequestHeaders.Add("X-ClientId", X_CLIENT_ID);
-                HttpResponseMessage response = await client.GetAsync(requestUri);
-                response.EnsureSuccessStatusCode();
+                string tmpFile = Path.GetTempFileName();
+                try
+                {
 
-                string responseBody = await response.Content.ReadAsStringAsync();
-                return XDocument.Parse(responseBody);
+                    wc.Headers["X-ClientId"] = X_CLIENT_ID;
+                    wc.DownloadFile(requestUri, tmpFile);
+
+                    return XDocument.Parse(File.ReadAllText(tmpFile));
+                }
+                finally
+                {
+                    if (File.Exists(tmpFile))
+                        File.Delete(tmpFile);
+                }
             }
         }
     }

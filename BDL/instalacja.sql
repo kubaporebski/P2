@@ -43,16 +43,48 @@ returns table (Id nvarchar(10), Name nvarchar(255), HasVariables bit, Children n
 as external name bdl.[BDL.DataGetter].Subjects;
 go
 
+create function dbo.Variables(@parentId nvarchar(10), @pageSize int)
+returns table (Id nvarchar(10), SubjectId nvarchar(10), N1 nvarchar(255), N2 nvarchar(255), MeasureUnitId int, MeasureUnitName nvarchar(30))
+as external name bdl.[BDL.DataGetter].Variables;
+go
+
+
 create function dbo.Randomizer(@count int)
 returns table(Id int, Value float)
 as external name bdl.[BDL.DataGetter].Randomizer;
 go
 
-select * from dbo.Randomizer(1024)
+-- select * from dbo.Randomizer(1024)
 
 
 -- to trzeba wywo³aæ - klucz  API
 select dbo.SetClientId('51b8ff67-411c-47c6-8dea-08d689f6cc93');
-select * from dbo.Subjects(null, 100)
+
+if exists(select * from sys.schemas where name='staging')
+begin
+  drop table if exists staging.TopSubjects
+  drop table if exists staging.AllSubjects
+  drop schema staging
+end
+go
+
+create schema staging
+go
 
 
+select * 
+into staging.TopSubjects
+from dbo.Subjects(null, 100)
+
+
+select * From staging.TopSubjects
+
+with cte as (
+    select distinct child.value as parentId 
+    from staging.TopSubjects cross apply string_split(Children, ',') child
+)
+select * 
+into staging.AllSubjects
+from cte cross apply dbo.Subjects(parentId, 100)
+
+select * From staging.AllSubjects

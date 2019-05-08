@@ -18,13 +18,13 @@ namespace BDL
 
         public string Children { get; private set; }
 
-        public SubjectRow(XElement xSubject)
+        public SubjectRow(XElement subject)
         {
-            Id = xSubject.Element("id").Value;
-            Name = xSubject.Element("name").Value;
-            HasVariables = bool.Parse(xSubject.Element("hasVariables").Value);
+            Id = subject.Element("id").Value;
+            Name = subject.Element("name").Value;
+            HasVariables = bool.Parse(subject.Element("hasVariables").Value);
             
-            Children = string.Join(",", xSubject.XPathSelectElements("children/id").Select(xChild => xChild.Value).ToList());
+            Children = string.Join(",", subject.XPathSelectElements("children/id").Select(xChild => xChild.Value).ToList());
         }
     }
 }

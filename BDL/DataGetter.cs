@@ -12,6 +12,11 @@ namespace BDL
 {
     public class DataGetter
     {
+        /// <summary>
+        /// Testowa funkcja zwracająca losowe dane.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         [SqlFunction(FillRowMethodName = "RandomizerFillRow")]
         public static IEnumerable Randomizer(int count)
         {
@@ -29,6 +34,11 @@ namespace BDL
             Value = row.Value;
         }
 
+        /// <summary>
+        /// Ustawienie klucza API.
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
         [SqlFunction]
         public static int SetClientId(string clientId)
         {
@@ -47,20 +57,17 @@ namespace BDL
         [SqlFunction(FillRowMethodName = "SubjectsFillRow")]
         public static IEnumerable Subjects(string parentId, int pageSize)
         {
-            string uri = "https://bdl.stat.gov.pl/api/v1/subjects?format=xml";
-
+            var uri = "https://bdl.stat.gov.pl/api/v1/subjects?format=xml";
             if (!string.IsNullOrEmpty(parentId))
                 uri += $"&parent-id={parentId}";
-
             if (pageSize > 0)
                 uri += $"&page-size={pageSize}";
 
-            XDocument docu = Downloader.DownloadXML(uri);
-            ArrayList resultCollection = new ArrayList();
+            var docu = Downloader.DownloadXML(uri);
+            var resultCollection = new List<SubjectRow>();
             foreach (var subject in docu.Descendants("subject"))
-            {
                 resultCollection.Add(new SubjectRow(subject));
-            }
+
             return resultCollection;
         }
 
@@ -73,9 +80,36 @@ namespace BDL
             Children = row.Children;
         }
 
-        public static IEnumerable Variables(int subjectId)
+        /// <summary>
+        /// Funkcja pobierająca listę zmiennych dla danego tematu.
+        /// </summary>
+        /// <param name="subjectId"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        [SqlFunction(FillRowMethodName = "VariablesFillRow")]
+        public static IEnumerable Variables(string subjectId, int pageSize)
         {
-            return null;
+            var uri = $"https://bdl.stat.gov.pl/api/v1/variables?format=xml&subject-id={subjectId}";
+            if (pageSize > 0)
+                uri += $"&page-size={pageSize}";
+
+            var docu = Downloader.DownloadXML(uri);
+            var resultCollection = new List<VariablesRow>();
+            foreach (var variable in docu.Descendants("variable"))
+                resultCollection.Add(new VariablesRow(variable));
+                
+            return resultCollection;
+        }
+
+        public static void VariablesFillRow(object obRow, out string Id, out string SubjectId, out string N1, out string N2, out int MeasureUnitId, out string MeasureUnitName)
+        {
+            var row = obRow as VariablesRow;
+            Id = row.Id;
+            SubjectId = row.SubjectId;
+            N1 = row.N1;
+            N2 = row.N2;
+            MeasureUnitId = row.MeasureUnitId;
+            MeasureUnitName = row.MeasureUnitName;
         }
 
         public static IEnumerable DataByVariable(int variableId)
@@ -83,18 +117,5 @@ namespace BDL
             return null;
         }
 
-    }
-
-    public class RandomizerRow
-    {
-        private static readonly Random rnd = new Random();
-
-        public int Id;
-        public double Value = rnd.NextDouble();
-
-        public RandomizerRow(int id)
-        {
-            this.Id = id;
-        }
     }
 }

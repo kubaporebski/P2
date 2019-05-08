@@ -47,6 +47,21 @@ namespace BDL
         }
 
         /// <summary>
+        /// Procedurka pozwalająca na wyświetlenie logów żądań do BDL.
+        /// Każdy log składa się z daty oraz adresu URL żądania.
+        /// 
+        /// Funkcja wyświetla log w okienku Messages w aplikacji SSMS.
+        /// </summary>
+        [SqlProcedure]
+        public static void RequestLog()
+        {
+            foreach (var log in Downloader.Logs)
+            {
+                SqlContext.Pipe.Send(log.ToString());
+            }
+        }
+
+        /// <summary>
         /// Funkcja pobierająca listę top-level tematów .
         /// Jest to pkt 'Dane dla jednej zmiennej i wielu jednostek terytorialnych ' w dokumentacji na stronie 
         ///     https://bdl.stat.gov.pl/api/v1/home/tutorial?theme=Default

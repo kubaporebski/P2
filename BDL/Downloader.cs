@@ -15,7 +15,14 @@ namespace BDL
         private static DateTime LastRequest = DateTime.Now;
 
         private static string X_CLIENT_ID = "";
-        
+
+        public static List<RequestLog> Logs { get; private set; }
+
+        static Downloader()
+        {
+            Logs = new List<RequestLog>();
+        }
+
         /// <summary>
         /// Ustawienie identyfikatora użytkownika API.
         /// </summary>
@@ -34,6 +41,7 @@ namespace BDL
         public static XDocument DownloadXML(string requestUri)
         {
             WaitBefore();
+            SaveRequestLog(requestUri);
 
             using (WebClient wc = new WebClient())
             {
@@ -51,6 +59,15 @@ namespace BDL
                         File.Delete(tmpFile);
                 }
             }
+        }
+
+        /// <summary>
+        /// Dodanie wpisu do logów
+        /// </summary>
+        /// <param name="requestUri"></param>
+        private static void SaveRequestLog(string requestUri)
+        {
+            Logs.Add(new RequestLog(requestUri));
         }
 
         /// <summary>

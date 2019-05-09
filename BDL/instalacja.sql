@@ -21,6 +21,10 @@ if exists(select * from sys.objects where name = 'Subjects' and type = 'FT')
     drop function dbo.Subjects
 go
 
+if exists(select * from sys.objects where name = 'Variables' and type = 'FT')
+    drop function dbo.Variables
+go
+
 
 if exists(select * from sys.assemblies where name = 'BDL')
     drop assembly bdl
@@ -53,6 +57,12 @@ create function dbo.Randomizer(@count int)
 returns table(Id int, Value float)
 as external name bdl.[BDL.DataGetter].Randomizer;
 go
+
+create procedure dbo.RequestLog
+as external name bdl.[BDL.DataGetter].RequestLog;
+go
+
+exec dbo.RequestLog
 
 -- select * from dbo.Randomizer(1024)
 

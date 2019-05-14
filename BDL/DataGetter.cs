@@ -35,18 +35,6 @@ namespace BDL
         }
 
         /// <summary>
-        /// Ustawienie klucza API.
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <returns></returns>
-        [SqlFunction]
-        public static int SetClientId(string clientId)
-        {
-            Downloader.SetClientId(clientId);
-            return 1;
-        }
-
-        /// <summary>
         /// Procedurka pozwalająca na wyświetlenie logów żądań do BDL.
         /// Każdy log składa się z daty oraz adresu URL żądania.
         /// 
@@ -78,12 +66,7 @@ namespace BDL
             if (pageSize > 0)
                 uri += $"&page-size={pageSize}";
 
-            var docu = Downloader.DownloadXML(uri);
-            var resultCollection = new List<SubjectRow>();
-            foreach (var subject in docu.Descendants("subject"))
-                resultCollection.Add(new SubjectRow(subject));
-
-            return resultCollection;
+            return Downloader.DownloadXML(uri).Descendants("subject").Select(subject => new SubjectRow(subject)).ToList();
         }
 
         public static void SubjectsFillRow(object obRow, out string Id, out string Name, out bool HasVariables, out string Children)
@@ -108,12 +91,7 @@ namespace BDL
             if (pageSize > 0)
                 uri += $"&page-size={pageSize}";
 
-            var docu = Downloader.DownloadXML(uri);
-            var resultCollection = new List<VariablesRow>();
-            foreach (var variable in docu.Descendants("variable"))
-                resultCollection.Add(new VariablesRow(variable));
-                
-            return resultCollection;
+            return Downloader.DownloadXML(uri).Descendants("variable").Select(variable => new VariablesRow(variable)).ToList();
         }
 
         public static void VariablesFillRow(object obRow, out string Id, out string SubjectId, out string N1, out string N2, out int MeasureUnitId, out string MeasureUnitName)

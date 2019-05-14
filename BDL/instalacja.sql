@@ -36,11 +36,6 @@ CREATE ASSEMBLY BDL FROM 'C:\Users\kuba\Documents\Visual Studio 2017\Projects\BD
 WITH PERMISSION_SET = UNSAFE -- EXTERNAL_ACCESS;  
 GO  
 
-create function dbo.SetClientId(@clientId nvarchar(255))
-returns int
-as external name bdl.[BDL.DataGetter].SetClientId;
-go
-
 
 create function dbo.Subjects(@parentId nvarchar(10), @pageSize int)
 returns table (Id nvarchar(10), Name nvarchar(255), HasVariables bit, Children nvarchar(1024))
@@ -66,9 +61,6 @@ exec dbo.RequestLog
 
 -- select * from dbo.Randomizer(1024)
 
-
--- to trzeba wywo³aæ - klucz  API
-select dbo.SetClientId('51b8ff67-411c-47c6-8dea-08d689f6cc93');
 
 if exists(select * from sys.schemas where name='staging')
 begin

@@ -5,11 +5,15 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDL_DLL", "BDL\BDL_DLL.csproj", "{0FFBCD6A-3B12-4151-925B-1F6CAE861716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBDL_DLL", "TestBDL\TestBDL_DLL.csproj", "{14DAF23E-CB00-4929-944F-6116F311C102}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDL_DLLUnitTest", "TestBDL\BDL_DLLUnitTest.csproj", "{14DAF23E-CB00-4929-944F-6116F311C102}"
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "BDL_Integration", "BDL_Integration\BDL_Integration.dtproj", "{CC24C31A-C6E3-480A-BE5E-DD071073B9D3}"
 EndProject
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "BDL_Reporting", "BDL_Reporting\BDL_Reporting.rptproj", "{F95FBA56-1B6E-4CC5-A568-FF4DBBD00EEA}"
+EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "BDL_Analysis", "BDL_Analysis\BDL_Analysis.dwproj", "{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BDL_DB", "BDL_DB\BDL_DB.sqlproj", "{DFCC87FC-48F3-438A-9837-5C2659B6B001}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,30 @@ Global
 		{F95FBA56-1B6E-4CC5-A568-FF4DBBD00EEA}.Release|Any CPU.ActiveCfg = Release
 		{F95FBA56-1B6E-4CC5-A568-FF4DBBD00EEA}.Release|Any CPU.Build.0 = Release
 		{F95FBA56-1B6E-4CC5-A568-FF4DBBD00EEA}.Release|Any CPU.Deploy.0 = Release
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Debug|Any CPU.ActiveCfg = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Debug|Any CPU.Build.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Debug|Any CPU.Deploy.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.DebugLocal|Any CPU.ActiveCfg = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.DebugLocal|Any CPU.Build.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.DebugLocal|Any CPU.Deploy.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Development|Any CPU.ActiveCfg = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Development|Any CPU.Build.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Development|Any CPU.Deploy.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Release|Any CPU.ActiveCfg = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Release|Any CPU.Build.0 = Development
+		{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}.Release|Any CPU.Deploy.0 = Development
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.DebugLocal|Any CPU.Deploy.0 = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCC87FC-48F3-438A-9837-5C2659B6B001}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

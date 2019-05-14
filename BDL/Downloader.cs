@@ -13,8 +13,13 @@ namespace BDL
     public static class Downloader
     {
         private static DateTime LastRequest = DateTime.Now;
-
-        private static string X_CLIENT_ID = "";
+        
+        private static NeverendingList<string> clientIdList = new NeverendingList<string>()
+        {
+            "e595b260-5874-48e6-d0a1-08d6d44dd662",
+            "caaf0c0a-ef9e-41de-05a0-08d6d49aeefd",
+            "e06b2f38-0840-437d-daaa-08d6d518672f"
+        };
 
         public static List<RequestLog> Logs { get; private set; }
 
@@ -22,16 +27,7 @@ namespace BDL
         {
             Logs = new List<RequestLog>();
         }
-
-        /// <summary>
-        /// Ustawienie identyfikatora użytkownika API.
-        /// </summary>
-        /// <param name="newClientId"></param>
-        public static void SetClientId(string newClientId)
-        {
-            X_CLIENT_ID = newClientId;
-        }
-
+        
         /// <summary>
         /// Pobranie dokumentu XML znajdującego się pod podanym adresem URI.
         /// Metoda wysyła żądanie z nagłówkiem X-ClientId ustawionym za pomocą metody SetClientId.
@@ -48,7 +44,7 @@ namespace BDL
                 string tmpFile = Path.GetTempFileName();
                 try
                 {
-                    wc.Headers["X-ClientId"] = X_CLIENT_ID;
+                    wc.Headers["X-ClientId"] = clientIdList.NextElement;
                     wc.DownloadFile(requestUri, tmpFile);
 
                     return XDocument.Parse(File.ReadAllText(tmpFile));

@@ -9,7 +9,7 @@ namespace TestBDL
     {
         public MainUnitTest()
         {
-            Downloader.SetClientId("51b8ff67-411c-47c6-8dea-08d689f6cc93");
+            
         }
 
         [TestMethod]
@@ -25,5 +25,6 @@ namespace TestBDL
             var result = DataGetter.Variables("P3183", 10);
             Assert.IsNotNull(result);
         }
+        
     }
 }

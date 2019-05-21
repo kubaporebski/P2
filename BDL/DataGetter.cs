@@ -45,7 +45,7 @@ namespace BDL
         {
             foreach (var log in Downloader.Logs)
             {
-                SqlContext.Pipe.Send(log.ToString());
+                SqlContext.Pipe?.Send(log?.ToString());
             }
         }
 

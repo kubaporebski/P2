@@ -14,15 +14,19 @@
     </RootPath>
     <RootNamespace>BDL_DB</RootNamespace>
     <AssemblyName>BDL_DB</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1045,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Polish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <PermissionSet>UNSAFE</PermissionSet>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,5 +61,37 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="staging\" />
+    <Folder Include="staging\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Assemblies\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="staging\Tables\TopSubjects.sql" />
+    <Build Include="staging\Tables\AllSubjects.sql" />
+    <Build Include="dbo\Stored Procedures\RequestLog.sql" />
+    <Build Include="Security\staging.sql" />
+    <Build Include="dbo\Functions\Variables.sql" />
+    <Build Include="dbo\Functions\Subjects.sql" />
+    <Build Include="dbo\Functions\Randomizer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assemblies\BDL.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BDL">
+      <HintPath>Assemblies\BDL.dll</HintPath>
+      <SqlAssemblyName>BDL</SqlAssemblyName>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <SqlOwnerName>dbo</SqlOwnerName>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </Reference>
   </ItemGroup>
 </Project>

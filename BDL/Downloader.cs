@@ -30,7 +30,6 @@ namespace BDL
         
         /// <summary>
         /// Pobranie dokumentu XML znajdującego się pod podanym adresem URI.
-        /// Metoda wysyła żądanie z nagłówkiem X-ClientId ustawionym za pomocą metody SetClientId.
         /// </summary>
         /// <param name="requestUri"></param>
         /// <returns></returns>
@@ -77,11 +76,7 @@ namespace BDL
         /// </summary>
         private static void WaitBefore()
         {
-            var diff = DateTime.Now - LastRequest;
-            if (diff.TotalSeconds < 1)
-                System.Threading.Thread.Sleep(1000);
-
-            LastRequest = DateTime.Now;
+            System.Threading.Thread.Sleep(1000);
         }
     }
 }

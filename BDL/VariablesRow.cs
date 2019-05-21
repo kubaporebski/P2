@@ -18,7 +18,7 @@ namespace BDL
 
         public VariablesRow(XElement variable)
         {
-            Id = variable.Element("Id").Value;
+            Id = variable.Element("id").Value;
             SubjectId = variable.Element("subjectId").Value;
             N1 = variable.Element("n1").Value;
             N2 = variable.Element("n2").Value;

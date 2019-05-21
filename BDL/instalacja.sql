@@ -1,21 +1,27 @@
 /*
 
-Za³o¿enie jest takie ¿e musimy mieæ bazê TestDB
+Za³o¿enie jest takie ¿e musimy mieæ bazê BDL
 
 
 */
 
-ALTER DATABASE TestDB SET TRUSTWORTHY ON
+ALTER DATABASE BDL SET TRUSTWORTHY ON
+go
+
+sp_configure 'show advanced options', 1; 
+GO 
+RECONFIGURE; 
+GO 
+sp_configure 'clr enabled', 1; 
+GO 
+RECONFIGURE; 
+
+USE BDL
 go
 
 if exists(select * from sys.objects where name = 'Randomizer' and type = 'FT')
     drop function dbo.Randomizer
 go
-
-if exists(select * from sys.objects where name = 'SetClientId' and type = 'FS')
-    drop function dbo.SetClientId
-go
-
 
 if exists(select * from sys.objects where name = 'Subjects' and type = 'FT')
     drop function dbo.Subjects
@@ -28,6 +34,10 @@ go
 
 if exists(select * from sys.assemblies where name = 'BDL')
     drop assembly bdl
+go
+
+if exists(select * from sys.procedures where name = 'RequestLog')
+	drop procedure RequestLog
 go
 
 
@@ -90,3 +100,4 @@ into staging.AllSubjects
 from cte cross apply dbo.Subjects(parentId, 100)
 
 select * From staging.AllSubjects
+

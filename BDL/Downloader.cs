@@ -18,7 +18,8 @@ namespace BDL
         {
             "e595b260-5874-48e6-d0a1-08d6d44dd662",
             "caaf0c0a-ef9e-41de-05a0-08d6d49aeefd",
-            "e06b2f38-0840-437d-daaa-08d6d518672f"
+            "e06b2f38-0840-437d-daaa-08d6d518672f",
+            "bbee9905-1eb3-4520-e60d-08d6dde4b8b3"
         };
 
         public static List<RequestLog> Logs { get; private set; }
@@ -77,6 +78,7 @@ namespace BDL
         private static void WaitBefore()
         {
             System.Threading.Thread.Sleep(1000);
+            LastRequest = DateTime.Now;
         }
     }
 }

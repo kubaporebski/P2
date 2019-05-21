@@ -54,4 +54,8 @@
     <Content Include="instalacja.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "$(ProjectDir)\..\BDL_DB"
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>

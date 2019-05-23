@@ -80,6 +80,7 @@
     <Build Include="dbo\Functions\Variables.sql" />
     <Build Include="dbo\Functions\Subjects.sql" />
     <Build Include="dbo\Functions\Randomizer.sql" />
+    <Build Include="dbo\Functions\Measures.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

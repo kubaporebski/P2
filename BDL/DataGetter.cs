@@ -105,6 +105,26 @@ namespace BDL
             MeasureUnitName = row.MeasureUnitName;
         }
 
+        /// <summary>
+        /// Funkcja pobierająca listę wszystkich jednostek miary.
+        /// </summary>
+        /// <returns></returns>
+        [SqlFunction(FillRowMethodName = "MeasuresFillRow")]
+        public static IEnumerable Measures()
+        {
+            var uri = "https://bdl.stat.gov.pl/api/v1/measures?format=xml";
+
+            return Downloader.DownloadXML(uri).Descendants("measureUnit").Select(unit => new MeasureUnitRow(unit)).ToList();
+        }
+
+        public static void MeasuresFillRow(object obRow, out int Id, out string Name, out string Description)
+        {
+            var row = obRow as MeasureUnitRow;
+            Id = row.Id;
+            Name = row.Name;
+            Description = row.Description;
+        }
+
         public static IEnumerable DataByVariable(int variableId)
         {
             return null;

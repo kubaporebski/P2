@@ -67,6 +67,11 @@ create procedure dbo.RequestLog
 as external name bdl.[BDL.DataGetter].RequestLog;
 go
 
+create function dbo.Measures(@count int)
+returns table(Id int, Name nvarchar(255), Description nvarchar(255))
+as external name bdl.[BDL.DataGetter].Measures;
+go
+
 exec dbo.RequestLog
 
 -- select * from dbo.Randomizer(1024)

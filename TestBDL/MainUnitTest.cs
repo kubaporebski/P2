@@ -25,6 +25,13 @@ namespace TestBDL
             var result = DataGetter.Variables("P3183", 10);
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void TestMeasures()
+        {
+            var result = DataGetter.Measures();
+            Assert.IsNotNull(result);
+        }
         
     }
 }

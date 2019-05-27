@@ -125,6 +125,46 @@ namespace BDL
             Description = row.Description;
         }
 
+        /// <summary>
+        /// Funkcja pobierająca listę atrybutów.
+        /// </summary>
+        /// <returns></returns>
+        [SqlFunction(FillRowMethodName = "AttributesFillRow")]
+        public static IEnumerable Attributes()
+        {
+            var uri = "https://bdl.stat.gov.pl/api/v1/attributes?format=xml";
+
+            return Downloader.DownloadXML(uri).Descendants("attribute").Select(attr => new AttributeRow(attr)).ToList();
+        }
+
+        public static void AttributesFillRow(object obRow, out int Id, out string Name, out string Symbol, out string Description)
+        {
+            var row = obRow as AttributeRow;
+            Id = row.Id;
+            Name = row.Name;
+            Symbol = row.Symbol;
+            Description = row.Description;
+        }
+
+
+        [SqlFunction(FillRowMethodName = "DataByVariableFillRow")]
+        public static IEnumerable DataByVariable(int variableId, int yearFrom, int yearTo, int pageSize)
+        {
+            throw new NotImplementedException("w trakcie intensywnych prac!");
+
+            var uri = $"https://bdl.stat.gov.pl/api/v1/data/by-variable/{variableId}?format=xml";
+            for (int yr = yearFrom; yr <= yearTo; yr++)
+                uri += $"&year={yr}";
+            uri += $"&page-size={pageSize}";
+
+            return null; // TODO Downloader.DownloadXML(uri);
+        }
+
+        public static void DataByVariableFillRow()
+        {
+            // TODO
+        }
+
         public static IEnumerable DataByVariable(int variableId)
         {
             return null;

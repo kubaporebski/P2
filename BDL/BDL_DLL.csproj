@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributeRow.cs" />
     <Compile Include="DataGetter.cs" />
     <Compile Include="Downloader.cs" />
     <Compile Include="MeasureUnitRow.cs" />
@@ -56,7 +57,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "$(ProjectDir)\..\BDL_DB"
+    <PostBuildEvent>copy /Y "$(TargetPath)" "$(ProjectDir)\..\BDL_DB\Assemblies"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

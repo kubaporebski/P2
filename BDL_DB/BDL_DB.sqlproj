@@ -81,6 +81,7 @@
     <Build Include="dbo\Functions\Subjects.sql" />
     <Build Include="dbo\Functions\Randomizer.sql" />
     <Build Include="dbo\Functions\Measures.sql" />
+    <Build Include="dbo\Functions\Attributes.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

@@ -9,7 +9,7 @@ namespace TestBDL
     {
         public MainUnitTest()
         {
-            
+            System.Diagnostics.Debug.WriteLine("Hello!");
         }
 
         [TestMethod]
@@ -32,6 +32,12 @@ namespace TestBDL
             var result = DataGetter.Measures();
             Assert.IsNotNull(result);
         }
-        
+
+        [TestMethod]
+        public void TestAtributes()
+        {
+            var result = DataGetter.Attributes();
+            Assert.IsNotNull(result);
+        }
     }
 }

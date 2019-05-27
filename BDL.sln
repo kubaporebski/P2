@@ -14,6 +14,9 @@ EndProject
 Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "BDL_Analysis", "BDL_Analysis\BDL_Analysis.dwproj", "{A4BFFDF3-966B-4A30-9658-0AB8FA6B0FA4}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BDL_DB", "BDL_DB\BDL_DB.sqlproj", "{DFCC87FC-48F3-438A-9837-5C2659B6B001}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0FFBCD6A-3B12-4151-925B-1F6CAE861716} = {0FFBCD6A-3B12-4151-925B-1F6CAE861716}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -95,7 +95,7 @@ from dbo.Subjects(null, 100)
 
 
 select * From staging.TopSubjects
-
+GO
 with cte as (
     select distinct child.value as parentId 
     from staging.TopSubjects cross apply string_split(Children, ',') child

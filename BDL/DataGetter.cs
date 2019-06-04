@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Linq;
 using System.Collections.Generic;
+using System.Xml.XPath;
 
 namespace BDL
 {
@@ -179,8 +180,8 @@ namespace BDL
             for (int yr = yearFrom; yr <= yearTo; yr++)
                 uri += $"&year={yr}";
             uri += $"&page-size={pageSize}";
-
-            return UnitData.FromXML(Downloader.DownloadXML(uri));
+            
+            return Paginate(uri, docu => UnitData.FromXML(docu));
         }
 
         public static void DataByVariableFillRow(object obUnitData, out int VariableId, out int MeasureUnitId, out int AggregateId, out string Id, out string Name, out int Year, out string Value, out int AttributeId)
@@ -194,6 +195,31 @@ namespace BDL
             Year = row.Year;
             Value = row.Value;
             AttributeId = row.AttributeId;
+        }
+
+        #endregion
+
+        #region Funkcje narzędziowe
+
+        private static IEnumerable Paginate<T>(string uri, Func<XDocument, List<T>> callback)
+        {
+            if (!uri.Contains("&page="))
+                uri += "&page=0";
+            
+            var rows = new List<T>();
+            do
+            {
+                var docu = Downloader.DownloadXML(uri);
+                rows.AddRange(callback.Invoke(docu));
+
+                var uriNext = docu.XPathSelectElement("//links/next");
+                if (uriNext == null)
+                    break;
+
+                uri = uriNext.Value;
+            } while (true);
+
+            return rows;
         }
 
         #endregion

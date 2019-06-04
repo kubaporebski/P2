@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomizerRow.cs" />
     <Compile Include="RequestLog.cs" />
+    <Compile Include="RequestLogList.cs" />
     <Compile Include="SubjectRow.cs" />
     <Compile Include="UnitData.cs" />
     <Compile Include="UnitRow.cs" />

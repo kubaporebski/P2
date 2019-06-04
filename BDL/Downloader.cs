@@ -31,11 +31,11 @@ namespace BDL
         /// <summary>
         /// Logi wywołań.
         /// </summary>
-        public static List<RequestLog> Logs { get; private set; }
+        public static RequestLogList Logs { get; private set; }
 
         static Downloader()
         {
-            Logs = new List<RequestLog>();
+            Logs = RequestLogList.Create();
         }
         
         /// <summary>
@@ -48,11 +48,20 @@ namespace BDL
             WaitBefore();
             SaveRequestLog(requestUri);
 
-            using (WebClient wc = new WebClient())
+            var tmpFile = Path.GetTempFileName();
+            try
             {
-                wc.Headers["X-ClientId"] = clientIdList.NextElement;
+                using (WebClient wc = new WebClient())
+                {
+                    wc.Headers["X-ClientId"] = clientIdList.NextElement;
+                    wc.DownloadFile(requestUri, tmpFile);
 
-                return XDocument.Parse(wc.DownloadString(requestUri));
+                    return XDocument.Load(tmpFile);
+                }
+            }
+            finally
+            {
+                File.Delete(tmpFile);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace BDL
 {
@@ -6,11 +7,18 @@ namespace BDL
     {
         private static int LogCount = 1;
 
-        public int RID { get; private set; }
+        [XmlElement(ElementName = "Id")]
+        public int RID { get; set; }
         
-        public string RequestUri { get; private set; }
+        [XmlElement(ElementName = "Uri")]
+        public string RequestUri { get; set; }
 
-        public DateTime LogTime { get; private set; }
+        [XmlElement]
+        public DateTime LogTime { get; set; }
+
+        public RequestLog()
+        {
+        }
 
         public RequestLog(string requestUri)
         {

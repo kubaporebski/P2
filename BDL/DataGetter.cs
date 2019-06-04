@@ -50,10 +50,10 @@ namespace BDL
         [SqlProcedure]
         public static void RequestLog()
         {
-            foreach (var log in Downloader.Logs)
+            Downloader.Logs.ForEach(log =>
             {
                 SqlContext.Pipe?.Send(log?.ToString());
-            }
+            });
         }
 
         #endregion
@@ -225,9 +225,10 @@ namespace BDL
         /// </summary>
         /// <returns></returns>
         [SqlFunction(FillRowMethodName = "UnitsFillRow")]
-        public static IEnumerable Units()
+        public static IEnumerable Units(int pageSize)
         {
             var uri = "https://bdl.stat.gov.pl/api/v1/units?format=xml";
+            uri += $"&page-size={pageSize}";
 
             return FlattenPages(uri, docu =>
             {

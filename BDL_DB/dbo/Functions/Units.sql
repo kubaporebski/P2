@@ -1,5 +1,7 @@
 ﻿CREATE FUNCTION [dbo].[Units]
-()
+(
+	@pageSize int
+)
 RETURNS TABLE
 (
 	Id nvarchar(30),

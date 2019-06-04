@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,14 +15,22 @@ namespace BDL
     {
         private static DateTime LastRequest = DateTime.Now;
         
+        /// <summary>
+        /// Nasze zarejestrowane identyfikatory do pobierania danych
+        /// </summary>
         private static NeverendingList<string> clientIdList = new NeverendingList<string>()
         {
             "e595b260-5874-48e6-d0a1-08d6d44dd662",
             "caaf0c0a-ef9e-41de-05a0-08d6d49aeefd",
             "e06b2f38-0840-437d-daaa-08d6d518672f",
-            "bbee9905-1eb3-4520-e60d-08d6dde4b8b3"
+            "bbee9905-1eb3-4520-e60d-08d6dde4b8b3",
+            "057f1a35-51f4-4cb2-430b-08d6e741d253",
+            "91d3510e-67fe-45d8-430c-08d6e741d253"
         };
 
+        /// <summary>
+        /// Logi wywołań.
+        /// </summary>
         public static List<RequestLog> Logs { get; private set; }
 
         static Downloader()
@@ -63,7 +72,8 @@ namespace BDL
         /// <param name="requestUri"></param>
         private static void SaveRequestLog(string requestUri)
         {
-            Logs.Add(new RequestLog(requestUri));
+            var log = new RequestLog(requestUri);
+            Logs.Add(log);
         }
 
         /// <summary>

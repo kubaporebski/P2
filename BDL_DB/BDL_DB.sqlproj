@@ -82,6 +82,7 @@
     <Build Include="dbo\Functions\Randomizer.sql" />
     <Build Include="dbo\Functions\Measures.sql" />
     <Build Include="dbo\Functions\Attributes.sql" />
+    <Build Include="dbo\Functions\DataByVariable.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />
@@ -95,5 +96,8 @@
       <SqlOwnerName>dbo</SqlOwnerName>
       <SqlPermissionSet>UNSAFE</SqlPermissionSet>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="BDL_DB.refactorlog" />
   </ItemGroup>
 </Project>

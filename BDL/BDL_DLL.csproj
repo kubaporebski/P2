@@ -50,6 +50,7 @@
     <Compile Include="RandomizerRow.cs" />
     <Compile Include="RequestLog.cs" />
     <Compile Include="SubjectRow.cs" />
+    <Compile Include="UnitData.cs" />
     <Compile Include="VariablesRow.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +58,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "$(ProjectDir)\..\BDL_DB\Assemblies"
+    <PostBuildEvent>echo Kopiowanie "$(TargetPath)" do "$(ProjectDir)\..\BDL_DB\Assemblies"
+copy /Y "$(TargetPath)" "$(ProjectDir)\..\BDL_DB\Assemblies"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

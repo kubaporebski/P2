@@ -12,6 +12,8 @@ namespace BDL
 {
     public class DataGetter
     {
+        #region Randomizer
+
         /// <summary>
         /// Testowa funkcja zwracająca losowe dane.
         /// </summary>
@@ -34,6 +36,10 @@ namespace BDL
             Value = row.Value;
         }
 
+        #endregion
+
+        #region RequestLog
+
         /// <summary>
         /// Procedurka pozwalająca na wyświetlenie logów żądań do BDL.
         /// Każdy log składa się z daty oraz adresu URL żądania.
@@ -48,6 +54,10 @@ namespace BDL
                 SqlContext.Pipe?.Send(log?.ToString());
             }
         }
+
+        #endregion
+
+        #region Subjects
 
         /// <summary>
         /// Funkcja pobierająca listę top-level tematów .
@@ -78,6 +88,10 @@ namespace BDL
             Children = row.Children;
         }
 
+        #endregion
+
+        #region Variables
+
         /// <summary>
         /// Funkcja pobierająca listę zmiennych dla danego tematu.
         /// </summary>
@@ -105,6 +119,10 @@ namespace BDL
             MeasureUnitName = row.MeasureUnitName;
         }
 
+        #endregion
+
+        #region Measures
+
         /// <summary>
         /// Funkcja pobierająca listę wszystkich jednostek miary.
         /// </summary>
@@ -124,6 +142,10 @@ namespace BDL
             Name = row.Name;
             Description = row.Description;
         }
+
+        #endregion
+
+        #region Attributes
 
         /// <summary>
         /// Funkcja pobierająca listę atrybutów.
@@ -146,29 +168,34 @@ namespace BDL
             Description = row.Description;
         }
 
+        #endregion
+
+        #region DataByVariable
 
         [SqlFunction(FillRowMethodName = "DataByVariableFillRow")]
         public static IEnumerable DataByVariable(int variableId, int yearFrom, int yearTo, int pageSize)
         {
-            throw new NotImplementedException("w trakcie intensywnych prac!");
-
             var uri = $"https://bdl.stat.gov.pl/api/v1/data/by-variable/{variableId}?format=xml";
             for (int yr = yearFrom; yr <= yearTo; yr++)
                 uri += $"&year={yr}";
             uri += $"&page-size={pageSize}";
 
-            return null; // TODO Downloader.DownloadXML(uri);
+            return UnitData.FromXML(Downloader.DownloadXML(uri));
         }
 
-        public static void DataByVariableFillRow()
+        public static void DataByVariableFillRow(object obUnitData, out int VariableId, out int MeasureUnitId, out int AggregateId, out string Id, out string Name, out int Year, out string Value, out int AttributeId)
         {
-            // TODO
+            var row = obUnitData as UnitData;
+            VariableId = row.VariableId;
+            MeasureUnitId = row.MeasureUnitId;
+            AggregateId = row.AggregateId;
+            Id = row.Id;
+            Name = row.Name;
+            Year = row.Year;
+            Value = row.Value;
+            AttributeId = row.AttributeId;
         }
 
-        public static IEnumerable DataByVariable(int variableId)
-        {
-            return null;
-        }
-
+        #endregion
     }
 }

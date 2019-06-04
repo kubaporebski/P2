@@ -51,6 +51,7 @@
     <Compile Include="RequestLog.cs" />
     <Compile Include="SubjectRow.cs" />
     <Compile Include="UnitData.cs" />
+    <Compile Include="UnitRow.cs" />
     <Compile Include="VariablesRow.cs" />
   </ItemGroup>
   <ItemGroup>

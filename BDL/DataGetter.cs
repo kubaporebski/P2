@@ -77,7 +77,10 @@ namespace BDL
             if (pageSize > 0)
                 uri += $"&page-size={pageSize}";
 
-            return Downloader.DownloadXML(uri).Descendants("subject").Select(subject => new SubjectRow(subject)).ToList();
+            return FlattenPages(uri, docu =>
+            {
+                return docu.Descendants("subject").Select(subject => new SubjectRow(subject));
+            });
         }
 
         public static void SubjectsFillRow(object obRow, out string Id, out string Name, out bool HasVariables, out string Children)
@@ -106,7 +109,10 @@ namespace BDL
             if (pageSize > 0)
                 uri += $"&page-size={pageSize}";
 
-            return Downloader.DownloadXML(uri).Descendants("variable").Select(variable => new VariablesRow(variable)).ToList();
+            return FlattenPages(uri, docu =>
+            {
+                return docu.Descendants("variable").Select(variable => new VariablesRow(variable));
+            });
         }
 
         public static void VariablesFillRow(object obRow, out string Id, out string SubjectId, out string N1, out string N2, out int MeasureUnitId, out string MeasureUnitName)
@@ -173,15 +179,28 @@ namespace BDL
 
         #region DataByVariable
 
+        /// <summary>
+        /// Pobranie danych wg przekazanych parametrów.
+        /// 
+        /// </summary>
+        /// <param name="variableId">id zmiennej</param>
+        /// <param name="unitParentId">id jednostki terytorialnej</param>
+        /// <param name="yearFrom">rok od</param>
+        /// <param name="yearTo">rok do</param>
+        /// <param name="pageSize">rozmiar strony</param>
+        /// <returns></returns>
         [SqlFunction(FillRowMethodName = "DataByVariableFillRow")]
-        public static IEnumerable DataByVariable(int variableId, int yearFrom, int yearTo, int pageSize)
+        public static IEnumerable DataByVariable(int variableId, string unitParentId, int yearFrom, int yearTo, int pageSize)
         {
             var uri = $"https://bdl.stat.gov.pl/api/v1/data/by-variable/{variableId}?format=xml";
             for (int yr = yearFrom; yr <= yearTo; yr++)
                 uri += $"&year={yr}";
             uri += $"&page-size={pageSize}";
-            
-            return Paginate(uri, docu => UnitData.FromXML(docu));
+
+            if (unitParentId != null)
+                uri += $"unit-parent-id={unitParentId}";
+
+            return FlattenPages(uri, docu => UnitData.FromXML(docu));
         }
 
         public static void DataByVariableFillRow(object obUnitData, out int VariableId, out int MeasureUnitId, out int AggregateId, out string Id, out string Name, out int Year, out string Value, out int AttributeId)
@@ -199,9 +218,37 @@ namespace BDL
 
         #endregion
 
+        #region Units
+
+        /// <summary>
+        /// Pobranie listy wszystkich jednostek terytorialnych
+        /// </summary>
+        /// <returns></returns>
+        [SqlFunction(FillRowMethodName = "UnitsFillRow")]
+        public static IEnumerable Units()
+        {
+            var uri = "https://bdl.stat.gov.pl/api/v1/units?format=xml";
+
+            return FlattenPages(uri, docu =>
+            {
+                return docu.Descendants("unit").Select(u => new UnitRow(u));
+            });
+        }
+
+        public static void UnitsFillRow(object obRow, out string Id, out string Name, out string ParentId, out int Level)
+        {
+            var unit = obRow as UnitRow;
+            Id = unit.Id;
+            Name = unit.Name;
+            ParentId = unit.ParentId;
+            Level = unit.Level;
+        }
+
+        #endregion
+
         #region Funkcje narzędziowe
 
-        private static IEnumerable Paginate<T>(string uri, Func<XDocument, List<T>> callback)
+        private static IEnumerable FlattenPages<T>(string uri, Func<XDocument, IEnumerable<T>> callback)
         {
             if (!uri.Contains("&page="))
                 uri += "&page=0";

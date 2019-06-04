@@ -83,6 +83,7 @@
     <Build Include="dbo\Functions\Measures.sql" />
     <Build Include="dbo\Functions\Attributes.sql" />
     <Build Include="dbo\Functions\DataByVariable.sql" />
+    <Build Include="dbo\Functions\Units.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

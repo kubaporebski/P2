@@ -50,19 +50,9 @@ namespace BDL
 
             using (WebClient wc = new WebClient())
             {
-                string tmpFile = Path.GetTempFileName();
-                try
-                {
-                    wc.Headers["X-ClientId"] = clientIdList.NextElement;
-                    wc.DownloadFile(requestUri, tmpFile);
+                wc.Headers["X-ClientId"] = clientIdList.NextElement;
 
-                    return XDocument.Parse(File.ReadAllText(tmpFile));
-                }
-                finally
-                {
-                    if (File.Exists(tmpFile))
-                        File.Delete(tmpFile);
-                }
+                return XDocument.Parse(wc.DownloadString(requestUri));
             }
         }
 

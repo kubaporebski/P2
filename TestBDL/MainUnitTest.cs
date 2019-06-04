@@ -41,9 +41,16 @@ namespace TestBDL
         }
 
         [TestMethod]
+        public void TestUnits()
+        {
+            var result = DataGetter.Units();
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
         public void TestDataByVariable()
         {
-            var result = DataGetter.DataByVariable(123, 1995, 2000, 100);
+            var result = DataGetter.DataByVariable(123, null, 2000, 2000, 100);
             Assert.IsNotNull(result);
         }
     }

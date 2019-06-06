@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{AAFFB3B7-2758-4576-A469-2EB65014F8F4}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{2148D3FB-8E2F-4B8B-9E4D-7ECD747409FD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,6 +100,208 @@
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3FB52F5F-F114-4F69-A60E-27EF60D38CC2}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1045"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="E:\NAUKA\projekt_seminarium\log_2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{51BA0FBC-9C85-4AD6-B473-5739A6814C3F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{4BBF94F0-AFF4-4D0C-9461-157E8AD00D20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OLE DB Source 1.HasVariables"
+              DTS:DTSID="{656EB7CC-1F09-4660-B76F-21D4A98D1E7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Children"
+              DTS:DTSID="{55648712-4FB9-4051-BF4A-4E034C09108B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Id"
+              DTS:DTSID="{16C159C2-F0CB-4E62-80B8-7AE509459A3E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Name"
+              DTS:DTSID="{725F71BA-B88E-4350-82CB-C43BC906744B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Children"
+              DTS:DTSID="{EA3BD2EB-EEF1-4A73-9377-F99B221AB49D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of HasVariables"
+              DTS:DTSID="{284C38C1-9D75-44E0-B66D-DAF9F5533CFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="value"
+              DTS:DTSID="{2639B62D-73B4-47B8-9DEA-6F122D1FD146}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Lookup.HasVariables"
+              DTS:DTSID="{17018A31-FF7A-43EE-BE03-CC42913AB4E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_KEY"
+              DTS:DTSID="{E6DEB9DF-7C48-49A9-8E8C-F76EB684ADC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RID"
+              DTS:DTSID="{F6E9B963-7873-41EE-AA08-C3C635F0E8E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{5700A849-4C82-4FB5-8441-D1C2B93FAF8C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2E4E66DE-50F7-4E00-8F67-13739F9574A4}"
+      DTS:ObjectName="Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1045"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="E:\NAUKA\projekt_seminarium\log_2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{87C45DC8-065B-47DF-B595-A20F1CB38A44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{BB96A5BE-8F52-4692-B900-005C0A93A704}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HasVariables"
+              DTS:DTSID="{120551CE-FE19-4048-8813-6760CC37590E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1024"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Children"
+              DTS:DTSID="{6FF0B872-AA7A-4679-A903-FDD4A3011FE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{3CD551B4-704A-40DF-B843-742EE1CCA5EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{C6CAB15D-E580-4B6C-B696-7449E69824CB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -130,28 +332,22 @@
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[Id]"
+                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[RID]"
                       cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Id"
-                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]" />
+                      cachedLength="4000"
+                      cachedName="RID"
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[RID]" />
                     <inputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Name"
-                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]" />
+                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[PRIMARY_KEY]"
+                      cachedDataType="i8"
+                      cachedName="PRIMARY_KEY"
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PRIMARY_KEY]" />
                     <inputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[Children]"
+                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[value]"
                       cachedDataType="wstr"
                       cachedLength="1024"
-                      cachedName="Children"
-                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Children]" />
-                    <inputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input].Columns[HasVariables]"
-                      cachedDataType="bool"
-                      cachedName="HasVariables"
-                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]" />
+                      cachedName="value"
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[value]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -164,20 +360,20 @@
                   synchronousInputId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
+                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[RID_converted]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
-                      name="Copy of Id"
+                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[RID_converted]"
+                      name="RID_converted"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[RID]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -185,61 +381,41 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Primary_key_converted]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Primary_key_converted]"
+                      name="Primary_key_converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PRIMARY_KEY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Value_converted]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
-                      name="Copy of Name"
+                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Value_converted]"
+                      name="Value_converted"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Children]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="1024"
-                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Children]"
-                      name="Copy of Children"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Children]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HasVariables]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HasVariables]"
-                      name="Copy of HasVariables"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[value]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -274,81 +450,108 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT AllSubjects\Data Conversion 1"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 1"
-              usesDispositions="true">
+              refId="Package\DFT AllSubjects\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1045"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT AllSubjects\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                  name="FlatFileConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\DFT AllSubjects\Data Conversion 1.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
+                  refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion 1.Inputs[Data Conversion Input].Columns[PARENT_KEY]"
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[Id]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="PARENT_KEY"
-                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PARENT_KEY]" />
+                      cachedLength="10"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[HasVariables]"
+                      cachedDataType="bool"
+                      cachedName="HasVariables"
+                      externalMetadataColumnId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HasVariables]"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[Children]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="Children"
+                      externalMetadataColumnId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Children]"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Children]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]" />
                   </inputColumns>
-                  <externalMetadataColumns />
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HasVariables]"
+                      dataType="bool"
+                      name="HasVariables" />
+                    <externalMetadataColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Children]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Children" />
+                    <externalMetadataColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\DFT AllSubjects\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of PARENT_KEY]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of PARENT_KEY]"
-                      name="Copy of PARENT_KEY"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PARENT_KEY]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT AllSubjects\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
             </component>
             <component
               refId="Package\DFT AllSubjects\Lookup"
@@ -364,60 +567,30 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH CTE AS
-(
-	SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
 		REPLACE(ID,'K','') AS RID,
 		ID,
-		ROW_NUMBER() OVER  (ORDER BY S.ID ASC) AS PRIMARY_KEY
+		ROW_NUMBER() OVER  (ORDER BY S.ID ASC) AS PRIMARY_KEY,
+		value,
+		HasVariables
 	FROM
 		dbo.Subjects(null,100) S
-)
---select rid from cte order by rid
-SELECT
-	CTE.RID AS PARENT_KEY
---,	S.ID CODE
-,	value
-,	S.HasVariables
-,	ROW_NUMBER() OVER  (ORDER BY S.ID ASC) AS PRIMARY_KEY
---,	CTE.PRIMARY_KEY
---,	s.Name
-FROM
-	CTE
-,	dbo.Subjects(null,100) S
-	CROSS APPLY STRING_SPLIT(children, ',')
-WHERE
-	CTE.ID=S.ID</property>
+		CROSS APPLY STRING_SPLIT(children, ',')</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (WITH CTE AS
-(
-	SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
 		REPLACE(ID,'K','') AS RID,
 		ID,
-		ROW_NUMBER() OVER  (ORDER BY S.ID ASC) AS PRIMARY_KEY
+		ROW_NUMBER() OVER  (ORDER BY S.ID ASC) AS PRIMARY_KEY,
+		value,
+		HasVariables
 	FROM
 		dbo.Subjects(null,100) S
-)
---select rid from cte order by rid
-SELECT
-	CTE.RID AS PARENT_KEY
---,	S.ID CODE
-,	value
-,	S.HasVariables
-,	ROW_NUMBER() OVER  (ORDER BY S.ID ASC) AS PRIMARY_KEY
---,	CTE.PRIMARY_KEY
---,	s.Name
-FROM
-	CTE
-,	dbo.Subjects(null,100) S
-	CROSS APPLY STRING_SPLIT(children, ',')
-WHERE
-	CTE.ID=S.ID) [refTable]
-where [refTable].[PARENT_KEY] = ?</property>
+		CROSS APPLY STRING_SPLIT(children, ',')) [refTable]
+where [refTable].[ID] = ? and [refTable].[HasVariables] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -432,7 +605,7 @@ where [refTable].[PARENT_KEY] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -448,12 +621,12 @@ where [refTable].[PARENT_KEY] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PARENT_KEY" dataType="DT_WSTR" length="4000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="value" dataType="DT_WSTR" length="1024" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HasVariables" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PRIMARY_KEY" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="RID" dataType="DT_WSTR" length="4000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PRIMARY_KEY" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="value" dataType="DT_WSTR" length="1024" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HasVariables" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]};</property>
+                  name="ParameterMap">#{Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]};#{Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -477,16 +650,32 @@ where [refTable].[PARENT_KEY] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT AllSubjects\Lookup.Inputs[Lookup Input].Columns[Copy of Id]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of Id"
-                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]">
+                      refId="Package\DFT AllSubjects\Lookup.Inputs[Lookup Input].Columns[HasVariables]"
+                      cachedDataType="bool"
+                      cachedName="HasVariables"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">PARENT_KEY</property>
+                          name="JoinToReferenceColumn">HasVariables</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\Lookup.Inputs[Lookup Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Id"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -501,23 +690,39 @@ where [refTable].[PARENT_KEY] = ?</property>
                 <output
                   refId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\DFT AllSubjects\Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PARENT_KEY]"
+                      refId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[RID]"
                       dataType="wstr"
                       errorOrTruncationOperation="Copy Column"
                       length="4000"
-                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PARENT_KEY]"
-                      name="PARENT_KEY"
-                      truncationRowDisposition="FailComponent">
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[RID]"
+                      name="RID"
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">PARENT_KEY</property>
+                          name="CopyFromReferenceColumn">RID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -527,7 +732,7 @@ where [refTable].[PARENT_KEY] = ?</property>
                       length="1024"
                       lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[value]"
                       name="value"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -536,26 +741,12 @@ where [refTable].[PARENT_KEY] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[HasVariables]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[HasVariables]"
-                      name="HasVariables"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">HasVariables</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PRIMARY_KEY]"
                       dataType="i8"
                       errorOrTruncationOperation="Copy Column"
                       lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PRIMARY_KEY]"
                       name="PRIMARY_KEY"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -671,31 +862,39 @@ where [refTable].[PARENT_KEY] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Children]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="Children"
+                      externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Children]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Primary_key_converted]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Primary_key_converted"
+                      externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Primary_key_converted]" />
+                    <inputColumn
                       refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[HasVariables]"
                       cachedDataType="bool"
                       cachedName="HasVariables"
                       externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
-                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[HasVariables]" />
+                      lineageId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]" />
                     <inputColumn
-                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[PRIMARY_KEY]"
-                      cachedDataType="i8"
-                      cachedName="PRIMARY_KEY"
-                      externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output].Columns[PRIMARY_KEY]" />
-                    <inputColumn
-                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Copy of Name"
-                      externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
-                    <inputColumn
-                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of PARENT_KEY]"
+                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[RID_converted]"
                       cachedDataType="wstr"
                       cachedLength="10"
-                      cachedName="Copy of PARENT_KEY"
+                      cachedName="RID_converted"
                       externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                      lineageId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of PARENT_KEY]" />
+                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[RID_converted]" />
+                    <inputColumn
+                      refId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Value_converted]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Value_converted"
+                      externalMetadataColumnId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output].Columns[Value_converted]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -925,22 +1124,22 @@ from dbo.Subjects(null, 100)</property>
           <paths>
             <path
               refId="Package\DFT AllSubjects.Paths[Data Conversion Output]"
-              endId="Package\DFT AllSubjects\Lookup.Inputs[Lookup Input]"
+              endId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
               startId="Package\DFT AllSubjects\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\DFT AllSubjects.Paths[Data Conversion Output1]"
-              endId="Package\DFT AllSubjects\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\DFT AllSubjects\Data Conversion 1.Outputs[Data Conversion Output]" />
+              refId="Package\DFT AllSubjects.Paths[Lookup Error Output]"
+              endId="Package\DFT AllSubjects\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Lookup Error Output"
+              startId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Error Output]" />
             <path
               refId="Package\DFT AllSubjects.Paths[Lookup Match Output]"
-              endId="Package\DFT AllSubjects\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\DFT AllSubjects\Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT AllSubjects.Paths[OLE DB Source Output]"
-              endId="Package\DFT AllSubjects\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\DFT AllSubjects\Lookup.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\DFT AllSubjects\OLE DB Source 1.Outputs[OLE DB Source Output]" />
           </paths>
@@ -2215,21 +2414,21 @@ from dbo.Subjects(null, 100)</property>
         <NodeLayout
           Size="159,42"
           Id="Package\DFT TopSubjects"
-          TopLeft="244,168" />
+          TopLeft="244,169" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="321.75,210">
+          TopLeft="321.75,211">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,68"
+              EndConnector="0,67"
               Start="0,0"
-              End="0,60.5">
+              End="0,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.5" />
+                    End="0,59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2249,7 +2448,7 @@ from dbo.Subjects(null, 100)</property>
         <NodeLayout
           Size="180,42"
           Id="Package\DFT AllSubjects\OLE DB Destination 1"
-          TopLeft="731,572" />
+          TopLeft="730,572" />
         <NodeLayout
           Size="150,42"
           Id="Package\DFT AllSubjects\OLE DB Source 1"
@@ -2257,127 +2456,131 @@ from dbo.Subjects(null, 100)</property>
         <NodeLayout
           Size="113,42"
           Id="Package\DFT AllSubjects\Lookup"
-          TopLeft="761,304" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\DFT AllSubjects\Data Conversion"
-          TopLeft="741,225" />
+          TopLeft="767,259" />
         <EdgeLayout
           Id="Package\DFT AllSubjects.Paths[OLE DB Source Output]"
-          TopLeft="818.5,142">
+          TopLeft="820.75,142">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,83"
+              EndConnector="0,117"
               Start="0,0"
-              End="0,75.5">
+              End="0,109.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,75.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT AllSubjects.Paths[Data Conversion Output]"
-          TopLeft="818.25,267">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37"
-              Start="0,0"
-              End="0,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\DFT AllSubjects\Data Conversion 1"
-          TopLeft="895,428" />
-        <EdgeLayout
-          Id="Package\DFT AllSubjects.Paths[Lookup Match Output]"
-          TopLeft="817.5,346">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="160,82"
-              Start="0,0"
-              End="160,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37"
-                    Point2="0,41"
-                    Point3="4,41" />
-                  <mssgle:LineSegment
-                    End="156,41" />
-                  <mssgle:CubicBezierSegment
-                    Point1="156,41"
-                    Point2="160,41"
-                    Point3="160,45" />
-                  <mssgle:LineSegment
-                    End="160,74.5" />
+                    End="0,109.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="31.80861328125,46,96.3827734375,11.609375"
+              BoundingBox="-8,46.75,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT AllSubjects\Data Conversion"
+          TopLeft="742,377" />
         <EdgeLayout
-          Id="Package\DFT AllSubjects.Paths[Data Conversion Output1]"
-          TopLeft="977.5,470">
+          Id="Package\DFT AllSubjects.Paths[Lookup Match Output]"
+          TopLeft="806,301">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-156.5,102"
+              EndConnector="14,76"
               Start="0,0"
-              End="-156.5,94.5">
+              End="14,68.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47" />
+                    End="0,27.0366492146597" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,47"
-                    Point2="0,51"
-                    Point3="-4,51" />
+                    Point1="0,27.0366492146597"
+                    Point2="0,31.0366492146597"
+                    Point3="4,31.0366492146597" />
                   <mssgle:LineSegment
-                    End="-152.5,51" />
+                    End="10,31.0366492146597" />
                   <mssgle:CubicBezierSegment
-                    Point1="-152.5,51"
-                    Point2="-156.5,51"
-                    Point3="-156.5,55" />
+                    Point1="10,31.0366492146597"
+                    Point2="14,31.0366492146597"
+                    Point3="14,35.0366492146597" />
                   <mssgle:LineSegment
-                    End="-156.5,94.5" />
+                    End="14,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.19138671875,36.0366492146597,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT AllSubjects.Paths[Data Conversion Output]"
+          TopLeft="820,419">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,153"
+              Start="0,0"
+              End="0,145.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,145.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DFT AllSubjects\Flat File Destination"
+          TopLeft="997,376" />
+        <EdgeLayout
+          Id="Package\DFT AllSubjects.Paths[Lookup Error Output]"
+          TopLeft="841,301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="242,75"
+              Start="0,0"
+              End="242,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6282722513089" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.6282722513089"
+                    Point2="0,30.6282722513089"
+                    Point3="4,30.6282722513089" />
+                  <mssgle:LineSegment
+                    End="238,30.6282722513089" />
+                  <mssgle:CubicBezierSegment
+                    Point1="238,30.6282722513089"
+                    Point2="242,30.6282722513089"
+                    Point3="242,34.6282722513089" />
+                  <mssgle:LineSegment
+                    End="242,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="75.13361328125,35.6282722513089,91.7327734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2399,29 +2602,6 @@ from dbo.Subjects(null, 100)</property>
   <PipelineComponentMetadata
     design-time-name="Package\DFT AllSubjects\OLE DB Source 1">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT AllSubjects\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -2674,6 +2854,29 @@ from dbo.Subjects(null, 100)</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT TopSubjects\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT AllSubjects\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace BDL
@@ -41,11 +42,15 @@ namespace BDL
             Serialize();
         }
 
+        /// <summary>
+        /// Iterowanie po wszystkich wpisach w logu. Logi sortowane są tu malejąco po czasie wpisu.
+        /// </summary>
+        /// <param name="callback">metoda wykonywana dla każdego wpisu</param>
         public void ForEach(Action<RequestLog> callback)
         {
             lock (this)
             {
-                foreach (var log in List)
+                foreach (var log in List.OrderByDescending(rlt => rlt.LogTime))
                     callback(log);
             }
         }

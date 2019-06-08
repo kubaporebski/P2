@@ -88,22 +88,24 @@ go
 create schema staging
 go
 
+-- przyk³ad za³adowania wszystkich tematów do tabeli AllSubjects
+-- tabela TopSubjects jest tylko tymczasowa
+-- a i tak obydwie s¹ w schema staging, co oznacza, ¿e s³u¿¹ tylko jako Ÿród³o danych do dalszego procesowania
+insert into staging.TopSubjects(Id, Name, Children)
+select Id, Name, Children from dbo.Subjects(null, 100)
 
-select * 
-into staging.TopSubjects
-from dbo.Subjects(null, 100)
-
-
-select * From staging.TopSubjects
 GO
+
+-- tu trzeba poczekaæ parê minut na pobranie siê wszystkich tematów...
 with cte as (
     select distinct child.value as parentId 
     from staging.TopSubjects cross apply string_split(Children, ',') child
 )
-select * 
-into staging.AllSubjects
+insert into staging.AllSubjects(Id, Name, parentId)
+select Id, Name, parentId
 from cte cross apply dbo.Subjects(parentId, 100)
 
+--
 select * From staging.AllSubjects
 
 GO

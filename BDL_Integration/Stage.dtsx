@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{816C6185-B8AB-4168-AF00-78BFA7561600}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{E54FA037-A768-4ABB-966E-4D08BB75DA9D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2486,276 +2486,322 @@ where [refTable].[CODE] = ? and [refTable].[NAME] = ? and [refTable].[HASVARIABL
               </outputs>
             </component>
             <component
-              refId="Package\DFT TopSubjects\Flat File Destination"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Flat File Destination"
-              localeId="1045"
-              name="Flat File Destination">
+              refId="Package\DFT TopSubjects\Error_Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Error_Destination"
+              usesDispositions="true"
+              version="4">
               <properties>
                 <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
                 <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[LOGGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT TopSubjects\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
-                  name="FlatFileConnection" />
+                  refId="Package\DFT TopSubjects\Error_Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input]"
+                  refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
                   hasSideEffects="true"
-                  name="Flat File Destination Input">
+                  name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[RID]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="RID"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RID]"
-                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[RID]" />
-                    <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[Id]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].Columns[ID]"
                       cachedDataType="wstr"
                       cachedLength="10"
-                      cachedName="Id"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[Id]" />
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT TopSubjects\Sort 1.Outputs[Sort Output].Columns[ID]" />
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[Name]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].Columns[NAME]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Name"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[Name]" />
+                      cachedName="NAME"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT TopSubjects\Sort 1.Outputs[Sort Output].Columns[NAME]" />
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[HasVariables]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].Columns[HASVARIABLES]"
                       cachedDataType="bool"
-                      cachedName="HasVariables"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HasVariables]"
-                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[HasVariables]" />
+                      cachedName="HASVARIABLES"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      lineageId="Package\DFT TopSubjects\Sort 1.Outputs[Sort Output].Columns[HASVARIABLES]" />
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].Columns[Children]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].Columns[CHILDREN]"
                       cachedDataType="wstr"
                       cachedLength="1024"
-                      cachedName="Children"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Children]"
-                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[Children]" />
+                      cachedName="CHILDREN"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      lineageId="Package\DFT TopSubjects\Sort 1.Outputs[Sort Output].Columns[CHILDREN]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RID]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
                       dataType="wstr"
-                      length="4000"
-                      name="RID" />
+                      length="10"
+                      name="parentId" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Id]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       dataType="wstr"
                       length="10"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       dataType="wstr"
                       length="255"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[HasVariables]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
                       dataType="bool"
                       name="HasVariables" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Children]"
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
                       dataType="wstr"
                       length="1024"
                       name="Children" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT TopSubjects\Error_Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT TopSubjects\Error_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT TopSubjects\Error_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT TopSubjects\Error_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT TopSubjects\Error_Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
             </component>
             <component
-              refId="Package\DFT TopSubjects\Flat File Destination 1"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Flat File Destination"
-              localeId="1045"
-              name="Flat File Destination 1">
+              refId="Package\DFT TopSubjects\Error_lookup"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Error_lookup"
+              usesDispositions="true"
+              version="4">
               <properties>
                 <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
                 <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[LOGGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT TopSubjects\Flat File Destination 1.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 3]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 3]"
-                  name="FlatFileConnection" />
+                  refId="Package\DFT TopSubjects\Error_lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                  refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
                   hasSideEffects="true"
-                  name="Flat File Destination Input">
+                  name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Id]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].Columns[Id]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Id"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Id]"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       lineageId="Package\DFT TopSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Name]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\DFT TopSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]" />
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[HasVariables]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].Columns[HasVariables]"
                       cachedDataType="bool"
                       cachedName="HasVariables"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[HasVariables]"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
                       lineageId="Package\DFT TopSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[HasVariables]" />
                     <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Children]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].Columns[Children]"
                       cachedDataType="wstr"
                       cachedLength="1024"
                       cachedName="Children"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Children]"
+                      externalMetadataColumnId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
                       lineageId="Package\DFT TopSubjects\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Children]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Id]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      dataType="wstr"
+                      length="10"
+                      name="parentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       dataType="wstr"
                       length="10"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       dataType="wstr"
                       length="255"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[HasVariables]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
                       dataType="bool"
                       name="HasVariables" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Children]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
                       dataType="wstr"
                       length="1024"
                       name="Children" />
                     <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
-                      dataType="i4"
-                      name="ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
-                      dataType="i4"
-                      name="ErrorColumn" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-            </component>
-            <component
-              refId="Package\DFT TopSubjects\Flat File Destination 2"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Flat File Destination"
-              localeId="1045"
-              name="Flat File Destination 2">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT TopSubjects\Flat File Destination 2.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 4]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 4]"
-                  name="FlatFileConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input]"
-                  hasSideEffects="true"
-                  name="Flat File Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].Columns[RID]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="RID"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[RID]"
-                      lineageId="Package\DFT TopSubjects\Sort 1.Outputs[Sort Output].Columns[RID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[RID]"
-                      dataType="wstr"
-                      length="4000"
-                      name="RID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[ID]"
-                      dataType="wstr"
-                      length="10"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                      refId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input].ExternalColumns[CODE]"
                       dataType="wstr"
                       length="255"
-                      name="NAME" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[HASVARIABLES]"
-                      dataType="bool"
-                      name="HASVARIABLES" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[CHILDREN]"
-                      dataType="wstr"
-                      length="1024"
-                      name="CHILDREN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[Copy of RID]"
-                      dataType="wstr"
-                      length="10"
-                      name="Copy of RID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
-                      dataType="i4"
-                      name="ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
-                      dataType="i4"
-                      name="ErrorColumn" />
+                      name="CODE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT TopSubjects\Error_lookup.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT TopSubjects\Error_lookup.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT TopSubjects\Error_lookup.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT TopSubjects\Error_lookup.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT TopSubjects\Error_lookup.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
             </component>
             <component
               refId="Package\DFT TopSubjects\Lookup"
@@ -3136,6 +3182,165 @@ where [refTable].[ID] = ? and [refTable].[NAME] = ? and [refTable].[HASVARIABLES
                       refId="Package\DFT TopSubjects\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT TopSubjects\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT TopSubjects\No MatchUP"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="No MatchUP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[LOGGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT TopSubjects\No MatchUP.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].Columns[HasVariables]"
+                      cachedDataType="bool"
+                      cachedName="HasVariables"
+                      externalMetadataColumnId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[HasVariables]" />
+                    <inputColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].Columns[Children]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="Children"
+                      externalMetadataColumnId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      lineageId="Package\DFT TopSubjects\Sort.Outputs[Sort Output].Columns[Children]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      dataType="wstr"
+                      length="10"
+                      name="parentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      dataType="bool"
+                      name="HasVariables" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Children" />
+                    <externalMetadataColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT TopSubjects\No MatchUP.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT TopSubjects\No MatchUP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT TopSubjects\No MatchUP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT TopSubjects\No MatchUP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3867,7 +4072,7 @@ from dbo.Subjects(null, 100)</property>
               startId="Package\DFT TopSubjects\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT TopSubjects.Paths[Lookup Error Output]"
-              endId="Package\DFT TopSubjects\Flat File Destination 1.Inputs[Flat File Destination Input]"
+              endId="Package\DFT TopSubjects\Error_lookup.Inputs[OLE DB Destination Input]"
               name="Lookup Error Output"
               startId="Package\DFT TopSubjects\Lookup.Outputs[Lookup Error Output]" />
             <path
@@ -3882,7 +4087,7 @@ from dbo.Subjects(null, 100)</property>
               startId="Package\DFT TopSubjects\Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\DFT TopSubjects.Paths[OLE DB Destination Error Output]"
-              endId="Package\DFT TopSubjects\Flat File Destination 2.Inputs[Flat File Destination Input]"
+              endId="Package\DFT TopSubjects\Error_Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Destination Error Output"
               startId="Package\DFT TopSubjects\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]" />
             <path
@@ -3892,14 +4097,14 @@ from dbo.Subjects(null, 100)</property>
               startId="Package\DFT TopSubjects\OLE DB Source 1.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\DFT TopSubjects.Paths[Sort Output]"
-              endId="Package\DFT TopSubjects\Flat File Destination.Inputs[Flat File Destination Input]"
-              name="Sort Output"
-              startId="Package\DFT TopSubjects\Sort.Outputs[Sort Output]" />
-            <path
-              refId="Package\DFT TopSubjects.Paths[Sort Output1]"
               endId="Package\DFT TopSubjects\Data Conversion.Inputs[Data Conversion Input]"
               name="Sort Output"
               startId="Package\DFT TopSubjects\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\DFT TopSubjects.Paths[Sort Output1]"
+              endId="Package\DFT TopSubjects\No MatchUP.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\DFT TopSubjects\Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -4281,21 +4486,9 @@ from dbo.Subjects(null, 100)</property>
           Id="Package\DFT TopSubjects\OLE DB Source 1"
           TopLeft="671,69" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\DFT TopSubjects\Flat File Destination"
-          TopLeft="551,490" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\DFT TopSubjects\Flat File Destination 1"
-          TopLeft="245,487" />
-        <NodeLayout
           Size="98,42"
           Id="Package\DFT TopSubjects\Sort"
           TopLeft="528,303" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\DFT TopSubjects\Flat File Destination 2"
-          TopLeft="816,553" />
         <NodeLayout
           Size="107,42"
           Id="Package\DFT TopSubjects\Sort 1"
@@ -4313,7 +4506,7 @@ from dbo.Subjects(null, 100)</property>
           Id="Package\DFT TopSubjects\Data Conversion"
           TopLeft="1018,362" />
         <EdgeLayout
-          Id="Package\DFT TopSubjects.Paths[Sort Output1]"
+          Id="Package\DFT TopSubjects.Paths[Sort Output]"
           TopLeft="979,328">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4347,40 +4540,6 @@ from dbo.Subjects(null, 100)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT TopSubjects.Paths[Sort Output]"
-          TopLeft="577,345">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="60,145"
-              Start="0,0"
-              End="60,137.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,68.5"
-                    Point2="0,72.5"
-                    Point3="4,72.5" />
-                  <mssgle:LineSegment
-                    End="56,72.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56,72.5"
-                    Point2="60,72.5"
-                    Point3="60,76.5" />
-                  <mssgle:LineSegment
-                    End="60,137.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT TopSubjects.Paths[OLE DB Source Output]"
           TopLeft="745.75,111">
           <EdgeLayout.Curve>
@@ -4400,42 +4559,6 @@ from dbo.Subjects(null, 100)</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT TopSubjects.Paths[OLE DB Destination Error Output]"
-          TopLeft="880,493">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26.5,60"
-              Start="0,0"
-              End="26.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="22.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,30"
-                    Point2="26.5,30"
-                    Point3="26.5,34" />
-                  <mssgle:LineSegment
-                    End="26.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-59.95890625,35,146.4178125,11.43359375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4511,42 +4634,6 @@ from dbo.Subjects(null, 100)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT TopSubjects.Paths[Lookup Error Output]"
-          TopLeft="719.25,252">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-383.75,235"
-              Start="0,0"
-              End="-383.75,227.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,77.9452449567723" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,77.9452449567723"
-                    Point2="0,81.9452449567723"
-                    Point3="-4,81.9452449567723" />
-                  <mssgle:LineSegment
-                    End="-379.75,81.9452449567723" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-379.75,81.9452449567723"
-                    Point2="-383.75,81.9452449567723"
-                    Point3="-383.75,85.9452449567723" />
-                  <mssgle:LineSegment
-                    End="-383.75,227.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-237.74138671875,86.9452449567723,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT TopSubjects.Paths[Data Conversion Output]"
           TopLeft="1096,404">
           <EdgeLayout.Curve>
@@ -4578,6 +4665,124 @@ from dbo.Subjects(null, 100)</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,42"
+          Id="Package\DFT TopSubjects\No MatchUP"
+          TopLeft="362,492" />
+        <EdgeLayout
+          Id="Package\DFT TopSubjects.Paths[Sort Output1]"
+          TopLeft="577,345">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147,147"
+              Start="0,0"
+              End="-147,139.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.5"
+                    Point2="0,73.5"
+                    Point3="-4,73.5" />
+                  <mssgle:LineSegment
+                    End="-143,73.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143,73.5"
+                    Point2="-147,73.5"
+                    Point3="-147,77.5" />
+                  <mssgle:LineSegment
+                    End="-147,139.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT TopSubjects\Error_Destination"
+          TopLeft="752,580" />
+        <EdgeLayout
+          Id="Package\DFT TopSubjects.Paths[OLE DB Destination Error Output]"
+          TopLeft="880,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.5,87"
+              Start="0,0"
+              End="-47.5,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="-4,43.5" />
+                  <mssgle:LineSegment
+                    End="-43.5,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.5,43.5"
+                    Point2="-47.5,43.5"
+                    Point3="-47.5,47.5" />
+                  <mssgle:LineSegment
+                    End="-47.5,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-96.95890625,48.5,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DFT TopSubjects\Error_lookup"
+          TopLeft="106,479" />
+        <EdgeLayout
+          Id="Package\DFT TopSubjects.Paths[Lookup Error Output]"
+          TopLeft="719.25,252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-543.75,227"
+              Start="0,0"
+              End="-543.75,219.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.1556195965418" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.1556195965418"
+                    Point2="0,79.1556195965418"
+                    Point3="-4,79.1556195965418" />
+                  <mssgle:LineSegment
+                    End="-539.75,79.1556195965418" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-539.75,79.1556195965418"
+                    Point2="-543.75,79.1556195965418"
+                    Point3="-543.75,83.1556195965418" />
+                  <mssgle:LineSegment
+                    End="-543.75,219.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-317.74138671875,84.1556195965418,91.7327734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4660,6 +4865,32 @@ from dbo.Subjects(null, 100)</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT AllSubjects\OLE DB Destination 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT TopSubjects\No MatchUP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT TopSubjects\Error_Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

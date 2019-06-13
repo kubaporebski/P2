@@ -86,6 +86,8 @@
     <Build Include="dbo\Functions\Units.sql" />
     <Build Include="staging\Tables\Logging.sql" />
     <Build Include="staging\Tables\AllVariables.sql" />
+    <Build Include="staging\Tables\Attributes.sql" />
+    <Build Include="staging\Tables\Measures.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

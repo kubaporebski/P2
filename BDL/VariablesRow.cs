@@ -21,7 +21,9 @@ namespace BDL
             Id = variable.Element("id").Value;
             SubjectId = variable.Element("subjectId").Value;
             N1 = variable.Element("n1").Value;
-            N2 = variable.Element("n2").Value;
+            if (variable.Element("n2") != null)
+                N2 = variable.Element("n2").Value;
+
             MeasureUnitId = int.Parse(variable.Element("measureUnitId").Value);
             MeasureUnitName = variable.Element("measureUnitName").Value;
         }

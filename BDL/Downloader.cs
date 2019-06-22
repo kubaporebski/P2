@@ -89,7 +89,7 @@ namespace BDL
         {
             var n = Logs.Count / 100;
             
-            System.Threading.Thread.Sleep(1000 + (n * 50));
+            System.Threading.Thread.Sleep(500 + (n * 50));
             LastRequest = DateTime.Now;
         }
     }

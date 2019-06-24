@@ -89,6 +89,7 @@
     <Build Include="staging\Tables\Attributes.sql" />
     <Build Include="staging\Tables\Measures.sql" />
     <Build Include="staging\Tables\Units.sql" />
+    <Build Include="staging\Tables\Child_Variables.SQL" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

@@ -1,0 +1,23 @@
+﻿CREATE TABLE [staging].[Child_Variables](
+	[parentId] [nvarchar](10) NOT NULL,
+	[Id] [nvarchar](10) NOT NULL,
+	[N1] [nvarchar](255) NULL,
+	[N2] [NVARCHAR](255) NULL,
+	[MEASUREUNITID] [INT],
+ CONSTRAINT [PK_CHILD_VARIABLES] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [staging].[Child_Variables]  WITH CHECK ADD  CONSTRAINT [VARIABLE_HAS_TOP_VARIABLE] FOREIGN KEY([parentId])
+REFERENCES [staging].[AllVariables] ([Id])
+GO
+
+ALTER TABLE [staging].[Child_Variables] CHECK CONSTRAINT [VARIABLE_HAS_TOP_VARIABLE]
+GO
+
+ALTER TABLE [staging].[Child_Variables]  WITH CHECK ADD  CONSTRAINT [VARIABLE_HAS_MEASURE] FOREIGN KEY([MEASUREUNITID])
+REFERENCES [staging].[MEASURES] ([Id])
+GO

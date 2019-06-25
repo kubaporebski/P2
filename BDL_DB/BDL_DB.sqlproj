@@ -90,6 +90,7 @@
     <Build Include="staging\Tables\Measures.sql" />
     <Build Include="staging\Tables\Units.sql" />
     <Build Include="staging\Tables\Child_Variables.SQL" />
+    <Build Include="staging\Tables\DatabyVariable.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

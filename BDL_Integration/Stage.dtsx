@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="83"
-  DTS:VersionGUID="{14972D68-9CE8-4D29-B2AE-5031197EB639}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{5F8A00CE-400C-4028-9E31-6F5D1D251A3C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7422,6 +7422,167 @@ where [refTable].[ID] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT Children_Variables\Lookup 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select ID from staging.child_variables</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select ID from staging.child_variables) [refTable]
+where [refTable].[ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT Children_Variables\Sort.Outputs[Sort Output].Columns[ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Children_Variables\Lookup 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Children_Variables\Lookup 1.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Children_Variables\Lookup 1.Inputs[Lookup Input].Columns[ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Children_Variables\Sort.Outputs[Sort Output].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT Children_Variables\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Match Output].Columns[ID_after]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Match Output].Columns[ID_after]"
+                      name="ID_after"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT Children_Variables\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT Children_Variables\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT Children_Variables\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -7906,6 +8067,167 @@ where [refTable].[ID] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT Children_Variables\OLE DB Destination 1 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[LOGGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT Children_Variables\Sort.Outputs[Sort Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].Columns[N1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="N1"
+                      externalMetadataColumnId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT Children_Variables\Sort.Outputs[Sort Output].Columns[N1]" />
+                    <inputColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].Columns[N2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="N2"
+                      externalMetadataColumnId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      lineageId="Package\DFT Children_Variables\Sort.Outputs[Sort Output].Columns[N2]" />
+                    <inputColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].Columns[PARENTID_CONV]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PARENTID_CONV"
+                      externalMetadataColumnId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      lineageId="Package\DFT Children_Variables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID_CONV]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      dataType="wstr"
+                      length="10"
+                      name="parentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      dataType="bool"
+                      name="HasVariables" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Children" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Children_Variables\OLE DB Destination 1 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Children_Variables\OLE DB Destination 1 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Children_Variables\OLE DB Destination 1 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT Children_Variables\OLE DB Source 1"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -8370,14 +8692,24 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
               startId="Package\DFT Children_Variables\Lookup.Outputs[Lookup Error Output]" />
             <path
               refId="Package\DFT Children_Variables.Paths[Lookup Match Output]"
-              endId="Package\DFT Children_Variables\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT Children_Variables\Lookup 1.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DFT Children_Variables\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT Children_Variables.Paths[Lookup Match Output1]"
+              endId="Package\DFT Children_Variables\OLE DB Destination 1 2.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT Children_Variables.Paths[Lookup No Match Output]"
               endId="Package\DFT Children_Variables\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\DFT Children_Variables\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT Children_Variables.Paths[Lookup No Match Output1]"
+              endId="Package\DFT Children_Variables\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT Children_Variables\Lookup 1.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\DFT Children_Variables.Paths[OLE DB Source Output]"
               endId="Package\DFT Children_Variables\Sort.Inputs[Sort Input]"
@@ -8388,6 +8720,1476 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
               endId="Package\DFT Children_Variables\Data Conversion.Inputs[Data Conversion Input]"
               name="Sort Output"
               startId="Package\DFT Children_Variables\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT DatabyVariables"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{97e3a006-887a-4d6b-9e46-ca635e4df7da}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT DatabyVariables"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT DatabyVariables\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT DatabyVariables\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Data Conversion.Inputs[Data Conversion Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Data Conversion.Inputs[Data Conversion Input].Columns[VariableId]"
+                      cachedDataType="i4"
+                      cachedName="VariableId"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[VariableId]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT DatabyVariables\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]"
+                      name="id_conv"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]"
+                      name="PARENTID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[VariableId]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT DatabyVariables\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DatabyVariables\Lookup 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [staging].[databyvariable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [staging].[databyvariable]) [refTable]
+where [refTable].[MEASUREUNITID] = ? and [refTable].[NAME] = ? and [refTable].[YEAR] = ? and [refTable].[VALUE] = ? and [refTable].[ATTRIBUTEID] = ? and [refTable].[Id] = ? and [refTable].[parentId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parentId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MEASUREUNITID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NAME" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YEAR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VALUE" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ATTRIBUTEID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[MeasureUnitId]};#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Name]};#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Year]};#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Value]};#{Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[AttributeId]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DatabyVariables\Lookup 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[id_conv]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="id_conv"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[AttributeId]"
+                      cachedDataType="i4"
+                      cachedName="AttributeId"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[AttributeId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ATTRIBUTEID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Value]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Value"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Value]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VALUE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">YEAR</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">NAME</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[MeasureUnitId]"
+                      cachedDataType="i4"
+                      cachedName="MeasureUnitId"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[MeasureUnitId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MEASUREUNITID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[PARENTID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PARENTID"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">parentId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[parentId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[parentId]"
+                      name="parentId"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">parentId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[MEASUREUNITID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[MEASUREUNITID]"
+                      name="MEASUREUNITID"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MEASUREUNITID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[NAME]"
+                      name="NAME"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">NAME</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[YEAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[YEAR]"
+                      name="YEAR"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">YEAR</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[VALUE]"
+                      name="VALUE"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">VALUE</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[ATTRIBUTEID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[ATTRIBUTEID]"
+                      name="ATTRIBUTEID"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ATTRIBUTEID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DatabyVariables\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[databyvariable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DatabyVariables\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MeasureUnitId]"
+                      cachedDataType="i4"
+                      cachedName="MeasureUnitId"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEASUREUNITID]"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[MeasureUnitId]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Value]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Value"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALUE]"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Value]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AttributeId]"
+                      cachedDataType="i4"
+                      cachedName="AttributeId"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ATTRIBUTEID]"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[AttributeId]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PARENTID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PARENTID"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id_conv]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="id_conv"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      dataType="wstr"
+                      length="10"
+                      name="parentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEASUREUNITID]"
+                      dataType="i4"
+                      name="MEASUREUNITID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                      dataType="i4"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALUE]"
+                      dataType="wstr"
+                      length="255"
+                      name="VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ATTRIBUTEID]"
+                      dataType="i4"
+                      name="ATTRIBUTEID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DatabyVariables\OLE DB Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[LOGGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DatabyVariables\OLE DB Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[PARENTID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PARENTID"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[id_conv]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="id_conv"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      dataType="wstr"
+                      length="10"
+                      name="parentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      dataType="bool"
+                      name="HasVariables" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Children" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DatabyVariables\OLE DB Destination 1 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[LOGGING]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[PARENTID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PARENTID"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[PARENTID]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[id_conv]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="id_conv"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[id_conv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      dataType="wstr"
+                      length="10"
+                      name="parentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[HasVariables]"
+                      dataType="bool"
+                      name="HasVariables" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Children]"
+                      dataType="wstr"
+                      length="1024"
+                      name="Children" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DatabyVariables\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH CTE AS
+(
+select distinct 
+	v.id as vid
+,	u.id as uid 
+from 
+	staging.child_variables v cross apply staging.units u
+	inner join staging.AllVariables av
+	on v.parentId=av.Id and
+	av.parentId in (577,208,213,239,245) and
+	(u.ParentId='011200000000' or u.id='011200000000')
+)
+	SELECT
+	distinct * FROM CTE CROSS APPLY DBO.databyvariable(vid,uid,2018,2018,100);</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT DatabyVariables\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[VariableId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[VariableId]"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[VariableId]"
+                      name="VariableId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[MeasureUnitId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitId]"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[MeasureUnitId]"
+                      name="MeasureUnitId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      length="100"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Value]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Value]"
+                      name="Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AttributeId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[AttributeId]"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AttributeId]"
+                      name="AttributeId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[VariableId]"
+                      dataType="i4"
+                      name="VariableId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitId]"
+                      dataType="i4"
+                      name="MeasureUnitId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[AggregateId]"
+                      dataType="i4"
+                      name="AggregateId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="100"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                      dataType="wstr"
+                      length="255"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[AttributeId]"
+                      dataType="i4"
+                      name="AttributeId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[vid]"
+                      dataType="wstr"
+                      length="10"
+                      name="vid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[uid]"
+                      dataType="wstr"
+                      length="30"
+                      name="uid" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[VariableId]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[VariableId]"
+                      name="VariableId" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[MeasureUnitId]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[MeasureUnitId]"
+                      name="MeasureUnitId" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Value]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Value]"
+                      name="Value" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[AttributeId]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[AttributeId]"
+                      name="AttributeId" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT DatabyVariables\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[VariableId]"
+                      cachedDataType="i4"
+                      cachedName="VariableId"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[VariableId]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[MeasureUnitId]"
+                      cachedDataType="i4"
+                      cachedName="MeasureUnitId"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[MeasureUnitId]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[Id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Id"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[Value]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Value"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Value]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input].Columns[AttributeId]"
+                      cachedDataType="i4"
+                      cachedName="AttributeId"
+                      lineageId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AttributeId]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[VariableId]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[VariableId]"
+                      name="VariableId">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[VariableId]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[MeasureUnitId]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[MeasureUnitId]"
+                      name="MeasureUnitId">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[MeasureUnitId]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Id]"
+                      name="Id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Name]"
+                      name="Name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Year]"
+                      name="Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Year]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Value]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[Value]"
+                      name="Value">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Value]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[AttributeId]"
+                      dataType="i4"
+                      lineageId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output].Columns[AttributeId]"
+                      name="AttributeId">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[AttributeId]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT DatabyVariables.Paths[Data Conversion Output]"
+              endId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT DatabyVariables.Paths[Lookup Error Output]"
+              endId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input]"
+              name="Lookup Error Output"
+              startId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\DFT DatabyVariables.Paths[Lookup Match Output]"
+              endId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT DatabyVariables.Paths[Lookup No Match Output]"
+              endId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT DatabyVariables.Paths[OLE DB Source Output]"
+              endId="Package\DFT DatabyVariables\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT DatabyVariables\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT DatabyVariables.Paths[Sort Output]"
+              endId="Package\DFT DatabyVariables\Data Conversion.Inputs[Data Conversion Input]"
+              name="Sort Output"
+              startId="Package\DFT DatabyVariables\Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -10961,9 +12763,13 @@ from dbo.Subjects(null, 100)</property>
           Id="Package\DFT Attributes"
           TopLeft="217,485" />
         <NodeLayout
+          Size="188,42"
+          Id="Package\DFT Children_Variables"
+          TopLeft="217,750" />
+        <NodeLayout
           Size="146,42"
           Id="Package\DFT Measures"
-          TopLeft="217,546" />
+          TopLeft="216,566" />
         <NodeLayout
           Size="159,42"
           Id="Package\DFT TopSubjects"
@@ -10973,9 +12779,9 @@ from dbo.Subjects(null, 100)</property>
           Id="Package\DFT Units"
           TopLeft="217,648" />
         <NodeLayout
-          Size="188,42"
-          Id="Package\DFT Children_Variables"
-          TopLeft="217,750" />
+          Size="177,42"
+          Id="Package\DFT DatabyVariables"
+          TopLeft="217,852" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -12454,10 +14260,393 @@ from dbo.Subjects(null, 100)</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\DFT Children_Variables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT Children_Variables\OLE DB Source 1"
+          TopLeft="741,101" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\DFT Children_Variables\Sort"
+          TopLeft="1014,294" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DFT Children_Variables\OLE DB Destination 1"
+          TopLeft="1299,632" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\DFT Children_Variables\Lookup"
+          TopLeft="1231,486" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DFT Children_Variables\OLE DB Destination 1 1"
+          TopLeft="1546,627" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT Children_Variables\OLE DB Destination"
+          TopLeft="767,654" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT Children_Variables\Data Conversion"
+          TopLeft="1053,381" />
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Data Conversion Output]"
+          TopLeft="1131,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.5,63"
+              Start="0,0"
+              End="156.5,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="152.5,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.5,31.5"
+                    Point2="156.5,31.5"
+                    Point3="156.5,35.5" />
+                  <mssgle:LineSegment
+                    End="156.5,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Sort Output]"
+          TopLeft="1063,336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68,45"
+              Start="0,0"
+              End="68,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="64,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64,22.5"
+                    Point2="68,22.5"
+                    Point3="68,26.5" />
+                  <mssgle:LineSegment
+                    End="68,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[OLE DB Source Output]"
+          TopLeft="816,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="247,151"
+              Start="0,0"
+              End="247,143.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.5"
+                    Point2="0,75.5"
+                    Point3="4,75.5" />
+                  <mssgle:LineSegment
+                    End="243,75.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="243,75.5"
+                    Point2="247,75.5"
+                    Point3="247,79.5" />
+                  <mssgle:LineSegment
+                    End="247,143.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Lookup No Match Output]"
+          TopLeft="1305,528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,104"
+              Start="0,0"
+              End="84,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4712041884817" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.4712041884817"
+                    Point2="0,42.4712041884817"
+                    Point3="4,42.4712041884817" />
+                  <mssgle:LineSegment
+                    End="80,42.4712041884817" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80,42.4712041884817"
+                    Point2="84,42.4712041884817"
+                    Point3="84,46.4712041884817" />
+                  <mssgle:LineSegment
+                    End="84,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.80638671875,47.4712041884817,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Lookup Error Output]"
+          TopLeft="1313.75,528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="322.25,99"
+              Start="0,0"
+              End="322.25,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.521613832853" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.521613832853"
+                    Point2="0,34.521613832853"
+                    Point3="4,34.521613832853" />
+                  <mssgle:LineSegment
+                    End="318.25,34.521613832853" />
+                  <mssgle:CubicBezierSegment
+                    Point1="318.25,34.521613832853"
+                    Point2="322.25,34.521613832853"
+                    Point3="322.25,38.521613832853" />
+                  <mssgle:LineSegment
+                    End="322.25,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="115.25861328125,39.521613832853,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122,42"
+          Id="Package\DFT Children_Variables\Lookup 1"
+          TopLeft="719,494" />
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Lookup Match Output]"
+          TopLeft="1231,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-390,8"
+              Start="0,0"
+              End="-382.5,8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-191,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191,0"
+                    Point2="-195,0"
+                    Point3="-195,4" />
+                  <mssgle:LineSegment
+                    End="-195,4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-195,4"
+                    Point2="-195,8"
+                    Point3="-199,8" />
+                  <mssgle:LineSegment
+                    End="-382.5,8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-243.19138671875,9,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Lookup No Match Output1]"
+          TopLeft="780,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.5,118"
+              Start="0,0"
+              End="72.5,110.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55"
+                    Point2="0,59"
+                    Point3="4,59" />
+                  <mssgle:LineSegment
+                    End="68.5,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.5,59"
+                    Point2="72.5,59"
+                    Point3="72.5,63" />
+                  <mssgle:LineSegment
+                    End="72.5,110.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.55638671875,64,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DFT Children_Variables\OLE DB Destination 1 2"
+          TopLeft="1053,655" />
+        <EdgeLayout
+          Id="Package\DFT Children_Variables.Paths[Lookup Match Output1]"
+          TopLeft="799,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="344,119"
+              Start="0,0"
+              End="344,111.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5242718446602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5242718446602"
+                    Point2="0,48.5242718446602"
+                    Point3="4,48.5242718446602" />
+                  <mssgle:LineSegment
+                    End="340,48.5242718446602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="340,48.5242718446602"
+                    Point2="344,48.5242718446602"
+                    Point3="344,52.5242718446602" />
+                  <mssgle:LineSegment
+                    End="344,111.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="123.80861328125,53.5242718446602,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Children_Variables\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Children_Variables\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Children_Variables\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Children_Variables\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\DFT Measures">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
           Id="Package\DFT Measures\OLE DB Source 1"
@@ -12497,9 +14686,7 @@ from dbo.Subjects(null, 100)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13032,262 +15219,8 @@ from dbo.Subjects(null, 100)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT Children_Variables">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\DFT Children_Variables\OLE DB Source 1"
-          TopLeft="742,101" />
-        <NodeLayout
-          Size="98,42"
-          Id="Package\DFT Children_Variables\Sort"
-          TopLeft="1014,294" />
-        <EdgeLayout
-          Id="Package\DFT Children_Variables.Paths[OLE DB Source Output]"
-          TopLeft="817,143">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="246,151"
-              Start="0,0"
-              End="246,143.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,71.5"
-                    Point2="0,75.5"
-                    Point3="4,75.5" />
-                  <mssgle:LineSegment
-                    End="242,75.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="242,75.5"
-                    Point2="246,75.5"
-                    Point3="246,79.5" />
-                  <mssgle:LineSegment
-                    End="246,143.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="113,42"
-          Id="Package\DFT Children_Variables\Lookup"
-          TopLeft="1231,486" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\DFT Children_Variables\OLE DB Destination"
-          TopLeft="1076,594" />
-        <EdgeLayout
-          Id="Package\DFT Children_Variables.Paths[Lookup Match Output]"
-          TopLeft="1287.5,528">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-126,66"
-              Start="0,0"
-              End="-126,58.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="-4,33" />
-                  <mssgle:LineSegment
-                    End="-122,33" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-122,33"
-                    Point2="-126,33"
-                    Point3="-126,37" />
-                  <mssgle:LineSegment
-                    End="-126,58.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-111.19138671875,38,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\DFT Children_Variables\Data Conversion"
-          TopLeft="1053,381" />
-        <EdgeLayout
-          Id="Package\DFT Children_Variables.Paths[Sort Output]"
-          TopLeft="1063,336">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68,45"
-              Start="0,0"
-              End="68,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="4,22.5" />
-                  <mssgle:LineSegment
-                    End="64,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64,22.5"
-                    Point2="68,22.5"
-                    Point3="68,26.5" />
-                  <mssgle:LineSegment
-                    End="68,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Children_Variables.Paths[Data Conversion Output]"
-          TopLeft="1131,423">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.5,63"
-              Start="0,0"
-              End="156.5,55.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="4,31.5" />
-                  <mssgle:LineSegment
-                    End="152.5,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.5,31.5"
-                    Point2="156.5,31.5"
-                    Point3="156.5,35.5" />
-                  <mssgle:LineSegment
-                    End="156.5,55.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\DFT Children_Variables\OLE DB Destination 1"
-          TopLeft="1299,632" />
-        <EdgeLayout
-          Id="Package\DFT Children_Variables.Paths[Lookup No Match Output]"
-          TopLeft="1305,528">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84,104"
-              Start="0,0"
-              End="84,96.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.4712041884817" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.4712041884817"
-                    Point2="0,42.4712041884817"
-                    Point3="4,42.4712041884817" />
-                  <mssgle:LineSegment
-                    End="80,42.4712041884817" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80,42.4712041884817"
-                    Point2="84,42.4712041884817"
-                    Point3="84,46.4712041884817" />
-                  <mssgle:LineSegment
-                    End="84,96.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.80638671875,47.4712041884817,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\DFT Children_Variables\OLE DB Destination 1 1"
-          TopLeft="1546,627" />
-        <EdgeLayout
-          Id="Package\DFT Children_Variables.Paths[Lookup Error Output]"
-          TopLeft="1313.75,528">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="322.25,99"
-              Start="0,0"
-              End="322.25,91.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.521613832853" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.521613832853"
-                    Point2="0,34.521613832853"
-                    Point3="4,34.521613832853" />
-                  <mssgle:LineSegment
-                    End="318.25,34.521613832853" />
-                  <mssgle:CubicBezierSegment
-                    Point1="318.25,34.521613832853"
-                    Point2="322.25,34.521613832853"
-                    Point3="322.25,38.521613832853" />
-                  <mssgle:LineSegment
-                    End="322.25,91.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="115.25861328125,39.521613832853,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Children_Variables\OLE DB Source 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Children_Variables\Lookup">
+    design-time-name="Package\DFT Children_Variables\Lookup 1">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -13309,8 +15242,285 @@ from dbo.Subjects(null, 100)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT DatabyVariables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT DatabyVariables\OLE DB Source 1"
+          TopLeft="742,101" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\DFT DatabyVariables\Sort"
+          TopLeft="1019,245" />
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[OLE DB Source Output]"
+          TopLeft="817,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="251,102"
+              Start="0,0"
+              End="251,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="247,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="247,51"
+                    Point2="251,51"
+                    Point3="251,55" />
+                  <mssgle:LineSegment
+                    End="251,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122,42"
+          Id="Package\DFT DatabyVariables\Lookup 2"
+          TopLeft="1217,398" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT DatabyVariables\Data Conversion"
+          TopLeft="1147,319" />
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[Sort Output]"
+          TopLeft="1068,287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157,32"
+              Start="0,0"
+              End="157,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="153,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153,16"
+                    Point2="157,16"
+                    Point3="157,20" />
+                  <mssgle:LineSegment
+                    End="157,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[Data Conversion Output]"
+          TopLeft="1225,361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,37"
+              Start="0,0"
+              End="53,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="49,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49,18.5"
+                    Point2="53,18.5"
+                    Point3="53,22.5" />
+                  <mssgle:LineSegment
+                    End="53,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT DatabyVariables\OLE DB Destination"
+          TopLeft="934,652" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT DatabyVariables\OLE DB Destination 1"
+          TopLeft="1494,614" />
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[Lookup Match Output]"
+          TopLeft="1297,440">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="282.5,174"
+              Start="0,0"
+              End="282.5,166.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.9514563106796" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.9514563106796"
+                    Point2="0,70.9514563106796"
+                    Point3="4,70.9514563106796" />
+                  <mssgle:LineSegment
+                    End="278.5,70.9514563106796" />
+                  <mssgle:CubicBezierSegment
+                    Point1="278.5,70.9514563106796"
+                    Point2="282.5,70.9514563106796"
+                    Point3="282.5,74.9514563106796" />
+                  <mssgle:LineSegment
+                    End="282.5,166.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="93.05861328125,75.9514563106796,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[Lookup No Match Output]"
+          TopLeft="1259,440">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239.5,212"
+              Start="0,0"
+              End="-239.5,204.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.4466019417476" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.4466019417476"
+                    Point2="0,86.4466019417476"
+                    Point3="-4,86.4466019417476" />
+                  <mssgle:LineSegment
+                    End="-235.5,86.4466019417476" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235.5,86.4466019417476"
+                    Point2="-239.5,86.4466019417476"
+                    Point3="-239.5,90.4466019417476" />
+                  <mssgle:LineSegment
+                    End="-239.5,204.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-175.55638671875,91.4466019417476,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DFT DatabyVariables\OLE DB Destination 1 1"
+          TopLeft="1623,424" />
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[Lookup Error Output]"
+          TopLeft="1339,419">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="284,26"
+              Start="0,0"
+              End="276.5,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="138,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="138,0"
+                    Point2="142,0"
+                    Point3="142,4" />
+                  <mssgle:LineSegment
+                    End="142,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142,22"
+                    Point2="142,26"
+                    Point3="146,26" />
+                  <mssgle:LineSegment
+                    End="276.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="96.13361328125,-17.609375,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Children_Variables\OLE DB Destination">
+    design-time-name="Package\DFT DatabyVariables\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DatabyVariables\Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[staging].[databyvariable]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT DatabyVariables\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -13323,7 +15533,7 @@ from dbo.Subjects(null, 100)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Children_Variables\OLE DB Destination 1">
+    design-time-name="Package\DFT DatabyVariables\OLE DB Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

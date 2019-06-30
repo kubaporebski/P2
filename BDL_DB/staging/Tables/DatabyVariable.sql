@@ -1,16 +1,12 @@
 ﻿CREATE TABLE [staging].[databyvariable](
-	[Id] [nvarchar](10) NOT NULL,
+	[Id] [nvarchar](15) NOT NULL,
 	[parentId] [nvarchar](10) NOT NULL,
 	[MEASUREUNITID] [INT],
 	[NAME] [NVARCHAR](255) NULL,
 	[YEAR] [INT],
 	[VALUE][NVARCHAR](255) NULL,
 	[ATTRIBUTEID] [INT]
- CONSTRAINT [PK_DATABYVARIABLE] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)
-) ON [PRIMARY]
+	)
 GO
 
 ALTER TABLE [staging].[databyvariable]  WITH CHECK ADD  CONSTRAINT [DATA_HAS_VARIABLE] FOREIGN KEY([parentId])

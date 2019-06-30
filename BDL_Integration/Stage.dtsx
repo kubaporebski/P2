@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="96"
-  DTS:VersionGUID="{554662C5-B29C-450E-8E7E-DC896802F17F}">
+  DTS:VersionBuild="99"
+  DTS:VersionGUID="{A934F45A-9C5E-421A-A9E9-A8D2C48108D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -8829,7 +8829,7 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="10"
+                      length="15"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
                       name="Copy of Id"
                       truncationRowDisposition="FailComponent">
@@ -8975,7 +8975,7 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from staging.databyvariable) [refTable]
-where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[Id] = ? and [refTable].[NAME] = ? and [refTable].[YEAR] = ? and [refTable].[VALUE] = ? and [refTable].[ATTRIBUTEID] = ?</property>
+where [refTable].[Id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -9006,12 +9006,12 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parentId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MEASUREUNITID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NAME" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YEAR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VALUE" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ATTRIBUTEID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parentId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MEASUREUNITID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NAME" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YEAR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VALUE" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ATTRIBUTEID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MeasureUnitId]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Year]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Value]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AttributeId]};</property>
+                  name="ParameterMap">#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9035,25 +9035,9 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of MeasureUnitId]"
-                      cachedDataType="i4"
-                      cachedName="Copy of MeasureUnitId"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MeasureUnitId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">MEASUREUNITID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Id]"
                       cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedLength="15"
                       cachedName="Copy of Id"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]">
                       <properties>
@@ -9061,89 +9045,6 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Id</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of VariableId]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of VariableId"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">parentId</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Copy of Name"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">NAME</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Year]"
-                      cachedDataType="i4"
-                      cachedName="Copy of Year"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Year]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">YEAR</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Value]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Copy of Value"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Value]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">VALUE</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of AttributeId]"
-                      cachedDataType="i4"
-                      cachedName="Copy of AttributeId"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AttributeId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ATTRIBUTEID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -9166,7 +9067,7 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                       refId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[Id]"
                       dataType="wstr"
                       errorOrTruncationOperation="Copy Column"
-                      length="10"
+                      length="15"
                       lineageId="Package\DFT DatabyVariables\Lookup 2.Outputs[Lookup Match Output].Columns[Id]"
                       name="Id"
                       truncationRowDisposition="RedirectRow">
@@ -9387,7 +9288,7 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                     <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
                       cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedLength="15"
                       cachedName="Copy of Id"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
@@ -9423,7 +9324,7 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                     <externalMetadataColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       dataType="wstr"
-                      length="10"
+                      length="15"
                       name="Id" />
                     <externalMetadataColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
@@ -9559,13 +9460,6 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                       cachedName="Copy of VariableId"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of Id"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                     <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
@@ -9712,13 +9606,6 @@ where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable
                       cachedName="Copy of VariableId"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of Id"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                     <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
@@ -15660,7 +15547,9 @@ from dbo.Subjects(null, 100)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="24,38,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

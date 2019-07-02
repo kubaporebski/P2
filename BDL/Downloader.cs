@@ -90,7 +90,7 @@ namespace BDL
         /// </summary>
         private static void WaitBefore()
         {
-            var n = Logs.Count / 47;
+            var n = Logs.Count / 100;
             
             System.Threading.Thread.Sleep(333 + (n * 50));
             LastRequest = DateTime.Now;

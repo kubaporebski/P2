@@ -10,6 +10,9 @@ namespace BDL
     [XmlRoot(ElementName = "LogListData")]
     public class RequestLogList
     {
+        /// Do synchronizacji między wątkami
+        public static readonly object lockobject = new object();
+
         [XmlArray(ElementName = "List"), XmlArrayItem(typeof(RequestLog), ElementName = "Log")]
         public List<RequestLog> List { get; set; }
 
@@ -21,13 +24,18 @@ namespace BDL
             get { return List.Count; }
         }
 
+        /// <summary>
+        /// Instancję pobieramy poprzez metodę Deserialize.
+        /// </summary>
+        /// <see cref="Deserialize(string)"/>
         private RequestLogList()
         {
         }
 
         /// <summary>
         /// Utworzenie instacji.
-        /// Metoda wczytuje dane z pliku %HOMEPATH%/bdl_requestlog.xml
+        /// Metoda wczytuje dane z pliku %APPDATA%\bdl_requestlog.xml.
+        /// Dla SQL Servera będzie to zwykle C:\Users\MSSQL$D2017\AppData\Roaming
         /// </summary>
         /// <returns></returns>
         public static RequestLogList Create()
@@ -36,6 +44,10 @@ namespace BDL
             return Deserialize(path);
         }
         
+        /// <summary>
+        /// Dodanie wpisu.
+        /// </summary>
+        /// <param name="log"></param>
         public void Add(RequestLog log)
         {
             List.Add(log);
@@ -48,41 +60,55 @@ namespace BDL
         /// <param name="callback">metoda wykonywana dla każdego wpisu</param>
         public void ForEach(Action<RequestLog> callback)
         {
-            lock (this)
+            lock (lockobject)
             {
                 foreach (var log in List.OrderByDescending(rlt => rlt.LogTime))
                     callback(log);
             }
         }
 
+        /// <summary>
+        /// Serializacja. Mamy w pamięci listę, chcemy ją zapisać do pliku na dysk.
+        /// </summary>
         private void Serialize()
         {
             try
             {
-                var path = Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), "bdl_requestlog.xml");
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                lock (lockobject)
                 {
-                    var serializer = new XmlSerializer(typeof(RequestLogList));
-                    serializer.Serialize(fs, this);
+                    var path = Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), "bdl_requestlog.xml");
+                    using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                    {
+                        var serializer = new XmlSerializer(typeof(RequestLogList));
+                        serializer.Serialize(fs, this);
+                    }
                 }
             }
             catch { }
         }
 
+        /// <summary>
+        /// Deserializacja. Mamy plik xml, chcemy mieć dane w postaci listy.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         private static RequestLogList Deserialize(string path)
         {
             try
             {
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                lock (lockobject)
                 {
-                    if (fs.Length > 0)
+                    using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
                     {
-                        var serializer = new XmlSerializer(typeof(RequestLogList));
-                        return serializer.Deserialize(fs) as RequestLogList;
-                    }
-                    else
-                    {
-                        return createNewEmpty();
+                        if (fs.Length > 0)
+                        {
+                            var serializer = new XmlSerializer(typeof(RequestLogList));
+                            return serializer.Deserialize(fs) as RequestLogList;
+                        }
+                        else
+                        {
+                            return createNewEmpty();
+                        }
                     }
                 }
             }
@@ -92,6 +118,10 @@ namespace BDL
             }
         }
 
+        /// <summary>
+        /// Pomocnicza metoda do utworzenia pustej instancji
+        /// </summary>
+        /// <returns></returns>
         private static RequestLogList createNewEmpty()
         {
             return new RequestLogList()

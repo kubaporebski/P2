@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="99"
-  DTS:VersionGUID="{A934F45A-9C5E-421A-A9E9-A8D2C48108D1}">
+  DTS:VersionBuild="103"
+  DTS:VersionGUID="{939D7A95-AE05-4FF9-804D-BC5EC70DF521}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -8788,7 +8788,7 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="10"
+                      length="15"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]"
                       name="Copy of VariableId"
                       truncationRowDisposition="FailComponent">
@@ -8829,7 +8829,7 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="15"
+                      length="10"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
                       name="Copy of Id"
                       truncationRowDisposition="FailComponent">
@@ -8975,7 +8975,7 @@ FROM CTE CROSS APPLY DBO.VARIABLES(CTE.CODE,100)</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from staging.databyvariable) [refTable]
-where [refTable].[Id] = ?</property>
+where [refTable].[parentId] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[Id] = ? and [refTable].[NAME] = ? and [refTable].[YEAR] = ? and [refTable].[VALUE] = ? and [refTable].[ATTRIBUTEID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -9011,7 +9011,7 @@ where [refTable].[Id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]};</property>
+                  name="ParameterMap">#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MeasureUnitId]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Year]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Value]};#{Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AttributeId]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9037,7 +9037,7 @@ where [refTable].[Id] = ?</property>
                     <inputColumn
                       refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Id]"
                       cachedDataType="wstr"
-                      cachedLength="15"
+                      cachedLength="10"
                       cachedName="Copy of Id"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]">
                       <properties>
@@ -9045,6 +9045,105 @@ where [refTable].[Id] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of VariableId]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Copy of VariableId"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">parentId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of MeasureUnitId]"
+                      cachedDataType="i4"
+                      cachedName="Copy of MeasureUnitId"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MeasureUnitId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MEASUREUNITID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Name"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">NAME</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Year]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Year"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">YEAR</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of Value]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Value"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Value]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VALUE</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\Lookup 2.Inputs[Lookup Input].Columns[Copy of AttributeId]"
+                      cachedDataType="i4"
+                      cachedName="Copy of AttributeId"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AttributeId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ATTRIBUTEID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -9273,25 +9372,11 @@ where [refTable].[Id] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of VariableId]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of VariableId"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of MeasureUnitId]"
                       cachedDataType="i4"
                       cachedName="Copy of MeasureUnitId"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEASUREUNITID]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MeasureUnitId]" />
-                    <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="Copy of Id"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                     <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
@@ -9318,6 +9403,20 @@ where [refTable].[Id] = ?</property>
                       cachedName="Copy of AttributeId"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ATTRIBUTEID]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AttributeId]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of VariableId]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Copy of VariableId"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of Id"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9454,19 +9553,19 @@ where [refTable].[Id] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of VariableId]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of VariableId"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Copy of Name"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of Id"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9600,19 +9699,19 @@ where [refTable].[Id] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of VariableId]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of VariableId"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Copy of Name"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of Id"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9980,7 +10079,7 @@ where [refTable].[Id] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [staging].[Data_tmp]) [refTable]
-where [refTable].[Id] = ?</property>
+where [refTable].[VariableId] = ? and [refTable].[MeasureUnitId] = ? and [refTable].[AggregateId] = ? and [refTable].[Id] = ? and [refTable].[Name] = ? and [refTable].[Year] = ? and [refTable].[Value] = ? and [refTable].[AttributeId] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -10016,7 +10115,7 @@ where [refTable].[Id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]};</property>
+                  name="ParameterMap">#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[VariableId]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeasureUnitId]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[AggregateId]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]};#{Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[AttributeId]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -10056,6 +10155,120 @@ where [refTable].[Id] = ?</property>
                           name="CopyFromReferenceColumn" />
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[VariableId]"
+                      cachedDataType="i4"
+                      cachedName="VariableId"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[VariableId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VariableId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Year</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[Value]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Value"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Value</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[AttributeId]"
+                      cachedDataType="i4"
+                      cachedName="AttributeId"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[AttributeId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AttributeId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[AggregateId]"
+                      cachedDataType="i4"
+                      cachedName="AggregateId"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[AggregateId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AggregateId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Inputs[Lookup Input].Columns[MeasureUnitId]"
+                      cachedDataType="i4"
+                      cachedName="MeasureUnitId"
+                      lineageId="Package\DFT Data_tmp\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeasureUnitId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MeasureUnitId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10081,6 +10294,106 @@ where [refTable].[Id] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
                           name="CopyFromReferenceColumn">Id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[VariableId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[VariableId]"
+                      name="VariableId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">VariableId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Year</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[Value]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[Value]"
+                      name="Value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Value</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[AttributeId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[AttributeId]"
+                      name="AttributeId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AttributeId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[AggregateId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[AggregateId]"
+                      name="AggregateId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AggregateId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[MeasureUnitId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Data_tmp\Lookup.Outputs[Lookup Match Output].Columns[MeasureUnitId]"
+                      name="MeasureUnitId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MeasureUnitId</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -13280,10 +13593,6 @@ from dbo.Subjects(null, 100)</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="148,42"
-          Id="Package\DFT Data_tmp"
-          TopLeft="949,207" />
-        <NodeLayout
           Size="152,42"
           Id="Package\DFT AllSubjects"
           TopLeft="242,276" />
@@ -13302,7 +13611,11 @@ from dbo.Subjects(null, 100)</property>
         <NodeLayout
           Size="188,42"
           Id="Package\DFT Children_Variables"
-          TopLeft="217,750" />
+          TopLeft="208,711" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\DFT Data_tmp"
+          TopLeft="225,778" />
         <NodeLayout
           Size="177,42"
           Id="Package\DFT DatabyVariables"
@@ -13322,169 +13635,6 @@ from dbo.Subjects(null, 100)</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\DFT Data_tmp">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\DFT Data_tmp\OLE DB Destination"
-          TopLeft="767,452" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\DFT Data_tmp\OLE DB Destination 1"
-          TopLeft="1174,487" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\DFT Data_tmp\Lookup"
-          TopLeft="798,318" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\DFT Data_tmp\OLE DB Source"
-          TopLeft="776,209" />
-        <EdgeLayout
-          Id="Package\DFT Data_tmp.Paths[Lookup Match Output]"
-          TopLeft="872,360">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="392,127"
-              Start="0,0"
-              End="392,119.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.8638743455497" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.8638743455497"
-                    Point2="0,51.8638743455497"
-                    Point3="4,51.8638743455497" />
-                  <mssgle:LineSegment
-                    End="388,51.8638743455497" />
-                  <mssgle:CubicBezierSegment
-                    Point1="388,51.8638743455497"
-                    Point2="392,51.8638743455497"
-                    Point3="392,55.8638743455497" />
-                  <mssgle:LineSegment
-                    End="392,119.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="147.80861328125,56.8638743455497,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Data_tmp.Paths[OLE DB Source Output]"
-          TopLeft="852.75,251">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67"
-              Start="0,0"
-              End="0,59.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT Data_tmp.Paths[Lookup No Match Output]"
-          TopLeft="853.5,360">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,92"
-              Start="0,0"
-              End="0,84.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,84.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,36.4453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Data_tmp\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Data_tmp\OLE DB Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Data_tmp\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[staging].[Data_tmp]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT Data_tmp\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT AllSubjects">
     <LayoutInfo>
@@ -15380,10 +15530,181 @@ from dbo.Subjects(null, 100)</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\DFT Data_tmp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT Data_tmp\OLE DB Destination"
+          TopLeft="767,452" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DFT Data_tmp\OLE DB Destination 1"
+          TopLeft="1174,487" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\DFT Data_tmp\Lookup"
+          TopLeft="798,318" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT Data_tmp\OLE DB Source"
+          TopLeft="776,209" />
+        <EdgeLayout
+          Id="Package\DFT Data_tmp.Paths[Lookup Match Output]"
+          TopLeft="872,360">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="392,127"
+              Start="0,0"
+              End="392,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.8638743455497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.8638743455497"
+                    Point2="0,51.8638743455497"
+                    Point3="4,51.8638743455497" />
+                  <mssgle:LineSegment
+                    End="388,51.8638743455497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="388,51.8638743455497"
+                    Point2="392,51.8638743455497"
+                    Point3="392,55.8638743455497" />
+                  <mssgle:LineSegment
+                    End="392,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="147.80861328125,56.8638743455497,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Data_tmp.Paths[OLE DB Source Output]"
+          TopLeft="852.75,251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Data_tmp.Paths[Lookup No Match Output]"
+          TopLeft="853.5,360">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92"
+              Start="0,0"
+              End="0,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,36.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Data_tmp\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Data_tmp\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Data_tmp\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[staging].[Data_tmp]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Data_tmp\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\DFT DatabyVariables">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT DatabyVariables\Data Conversion"
+          TopLeft="1165,291" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT DatabyVariables\OLE DB Destination 1"
+          TopLeft="1494,614" />
         <NodeLayout
           Size="189,42"
           Id="Package\DFT DatabyVariables\OLE DB Destination 1 1"
@@ -15393,13 +15714,49 @@ from dbo.Subjects(null, 100)</property>
           Id="Package\DFT DatabyVariables\OLE DB Destination"
           TopLeft="934,652" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\DFT DatabyVariables\OLE DB Destination 1"
-          TopLeft="1494,614" />
-        <NodeLayout
           Size="122,42"
           Id="Package\DFT DatabyVariables\Lookup 2"
           TopLeft="1217,398" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT DatabyVariables\OLE DB Source"
+          TopLeft="1104,183" />
+        <EdgeLayout
+          Id="Package\DFT DatabyVariables.Paths[OLE DB Source Output]"
+          TopLeft="1179,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64,66"
+              Start="0,0"
+              End="64,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="60,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60,33"
+                    Point2="64,33"
+                    Point3="64,37" />
+                  <mssgle:LineSegment
+                    End="64,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24,38,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DatabyVariables.Paths[Lookup No Match Output]"
           TopLeft="1259,440">
@@ -15508,50 +15865,6 @@ from dbo.Subjects(null, 100)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150,42"
-          Id="Package\DFT DatabyVariables\OLE DB Source"
-          TopLeft="1104,183" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\DFT DatabyVariables\Data Conversion"
-          TopLeft="1165,291" />
-        <EdgeLayout
-          Id="Package\DFT DatabyVariables.Paths[OLE DB Source Output]"
-          TopLeft="1179,225">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="64,66"
-              Start="0,0"
-              End="64,58.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="4,33" />
-                  <mssgle:LineSegment
-                    End="60,33" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60,33"
-                    Point2="64,33"
-                    Point3="64,37" />
-                  <mssgle:LineSegment
-                    End="64,58.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="24,38,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT DatabyVariables.Paths[Data Conversion Output]"
           TopLeft="1243,333">
@@ -15616,6 +15929,19 @@ from dbo.Subjects(null, 100)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\DFT DatabyVariables\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DFT DatabyVariables\Lookup 2">
     <Properties>
       <Property>
@@ -15639,7 +15965,7 @@ from dbo.Subjects(null, 100)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT DatabyVariables\OLE DB Destination">
+    design-time-name="Package\DFT DatabyVariables\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16227,19 +16553,6 @@ from dbo.Subjects(null, 100)</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT DatabyVariables\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

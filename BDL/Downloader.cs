@@ -26,7 +26,10 @@ namespace BDL
             "bbee9905-1eb3-4520-e60d-08d6dde4b8b3",
             "057f1a35-51f4-4cb2-430b-08d6e741d253",
             "91d3510e-67fe-45d8-430c-08d6e741d253",
-            "965147c4-449d-433f-d59c-08d6eb771137"
+            "965147c4-449d-433f-d59c-08d6eb771137",
+            "1faf4e89-112a-483b-f005-08d6fd2c61c5",
+            "13ee32d5-8ca5-44ec-f004-08d6fd2c61c5",
+            "89379c2c-9a7a-4e47-e2cb-08d6fe16a7a8"
         };
 
         /// <summary>
@@ -87,9 +90,9 @@ namespace BDL
         /// </summary>
         private static void WaitBefore()
         {
-            var n = Logs.Count / 100;
+            var n = Logs.Count / 47;
             
-            System.Threading.Thread.Sleep(500 + (n * 50));
+            System.Threading.Thread.Sleep(333 + (n * 50));
             LastRequest = DateTime.Now;
         }
     }

@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="101"
-  DTS:VersionGUID="{0CA12482-0A76-4508-879E-45B00B43B505}">
+  DTS:VersionBuild="102"
+  DTS:VersionGUID="{E9BC67F7-9E8F-4EC9-B9BF-D080B7055801}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9454,19 +9454,19 @@ where [refTable].[Id] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of VariableId]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="Copy of VariableId"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Copy of Name"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of Id"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9600,19 +9600,19 @@ where [refTable].[Id] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of VariableId]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="Copy of VariableId"
-                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VariableId]" />
-                    <inputColumn
                       refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Copy of Name"
                       externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].Columns[Copy of Id]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of Id"
+                      externalMetadataColumnId="Package\DFT DatabyVariables\OLE DB Destination 1 1.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT DatabyVariables\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">

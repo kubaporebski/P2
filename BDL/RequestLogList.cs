@@ -57,31 +57,47 @@ namespace BDL
 
         private void Serialize()
         {
-            var path = Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), "bdl_requestlog.xml");
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            try
             {
-                var serializer = new XmlSerializer(typeof(RequestLogList));
-                serializer.Serialize(fs, this);
+                var path = Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), "bdl_requestlog.xml");
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    var serializer = new XmlSerializer(typeof(RequestLogList));
+                    serializer.Serialize(fs, this);
+                }
             }
+            catch { }
         }
 
         private static RequestLogList Deserialize(string path)
         {
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            try
             {
-                if (fs.Length > 0)
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
                 {
-                    var serializer = new XmlSerializer(typeof(RequestLogList));
-                    return serializer.Deserialize(fs) as RequestLogList;
-                }
-                else
-                {
-                    return new RequestLogList()
+                    if (fs.Length > 0)
                     {
-                        List = new List<RequestLog>()
-                    };
+                        var serializer = new XmlSerializer(typeof(RequestLogList));
+                        return serializer.Deserialize(fs) as RequestLogList;
+                    }
+                    else
+                    {
+                        return createNewEmpty();
+                    }
                 }
             }
+            catch
+            {
+                return createNewEmpty();
+            }
+        }
+
+        private static RequestLogList createNewEmpty()
+        {
+            return new RequestLogList()
+            {
+                List = new List<RequestLog>()
+            };
         }
     }
 }

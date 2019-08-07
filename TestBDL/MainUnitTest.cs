@@ -43,7 +43,7 @@ namespace TestBDL
         [TestMethod]
         public void TestUnits()
         {
-            var result = DataGetter.Units();
+            var result = DataGetter.Units(100);
             Assert.IsNotNull(result);
         }
 

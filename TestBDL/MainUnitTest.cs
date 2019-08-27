@@ -50,7 +50,7 @@ namespace TestBDL
         [TestMethod]
         public void TestDataByVariable()
         {
-            var result = DataGetter.DataByVariable(123, null, 2000, 2000, 100);
+            var result = DataGetter.DataByVariable(123, null, 2000, 2000, 0, 100);
             Assert.IsNotNull(result);
         }
     }

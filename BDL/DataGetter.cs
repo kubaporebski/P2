@@ -187,15 +187,16 @@ namespace BDL
         /// <param name="pageSize">rozmiar strony</param>
         /// <returns></returns>
         [SqlFunction(FillRowMethodName = "DataByVariableFillRow")]
-        public static IEnumerable DataByVariable(int variableId, string unitParentId, int yearFrom, int yearTo, int pageSize)
+        public static IEnumerable DataByVariable(int variableId, string unitParentId, int yearFrom, int yearTo, int level, int pageSize)
         {
             var uri = $"https://bdl.stat.gov.pl/api/v1/data/by-variable/{variableId}?format=xml";
             for (int yr = yearFrom; yr <= yearTo; yr++)
                 uri += $"&year={yr}";
             uri += $"&page-size={pageSize}";
+            uri += $"&unit-level={level}";
 
             if (unitParentId != null)
-                uri += $"unit-parent-id={unitParentId}";
+                uri += $"&unit-parent-id={unitParentId}";
 
             return FlattenPages(uri, docu => UnitData.FromXML(docu));
         }

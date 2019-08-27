@@ -4,6 +4,7 @@
 	@territorialUnitId nvarchar(30),
 	@yearFrom int,
 	@yearTo int,
+	@level int,
 	@pageSize int
 )
 RETURNS TABLE

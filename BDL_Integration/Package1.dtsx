@@ -1,0 +1,1737 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/29/2019 6:51:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PERSEI8"
+  DTS:CreatorName="PERSEI8\kuba"
+  DTS:DTSID="{C249398A-4AE1-47C0-9C6A-89F5FDA80DDB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{964A5618-35FC-4DE4-B970-36C67A88601E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\GetData"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D6ABFB8D-FD1E-4A0A-A71B-8218BD6831D6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GetData">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GetData\DataByVariable"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{730C22B4-52AE-44E0-975C-F63313B7CCE4}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DataByVariable"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="dbo_DataByVariable_Join_temp_Variable"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select zmienna.Id as VariableId, SubjectId, N1, N2, zmienna.MeasureUnitId, MeasureUnitName,
+ 	AggregateId, dane_dla_zmiennej.Id as TerritorialUnitId, Name, Year, Value, AttributeId
+from temp.TempVariable as zmienna
+cross apply dbo.DataByVariable(zmienna.Id, null, 2015, 2017, 2, 100) as dane_dla_zmiennej</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Connections[OleDbConnection]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[VariableId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[VariableId]"
+                          length="10"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[VariableId]"
+                          name="VariableId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[SubjectId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[SubjectId]"
+                          length="30"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[SubjectId]"
+                          name="SubjectId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[N1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[N1]"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[N1]"
+                          name="N1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[N2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[N2]"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[N2]"
+                          name="N2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[MeasureUnitId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[MeasureUnitId]"
+                          name="MeasureUnitId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[MeasureUnitName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitName]"
+                          length="100"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[MeasureUnitName]"
+                          name="MeasureUnitName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[AggregateId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[AggregateId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[AggregateId]"
+                          name="AggregateId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[TerritorialUnitId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[TerritorialUnitId]"
+                          length="100"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[TerritorialUnitId]"
+                          name="TerritorialUnitId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Year]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Year]"
+                          name="Year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Value]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Value]"
+                          name="Value"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[AttributeId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[AttributeId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[AttributeId]"
+                          name="AttributeId"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[VariableId]"
+                          dataType="wstr"
+                          length="10"
+                          name="VariableId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[SubjectId]"
+                          dataType="wstr"
+                          length="30"
+                          name="SubjectId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[N1]"
+                          dataType="wstr"
+                          length="255"
+                          name="N1" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[N2]"
+                          dataType="wstr"
+                          length="255"
+                          name="N2" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitId]"
+                          dataType="i4"
+                          name="MeasureUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="100"
+                          name="MeasureUnitName" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[AggregateId]"
+                          dataType="i4"
+                          name="AggregateId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[TerritorialUnitId]"
+                          dataType="wstr"
+                          length="100"
+                          name="TerritorialUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          dataType="i4"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                          dataType="wstr"
+                          length="255"
+                          name="Value" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].ExternalColumns[AttributeId]"
+                          dataType="i4"
+                          name="AttributeId" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[VariableId]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[VariableId]"
+                          name="VariableId" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[SubjectId]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[SubjectId]"
+                          name="SubjectId" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[N1]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[N1]"
+                          name="N1" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[N2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[N2]"
+                          name="N2" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[MeasureUnitId]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[MeasureUnitId]"
+                          name="MeasureUnitId" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[MeasureUnitName]"
+                          name="MeasureUnitName" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[AggregateId]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[AggregateId]"
+                          name="AggregateId" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[TerritorialUnitId]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[TerritorialUnitId]"
+                          name="TerritorialUnitId" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[Value]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[Value]"
+                          name="Value" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[AttributeId]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[AttributeId]"
+                          name="AttributeId" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GetData\DataByVariable\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[TempDataByVariable]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[TempDataByVariable]) [refTable]
+where [refTable].[VariableId] = ? and [refTable].[SubjectId] = ? and [refTable].[TerritorialUnitId] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="VariableId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubjectId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N1" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N2" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MeasureUnitId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MeasureUnitName" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AggregateId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TerritorialUnitId" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Value" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AttributeId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[VariableId]};#{Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[SubjectId]};#{Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[TerritorialUnitId]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GetData\DataByVariable\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input].Columns[VariableId]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="VariableId"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[VariableId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">VariableId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input].Columns[SubjectId]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="SubjectId"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[SubjectId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SubjectId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input].Columns[TerritorialUnitId]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="TerritorialUnitId"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[TerritorialUnitId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">TerritorialUnitId</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output].Columns[VariableId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="10"
+                          lineageId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output].Columns[VariableId]"
+                          name="VariableId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">VariableId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output].Columns[SubjectId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="10"
+                          lineageId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output].Columns[SubjectId]"
+                          name="SubjectId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SubjectId</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output].Columns[TerritorialUnitId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="100"
+                          lineageId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Match Output].Columns[TerritorialUnitId]"
+                          name="TerritorialUnitId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">TerritorialUnitId</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GetData\DataByVariable\temp_TempDataByVariable"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="temp_TempDataByVariable"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[temp].[TempDataByVariable]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Connections[OleDbConnection]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[VariableId]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="VariableId"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[VariableId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[VariableId]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[SubjectId]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="SubjectId"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[SubjectId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[SubjectId]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[N1]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="N1"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[N1]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[N1]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[N2]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="N2"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[N2]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[N2]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[MeasureUnitId]"
+                          cachedDataType="i4"
+                          cachedName="MeasureUnitId"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[MeasureUnitId]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[MeasureUnitName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="MeasureUnitName"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitName]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[MeasureUnitName]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[AggregateId]"
+                          cachedDataType="i4"
+                          cachedName="AggregateId"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[AggregateId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[AggregateId]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[TerritorialUnitId]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="TerritorialUnitId"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[TerritorialUnitId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[TerritorialUnitId]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[Year]"
+                          cachedDataType="i4"
+                          cachedName="Year"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[Value]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Value"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[Value]" />
+                        <inputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].Columns[AttributeId]"
+                          cachedDataType="i4"
+                          cachedName="AttributeId"
+                          externalMetadataColumnId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[AttributeId]"
+                          lineageId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output].Columns[AttributeId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[VariableId]"
+                          dataType="wstr"
+                          length="10"
+                          name="VariableId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[SubjectId]"
+                          dataType="wstr"
+                          length="10"
+                          name="SubjectId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[N1]"
+                          dataType="wstr"
+                          length="255"
+                          name="N1" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[N2]"
+                          dataType="wstr"
+                          length="255"
+                          name="N2" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitId]"
+                          dataType="i4"
+                          name="MeasureUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="30"
+                          name="MeasureUnitName" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[AggregateId]"
+                          dataType="i4"
+                          name="AggregateId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[TerritorialUnitId]"
+                          dataType="wstr"
+                          length="100"
+                          name="TerritorialUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          dataType="i4"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                          dataType="wstr"
+                          length="255"
+                          name="Value" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input].ExternalColumns[AttributeId]"
+                          dataType="i4"
+                          name="AttributeId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\temp_TempDataByVariable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GetData\DataByVariable\temp_TempDataByVariable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GetData\DataByVariable\temp_TempDataByVariable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GetData\DataByVariable.Paths[Lookup No Match Output]"
+                  endId="Package\GetData\DataByVariable\temp_TempDataByVariable.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\GetData\DataByVariable\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\GetData\DataByVariable.Paths[OLE DB Source Output]"
+                  endId="Package\GetData\DataByVariable\Lookup.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GetData\Variables"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BE98C468-F511-40C9-AA2E-3852210ECEC6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Variables"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GetData\Variables\dbo_Variables"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="dbo_Variables"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * 
+from dbo.Variables('P1747', 100)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GetData\Variables\dbo_Variables.Connections[OleDbConnection]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[Id]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          length="10"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[Id]"
+                          name="Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[SubjectId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[SubjectId]"
+                          length="10"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[SubjectId]"
+                          name="SubjectId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[N1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[N1]"
+                          length="255"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[N1]"
+                          name="N1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[N2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[N2]"
+                          length="255"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[N2]"
+                          name="N2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[MeasureUnitId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitId]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[MeasureUnitId]"
+                          name="MeasureUnitId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[MeasureUnitName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitName]"
+                          length="30"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[MeasureUnitName]"
+                          name="MeasureUnitName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          dataType="wstr"
+                          length="10"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[SubjectId]"
+                          dataType="wstr"
+                          length="10"
+                          name="SubjectId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[N1]"
+                          dataType="wstr"
+                          length="255"
+                          name="N1" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[N2]"
+                          dataType="wstr"
+                          length="255"
+                          name="N2" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitId]"
+                          dataType="i4"
+                          name="MeasureUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].ExternalColumns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="30"
+                          name="MeasureUnitName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[SubjectId]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[SubjectId]"
+                          name="SubjectId" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[N1]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[N1]"
+                          name="N1" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[N2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[N2]"
+                          name="N2" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[MeasureUnitId]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[MeasureUnitId]"
+                          name="MeasureUnitId" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[MeasureUnitName]"
+                          name="MeasureUnitName" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GetData\Variables\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[TempVariable]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[TempVariable]) [refTable]
+where [refTable].[Id] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubjectId" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N1" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N2" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MeasureUnitId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MeasureUnitName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[Id]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GetData\Variables\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GetData\Variables\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GetData\Variables\Lookup.Inputs[Lookup Input].Columns[Id]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Id"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[Id]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Id</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GetData\Variables\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\GetData\Variables\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\Variables\Lookup.Outputs[Lookup Match Output].Columns[Id]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="10"
+                          lineageId="Package\GetData\Variables\Lookup.Outputs[Lookup Match Output].Columns[Id]"
+                          name="Id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">Id</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GetData\Variables\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\GetData\Variables\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GetData\Variables\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\GetData\Variables\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\Variables\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GetData\Variables\temp_Variable"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="temp_Variable"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[temp].[TempVariable]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GetData\Variables\temp_Variable.Connections[OleDbConnection]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].Columns[SubjectId]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="SubjectId"
+                          externalMetadataColumnId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[SubjectId]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[SubjectId]" />
+                        <inputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].Columns[N1]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="N1"
+                          externalMetadataColumnId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[N1]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[N1]" />
+                        <inputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].Columns[N2]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="N2"
+                          externalMetadataColumnId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[N2]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[N2]" />
+                        <inputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].Columns[MeasureUnitId]"
+                          cachedDataType="i4"
+                          cachedName="MeasureUnitId"
+                          externalMetadataColumnId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitId]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[MeasureUnitId]" />
+                        <inputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].Columns[MeasureUnitName]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="MeasureUnitName"
+                          externalMetadataColumnId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitName]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[MeasureUnitName]" />
+                        <inputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].Columns[Id]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Id"
+                          externalMetadataColumnId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          lineageId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output].Columns[Id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          dataType="wstr"
+                          length="10"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[SubjectId]"
+                          dataType="wstr"
+                          length="30"
+                          name="SubjectId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[N1]"
+                          dataType="wstr"
+                          length="255"
+                          name="N1" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[N2]"
+                          dataType="wstr"
+                          length="255"
+                          name="N2" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitId]"
+                          dataType="i4"
+                          name="MeasureUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="100"
+                          name="MeasureUnitName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GetData\Variables\temp_Variable.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\temp_Variable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GetData\Variables\temp_Variable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GetData\Variables\temp_Variable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GetData\Variables.Paths[Lookup No Match Output]"
+                  endId="Package\GetData\Variables\temp_Variable.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\GetData\Variables\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\GetData\Variables.Paths[OLE DB Source Output]"
+                  endId="Package\GetData\Variables\Lookup.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\GetData\Variables\dbo_Variables.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GetData.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DD2098C3-FF48-46EB-9653-603F2658F3DB}"
+          DTS:From="Package\GetData\Variables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GetData\DataByVariable" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\GetData\Variables"
+          TopLeft="30.857143859474,22.4941187366895" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\GetData\DataByVariable"
+          TopLeft="17.1428579116354,118.541178907243" />
+        <EdgeLayout
+          Id="Package\GetData.PrecedenceConstraints[Constraint]"
+          TopLeft="91.6000008855547,64.0941187366895">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.4470601705532"
+              Start="0,0"
+              End="0,46.9470601705532">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.9470601705532" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="237.6,215.2"
+          Size="237.6,258.4"
+          Id="Package\GetData"
+          TopLeft="28.0000004768372,11.6235295747803" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\GetData\Variables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\GetData\Variables\dbo_Variables"
+          TopLeft="119.428573462428,32.4235298664925" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\GetData\Variables\temp_Variable"
+          TopLeft="79.428572781232,237.364709211303" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\GetData\Variables\Lookup"
+          TopLeft="98.85714454067,123.623530887485" />
+        <EdgeLayout
+          Id="Package\GetData\Variables.Paths[OLE DB Source Output]"
+          TopLeft="191.428573462428,74.0235298664925">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.1714289217579,49.6000010209925"
+              Start="0,0"
+              End="-36.1714289217579,42.1000010209925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8000005104963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8000005104963"
+                    Point2="0,24.8000005104963"
+                    Point3="-4,24.8000005104963" />
+                  <mssgle:LineSegment
+                    End="-32.1714289217579,24.8000005104963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.1714289217579,24.8000005104963"
+                    Point2="-36.1714289217579,24.8000005104963"
+                    Point3="-36.1714289217579,28.8000005104963" />
+                  <mssgle:LineSegment
+                    End="-36.1714289217579,42.1000010209925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\Variables.Paths[Lookup No Match Output]"
+          TopLeft="153.942858660951,165.223530887485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.1411783238183"
+              Start="0,0"
+              End="0,64.6411783238183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.6411783238183" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,26.5159016619091,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\GetData\DataByVariable">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="271.2,41.6"
+          Id="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable"
+          TopLeft="173.6,69.6" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\GetData\DataByVariable\Lookup"
+          TopLeft="253.6,159.2" />
+        <EdgeLayout
+          Id="Package\GetData\DataByVariable.Paths[OLE DB Source Output]"
+          TopLeft="309.6,111.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\GetData\DataByVariable\temp_TempDataByVariable"
+          TopLeft="219.2,274.4" />
+        <EdgeLayout
+          Id="Package\GetData\DataByVariable.Paths[Lookup No Match Output]"
+          TopLeft="310,200.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.4000000000001,73.6"
+              Start="0,0"
+              End="12.4000000000001,66.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8"
+                    Point2="0,36.8"
+                    Point3="4,36.8" />
+                  <mssgle:LineSegment
+                    End="8.40000000000009,36.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.40000000000009,36.8"
+                    Point2="12.4000000000001,36.8"
+                    Point3="12.4000000000001,40.8" />
+                  <mssgle:LineSegment
+                    End="12.4000000000001,66.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-49.60638671875,41.8,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\Variables\dbo_Variables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\Variables\temp_Variable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\Variables\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[temp].[TempVariable]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\DataByVariable\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[temp].[TempDataByVariable]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\DataByVariable\temp_TempDataByVariable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

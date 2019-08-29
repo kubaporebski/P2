@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>BDLDatabase</DataSourceReference>
+      <CommandText>SELECT
+  bdl.ResultData.VariableId
+  ,bdl.ResultData.SubjectId
+  ,bdl.ResultData.N1
+  ,bdl.ResultData.N2
+  ,bdl.ResultData.MeasureUnitId
+  ,bdl.ResultData.MeasureUnitName
+  ,bdl.ResultData.AggregateId
+  ,bdl.ResultData.TerritorialUnitId
+  ,bdl.ResultData.Name
+  ,bdl.ResultData.[Year]
+  ,bdl.ResultData.[Value]
+  ,bdl.ResultData.AttributeId
+FROM
+  bdl.ResultData</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+          <SelectedColumns>
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="VariableId" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="SubjectId" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="N1" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="N2" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="MeasureUnitId" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="MeasureUnitName" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="AggregateId" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="TerritorialUnitId" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="Name" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="Year" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="Value" />
+            <ColumnExpression Schema="bdl" ColumnOwner="ResultData" ColumnName="AttributeId" />
+          </SelectedColumns>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="VariableId">
+        <DataField>VariableId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SubjectId">
+        <DataField>SubjectId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="N1">
+        <DataField>N1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="N2">
+        <DataField>N2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MeasureUnitId">
+        <DataField>MeasureUnitId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MeasureUnitName">
+        <DataField>MeasureUnitName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AggregateId">
+        <DataField>AggregateId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TerritorialUnitId">
+        <DataField>TerritorialUnitId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Name">
+        <DataField>Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Year">
+        <DataField>Year</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Value">
+        <DataField>Value</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AttributeId">
+        <DataField>AttributeId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

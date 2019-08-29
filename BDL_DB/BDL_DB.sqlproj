@@ -68,6 +68,8 @@
     <Folder Include="Assemblies\" />
     <Folder Include="Security\" />
     <Folder Include="dbo\Functions\" />
+    <Folder Include="temp" />
+    <Folder Include="bdl" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
@@ -92,6 +94,11 @@
     <Build Include="staging\Tables\Child_Variables.SQL" />
     <Build Include="staging\Tables\DatabyVariable.sql" />
     <Build Include="staging\Tables\Data_tmp.sql" />
+    <Build Include="Security\temp.sql" />
+    <Build Include="temp\TempVariable.sql" />
+    <Build Include="temp\TempDataByVariable.sql" />
+    <Build Include="Security\bdl.sql" />
+    <Build Include="bdl\ResultData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

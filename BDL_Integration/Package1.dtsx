@@ -7,12 +7,12 @@
   DTS:CreatorName="PERSEI8\kuba"
   DTS:DTSID="{C249398A-4AE1-47C0-9C6A-89F5FDA80DDB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
   DTS:LocaleID="1045"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{964A5618-35FC-4DE4-B970-36C67A88601E}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{9CED90CC-8BF3-4F18-9A2B-8122051C13A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -66,7 +66,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select zmienna.Id as VariableId, SubjectId, N1, N2, zmienna.MeasureUnitId, MeasureUnitName,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select zmienna.Id as VariableId, SubjectId, N1, N2, zmienna.MeasureUnitId, MeasureUnitName,
  	AggregateId, dane_dla_zmiennej.Id as TerritorialUnitId, Name, Year, Value, AttributeId
 from temp.TempVariable as zmienna
 cross apply dbo.DataByVariable(zmienna.Id, null, 2015, 2017, 2, 100) as dane_dla_zmiennej</property>
@@ -386,13 +386,13 @@ cross apply dbo.DataByVariable(zmienna.Id, null, 2015, 2017, 2, 100) as dane_dla
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[TempDataByVariable]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [temp].[TempDataByVariable]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[TempDataByVariable]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [temp].[TempDataByVariable]) [refTable]
 where [refTable].[VariableId] = ? and [refTable].[SubjectId] = ? and [refTable].[TerritorialUnitId] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -620,7 +620,7 @@ where [refTable].[VariableId] = ? and [refTable].[SubjectId] = ? and [refTable].
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -889,7 +889,7 @@ where [refTable].[VariableId] = ? and [refTable].[SubjectId] = ? and [refTable].
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * 
 from dbo.Variables('P1747', 100)</property>
                     <property
                       dataType="System.String"
@@ -1090,13 +1090,13 @@ from dbo.Variables('P1747', 100)</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[TempVariable]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [temp].[TempVariable]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[TempVariable]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [temp].[TempVariable]) [refTable]
 where [refTable].[Id] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -1260,7 +1260,7 @@ where [refTable].[Id] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1450,13 +1450,13 @@ where [refTable].[Id] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="120.8,41.6"
-          Id="Package\GetData\Variables"
-          TopLeft="30.857143859474,22.4941187366895" />
-        <NodeLayout
-          Size="149.6,41.6"
+          Size="150,42"
           Id="Package\GetData\DataByVariable"
           TopLeft="17.1428579116354,118.541178907243" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\GetData\Variables"
+          TopLeft="30.857143859474,22.4941187366895" />
         <EdgeLayout
           Id="Package\GetData.PrecedenceConstraints[Constraint]"
           TopLeft="91.6000008855547,64.0941187366895">
@@ -1482,28 +1482,150 @@ where [refTable].[Id] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="237.6,215.2"
-          Size="237.6,258.4"
+          PanelSize="238,215"
+          Size="238,258"
           Id="Package\GetData"
           TopLeft="28.0000004768372,11.6235295747803" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\GetData\DataByVariable">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="113,42"
+          Id="Package\GetData\DataByVariable\Lookup"
+          TopLeft="253.6,159.2" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable"
+          TopLeft="173.6,69.6" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\GetData\DataByVariable\temp_TempDataByVariable"
+          TopLeft="219.2,274.4" />
+        <EdgeLayout
+          Id="Package\GetData\DataByVariable.Paths[OLE DB Source Output]"
+          TopLeft="309.6,111.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DataByVariable.Paths[Lookup No Match Output]"
+          TopLeft="310,200.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.4000000000001,73.6"
+              Start="0,0"
+              End="12.4000000000001,66.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8"
+                    Point2="0,36.8"
+                    Point3="4,36.8" />
+                  <mssgle:LineSegment
+                    End="8.40000000000009,36.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.40000000000009,36.8"
+                    Point2="12.4000000000001,36.8"
+                    Point3="12.4000000000001,40.8" />
+                  <mssgle:LineSegment
+                    End="12.4000000000001,66.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-49.60638671875,41.8,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\DataByVariable\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[temp].[TempDataByVariable]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\DataByVariable\temp_TempDataByVariable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\GetData\Variables">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="144,41.6"
-          Id="Package\GetData\Variables\dbo_Variables"
-          TopLeft="119.428573462428,32.4235298664925" />
-        <NodeLayout
-          Size="146.4,41.6"
+          Size="146,42"
           Id="Package\GetData\Variables\temp_Variable"
           TopLeft="79.428572781232,237.364709211303" />
         <NodeLayout
-          Size="112.8,41.6"
+          Size="144,42"
+          Id="Package\GetData\Variables\dbo_Variables"
+          TopLeft="119.428573462428,32.4235298664925" />
+        <NodeLayout
+          Size="113,42"
           Id="Package\GetData\Variables\Lookup"
           TopLeft="98.85714454067,123.623530887485" />
         <EdgeLayout
@@ -1567,92 +1689,6 @@ where [refTable].[Id] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\GetData\DataByVariable">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="271.2,41.6"
-          Id="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable"
-          TopLeft="173.6,69.6" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\GetData\DataByVariable\Lookup"
-          TopLeft="253.6,159.2" />
-        <EdgeLayout
-          Id="Package\GetData\DataByVariable.Paths[OLE DB Source Output]"
-          TopLeft="309.6,111.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="206.4,41.6"
-          Id="Package\GetData\DataByVariable\temp_TempDataByVariable"
-          TopLeft="219.2,274.4" />
-        <EdgeLayout
-          Id="Package\GetData\DataByVariable.Paths[Lookup No Match Output]"
-          TopLeft="310,200.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12.4000000000001,73.6"
-              Start="0,0"
-              End="12.4000000000001,66.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8"
-                    Point2="0,36.8"
-                    Point3="4,36.8" />
-                  <mssgle:LineSegment
-                    End="8.40000000000009,36.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.40000000000009,36.8"
-                    Point2="12.4000000000001,36.8"
-                    Point3="12.4000000000001,40.8" />
-                  <mssgle:LineSegment
-                    End="12.4000000000001,66.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-49.60638671875,41.8,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\GetData\Variables\dbo_Variables">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\GetData\Variables\temp_Variable">
     <Properties>
@@ -1663,6 +1699,14 @@ where [refTable].[Id] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GetData\Variables\dbo_Variables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1686,50 +1730,6 @@ where [refTable].[Id] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\GetData\DataByVariable\dbo_DataByVariable_Join_temp_Variable">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\GetData\DataByVariable\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[temp].[TempDataByVariable]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\GetData\DataByVariable\temp_TempDataByVariable">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

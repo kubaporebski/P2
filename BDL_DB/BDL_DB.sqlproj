@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />
+    <None Include="Data_download_to_tmp_job.sql" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BDL">

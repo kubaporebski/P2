@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="122"
-  DTS:VersionGUID="{A6EBC0A9-218D-4B1E-AAA1-3CDBBE5D510E}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{5A4805BD-53A6-43C0-B825-C5970A7234BA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,6 +33,7 @@
       DTS:refId="Package\Data_Download"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{EADA813F-8603-4A1B-9B39-B8ED81C8B67F}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"

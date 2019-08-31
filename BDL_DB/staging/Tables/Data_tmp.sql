@@ -2,9 +2,12 @@
     [VariableId] int,
     [MeasureUnitId] int,
     [AggregateId] int,
-    [Id] nvarchar(100),
+	[UNITID] NVARCHAR(30) NULL,
+	[N1] [NVARCHAR](255),
+	[N2] [NVARCHAR](255),
     [Name] nvarchar(255),
     [Year] int,
     [Value] nvarchar(255),
-    [AttributeId] int
+    [AttributeId] INT,
+	[parentId] [nvarchar](10) NOT NULL,
 )

@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-0NUGCCL\burbo"
   DTS:DTSID="{68889BAA-4E1E-4073-A18C-DCFD47A49505}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
   DTS:LocaleID="1045"
   DTS:ObjectName="Download_data_tmp"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{48733B5C-605E-4C8A-AC22-5E42BE2DDC61}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{E45DD277-6778-4A86-AE39-9BAC14BD7668}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="DESKTOP-0NUGCCL.BDL2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-0NUGCCL;Initial Catalog=BDL2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=BDL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -197,13 +197,13 @@
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [staging].[Data_tmp]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [staging].[Data_tmp]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [staging].[Data_tmp]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [staging].[Data_tmp]) [refTable]
 where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId] = ? and [refTable].[AggregateId] = ? and [refTable].[Name] = ? and [refTable].[Year] = ? and [refTable].[Value] = ? and [refTable].[AttributeId] = ? and [refTable].[VariableId] = ? and [refTable].[UNITID] = ? and [refTable].[parentId] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -677,7 +677,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -902,7 +902,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1060,7 +1060,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select 
 	zmienna.Id as VariableId
 , 	zmienna.MeasureUnitId
 , 	AggregateId
@@ -1397,14 +1397,14 @@ from staging.Child_Variables as zmienna
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Data_Download\DFT DatabyVariables"
           TopLeft="8.5,47" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205,188"
-          Size="205,231"
+          PanelSize="204.8,188"
+          Size="204.8,231.2"
           Id="Package\Data_Download"
           TopLeft="60,60" />
       </GraphLayout>
@@ -1416,6 +1416,18 @@ from staging.Child_Variables as zmienna
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="180,42"
+          Id="Package\Data_Download\DFT DatabyVariables\OLE DB Destination 1"
+          TopLeft="1402,525" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data_Download\DFT DatabyVariables\OLE DB Destination"
+          TopLeft="1098,516" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data_Download\DFT DatabyVariables\OLE DB Source"
+          TopLeft="1104,184" />
+        <NodeLayout
           Size="113,42"
           Id="Package\Data_Download\DFT DatabyVariables\Lookup"
           TopLeft="1125,411" />
@@ -1423,18 +1435,6 @@ from staging.Child_Variables as zmienna
           Size="156,42"
           Id="Package\Data_Download\DFT DatabyVariables\Data Conversion"
           TopLeft="1107,307" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Data_Download\DFT DatabyVariables\OLE DB Destination 1"
-          TopLeft="1402,525" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Data_Download\DFT DatabyVariables\OLE DB Source"
-          TopLeft="1104,184" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Data_Download\DFT DatabyVariables\OLE DB Destination"
-          TopLeft="1098,516" />
         <EdgeLayout
           Id="Package\Data_Download\DFT DatabyVariables.Paths[Data Conversion Output]"
           TopLeft="1183.25,349">
@@ -1449,6 +1449,30 @@ from staging.Child_Variables as zmienna
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data_Download\DFT DatabyVariables.Paths[OLE DB Source Output]"
+          TopLeft="1182,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81"
+              Start="0,0"
+              End="0,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1516,30 +1540,6 @@ from staging.Child_Variables as zmienna
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="100.63361328125,34.4031413612565,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data_Download\DFT DatabyVariables.Paths[OLE DB Source Output]"
-          TopLeft="1182,226">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,81"
-              Start="0,0"
-              End="0,73.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

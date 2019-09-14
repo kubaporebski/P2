@@ -752,7 +752,7 @@ WHERE Year in (@Year)</CommandText>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!VehicleType.Value</Value>
+                      <Value>=Fields!sort.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <DataElementOutput>Output</DataElementOutput>

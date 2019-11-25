@@ -56,7 +56,10 @@
     <Compile Include="VariablesRow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="instalacja.sql" />
+    <Content Include="Meta\instalacja.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Meta\Opis BDL_DLL.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

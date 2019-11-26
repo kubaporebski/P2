@@ -8,6 +8,9 @@ using System.Windows.Controls;
 
 namespace BDL_GUI.Core
 {
+    /// <summary>
+    /// Klasa okienka zawierająca kilka wspólnych kontrolek: datagrid, przycisk 'Pobierz', itd.
+    /// </summary>
     public class CommonWindow : Grid
     {
         private Button btnDownload;
@@ -32,8 +35,8 @@ namespace BDL_GUI.Core
         {
             Margin = new Thickness(25);
 
-            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(75.0) });
             RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
+            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(75.0) });
 
             Children.Add(CreateDataGrid());
             Children.Add(CreateDownloadButton());
@@ -46,6 +49,7 @@ namespace BDL_GUI.Core
                 Content = "Pobierz"
             };
             btnDownload.Click += BtnDownload_Click;
+            SetRow(btnDownload, 1);
             return btnDownload;
         }
 
@@ -58,6 +62,7 @@ namespace BDL_GUI.Core
         {
             dgData = new DataGrid();
 
+            SetRow(dgData, 0);
             return dgData;
         }
 

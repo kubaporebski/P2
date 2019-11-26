@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BDL;
 using BDL_GUI.Core;
 
 namespace BDL_GUI
@@ -36,7 +37,7 @@ namespace BDL_GUI
 
         private List<object> Download()
         {
-            return new List<object>();
+            return DataGetter.Units(100).ToObjectList();
         }
     }
 }

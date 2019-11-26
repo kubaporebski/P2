@@ -2,7 +2,7 @@
 
 namespace BDL
 {
-    internal class UnitRow
+    public class UnitRow
     {
         public string Id { get; private set; }
 

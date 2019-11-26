@@ -58,6 +58,7 @@
     <Compile Include="Core\CommonWindow.cs" />
     <Compile Include="Core\CommonWindowProperties.cs" />
     <Compile Include="Core\ICommon.cs" />
+    <Compile Include="Core\Tools.cs" />
     <Compile Include="WndTerritorialUnits.xaml.cs">
       <DependentUpon>WndTerritorialUnits.xaml</DependentUpon>
     </Compile>
@@ -103,6 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDL\BDL_DLL.csproj">
+      <Project>{0ffbcd6a-3b12-4151-925b-1f6cae861716}</Project>
+      <Name>BDL_DLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

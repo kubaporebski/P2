@@ -24,5 +24,27 @@ namespace BDL_GUI
         {
             InitializeComponent();
         }
+
+        private void BtnSubjects_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(new NotImplementedException().Message);
+        }
+
+        private void BntInfo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("GUI do BDL_DLL. Copyright MKM BI Enterprise Solutions.", "Info");
+        }
+
+        private void BtnMeasureUnits_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(new NotImplementedException().Message);
+        }
+
+        private void BtnUnits_Click(object sender, RoutedEventArgs e)
+        {
+
+            var w = new WndTerritorialUnits();
+            w.ShowDialog();
+        }
     }
 }

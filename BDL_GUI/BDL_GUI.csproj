@@ -59,6 +59,9 @@
     <Compile Include="Core\CommonWindowProperties.cs" />
     <Compile Include="Core\ICommon.cs" />
     <Compile Include="Core\Tools.cs" />
+    <Compile Include="WndMeasureUnits.xaml.cs">
+      <DependentUpon>WndMeasureUnits.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WndTerritorialUnits.xaml.cs">
       <DependentUpon>WndTerritorialUnits.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WndMeasureUnits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WndTerritorialUnits.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -37,7 +37,8 @@ namespace BDL_GUI
 
         private void BtnMeasureUnits_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(new NotImplementedException().Message);
+            var w = new WndMeasureUnits();
+            w.ShowDialog();
         }
 
         private void BtnUnits_Click(object sender, RoutedEventArgs e)

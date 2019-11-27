@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace BDL_GUI.Core
 {
@@ -13,5 +14,6 @@ namespace BDL_GUI.Core
         /// </summary>
         public Func<List<object>> DownloadHandler { get; set; }
         
+        public List<string> GridColumnHeaders { get; set; }
     }
 }

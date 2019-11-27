@@ -23,8 +23,9 @@ namespace BDL_GUI.Core
         private CommonWindowProperties properties;
 
         // Konstruktor jest prywatny
-        private CommonWindow()
+        private CommonWindow(CommonWindowProperties props)
         {
+            properties = props;
             CreateEverything();
         }
 
@@ -34,8 +35,9 @@ namespace BDL_GUI.Core
         private void CreateEverything()
         {
             Margin = new Thickness(25);
+            HorizontalAlignment = HorizontalAlignment.Stretch;
 
-            RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
+            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(0.5, GridUnitType.Star) });
             RowDefinitions.Add(new RowDefinition() { Height = new GridLength(75.0) });
 
             Children.Add(CreateDataGrid());
@@ -55,13 +57,32 @@ namespace BDL_GUI.Core
 
         private void BtnDownload_Click(object sender, RoutedEventArgs e)
         {
-            dgData.ItemsSource = properties.DownloadHandler();
+            var run = true;
+            do
+            {
+                try
+                {
+                    dgData.ItemsSource = properties.DownloadHandler();
+
+                    for (var i = 0; i < properties.GridColumnHeaders.Count; i++)
+                        dgData.Columns[i].Header = properties.GridColumnHeaders[i];
+
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    var msgBoxRet = MessageBox.Show(
+                        $"Wystąpił błąd podczas pobierania danych:\r\n{ex.Message}. Czy ponowić próbę?", "Usterka!", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    run = (msgBoxRet == MessageBoxResult.Yes);
+                }
+            } while (run);
         }
 
         private UIElement CreateDataGrid()
         {
             dgData = new DataGrid();
-
+            dgData.HorizontalAlignment = HorizontalAlignment.Stretch;
+            
             SetRow(dgData, 0);
             return dgData;
         }
@@ -76,10 +97,7 @@ namespace BDL_GUI.Core
             if (properties == null)
                 throw new ArgumentNullException(nameof(properties));
 
-            return new CommonWindow()
-            {
-                properties = properties
-            };
+            return new CommonWindow(properties);
         }
 
         /// <summary>
@@ -90,6 +108,12 @@ namespace BDL_GUI.Core
         {
             var cwnd = Instance(wnd.GetProperties());
             wnd.Content = cwnd;
+
+            if (wnd is Window w)
+            {
+                w.ShowInTaskbar = false;
+                w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            }
 
         }
     }

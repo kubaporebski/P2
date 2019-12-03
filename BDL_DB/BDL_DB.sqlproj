@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="staging\Tables\TopSubjects.sql" />
-    <Build Include="staging\Tables\AllSubjects.sql" />
+    <Build Include="staging\Tables\Subjects.sql" />
     <Build Include="dbo\Stored Procedures\RequestLog.sql" />
     <Build Include="Security\staging.sql" />
     <Build Include="dbo\Functions\Variables.sql" />
@@ -87,18 +87,19 @@
     <Build Include="dbo\Functions\DataByVariable.sql" />
     <Build Include="dbo\Functions\Units.sql" />
     <Build Include="staging\Tables\Logging.sql" />
-    <Build Include="staging\Tables\AllVariables.sql" />
+    <Build Include="staging\Tables\Variables.sql" />
     <Build Include="staging\Tables\Attributes.sql" />
     <Build Include="staging\Tables\Measures.sql" />
     <Build Include="staging\Tables\Units.sql" />
-    <Build Include="staging\Tables\Child_Variables.SQL" />
-    <Build Include="staging\Tables\DatabyVariable.sql" />
-    <Build Include="staging\Tables\Data_tmp.sql" />
+    <Build Include="staging\Tables\Variables_dimms.SQL" />
+    <Build Include="staging\Tables\Data.sql" />
     <Build Include="Security\temp.sql" />
     <Build Include="temp\TempVariable.sql" />
     <Build Include="temp\TempDataByVariable.sql" />
     <Build Include="Security\bdl.sql" />
     <Build Include="bdl\ResultData.sql" />
+    <Build Include="temp\Data_tmp.sql" />
+    <Build Include="temp\Data_tmp_logging.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

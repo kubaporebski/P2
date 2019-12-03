@@ -1,4 +1,4 @@
-﻿CREATE TABLE staging.Data_tmp (
+﻿CREATE TABLE temp.Data_tmp (
     [VariableId] int,
     [MeasureUnitId] int,
     [AggregateId] int,

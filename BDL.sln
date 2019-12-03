@@ -20,6 +20,11 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BDL_DB", "BDL_DB\BDL_DB.sql
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDL_GUI", "BDL_GUI\BDL_GUI.csproj", "{40EA173D-05B5-4F38-8146-4F32AF6FD3C2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8EB4487-DE94-4BB2-AE48-8EB05495A9C5}"
+	ProjectSection(SolutionItems) = preProject
+		README_ETL.txt = README_ETL.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,9 +36,22 @@ namespace BDL_GUI
             };
         }
 
-        private List<object> Download()
+        private ResultList Download()
         {
-            return DataGetter.Units(100).ToObjectList();
+            return TerritorialUnitsResultList.Convert(DataGetter.Units(100));
+        }
+    }
+
+    public class TerritorialUnitsResultList : ResultList
+    {
+        internal static ResultList Convert(IEnumerable enumerable)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void ApplyImpl(DataGrid dg)
+        {
+            throw new NotImplementedException();
         }
     }
 }

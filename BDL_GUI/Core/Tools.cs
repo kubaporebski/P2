@@ -18,15 +18,5 @@ namespace BDL_GUI.Core
         {
             return collection.Cast<T>().ToList();
         }
-
-        /// <summary>
-        /// Konwersja ze standardowej kolekcji do generycznej listy obiektów.
-        /// </summary>
-        /// <param name="collection"></param>
-        /// <returns></returns>
-        public static List<object> ToObjectList(this IEnumerable collection)
-        {
-            return collection.ToList<object>();
-        }
     }
 }

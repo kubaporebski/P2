@@ -60,14 +60,13 @@ namespace BDL_GUI.Core
             var run = true;
             do
             {
+                btnDownload.IsEnabled = false;
+                btnDownload.Content = (string)Application.Current.FindResource("btnDownloadContentWait");
+
                 try
                 {
-                    List<object> list = await properties.AsyncDownloadHandler();
-                    dgData.ItemsSource = list;
-
-                    for (var i = 0; i < properties.GridColumnHeaders.Count; i++)
-                        dgData.Columns[i].Header = properties.GridColumnHeaders[i];
-
+                    ResultList list = await properties.AsyncDownloadHandler();
+                    list.Apply(dgData);
                     break;
                 }
                 catch (Exception ex)
@@ -77,6 +76,9 @@ namespace BDL_GUI.Core
                     run = (msgBoxRet == MessageBoxResult.Yes);
                 }
             } while (run);
+
+            btnDownload.IsEnabled = true;
+            btnDownload.Content = (string)Application.Current.FindResource("btnDownloadContentDownload");
         }
 
         private UIElement CreateDataGrid()
@@ -110,6 +112,10 @@ namespace BDL_GUI.Core
             var cwnd = Instance(wnd.GetProperties());
             wnd.Content = cwnd;
 
+            // to jest niefajne
+            // zrobiłbym abstrakcyjną klasę pośredniczączą (np. `MiddleWindow : Window, ICommon`), ale! 
+            //   niestety XAML rozbija jedną klasę na dwa pliki, w której są partial class
+            //   i musiałbym modyfikować dwa pliki XAML
             if (wnd is Window w)
             {
                 w.ShowInTaskbar = false;

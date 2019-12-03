@@ -9,17 +9,14 @@ namespace BDL_GUI.Core
 {
     public class CommonWindowProperties
     {
-
         /// <summary>
         /// Obsługa pobrania danych z Banku Danych Lokalnych. Na wyjściu jest lista encji.
         /// </summary>
-        public Func<List<object>> DownloadHandler { get; set; }
+        public Func<ResultList> DownloadHandler { get; set; }
 
-        public List<string> GridColumnHeaders { get; set; }
-
-        public async Task<List<object>> AsyncDownloadHandler()
+        public async Task<ResultList> AsyncDownloadHandler()
         {
-            var tsk = new Task<List<object>>(DownloadHandler);
+            var tsk = new Task<ResultList>(DownloadHandler);
             tsk.Start();
             return await tsk;
         }

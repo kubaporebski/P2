@@ -55,14 +55,15 @@ namespace BDL_GUI.Core
             return btnDownload;
         }
 
-        private void BtnDownload_Click(object sender, RoutedEventArgs e)
+        private async void BtnDownload_Click(object sender, RoutedEventArgs e)
         {
             var run = true;
             do
             {
                 try
                 {
-                    dgData.ItemsSource = properties.DownloadHandler();
+                    List<object> list = await properties.AsyncDownloadHandler();
+                    dgData.ItemsSource = list;
 
                     for (var i = 0; i < properties.GridColumnHeaders.Count; i++)
                         dgData.Columns[i].Header = properties.GridColumnHeaders[i];

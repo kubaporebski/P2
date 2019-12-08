@@ -7,26 +7,14 @@
   DTS:CreatorName="DESKTOP-0NUGCCL\burbo"
   DTS:DTSID="{68889BAA-4E1E-4073-A18C-DCFD47A49505}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1045"
   DTS:ObjectName="Download_data_tmp"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{E45DD277-6778-4A86-AE39-9BAC14BD7668}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{00F90DCD-8396-4E14-8A62-882F5C320765}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{BC6CF868-796F-483E-850B-1134580B5CF3}"
-      DTS:ObjectName="DESKTOP-0NUGCCL.BDL2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=BDL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -197,13 +185,13 @@
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [staging].[Data_tmp]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[Data_tmp]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [staging].[Data_tmp]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[Data_tmp]) [refTable]
 where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId] = ? and [refTable].[AggregateId] = ? and [refTable].[Name] = ? and [refTable].[Year] = ? and [refTable].[Value] = ? and [refTable].[AttributeId] = ? and [refTable].[VariableId] = ? and [refTable].[UNITID] = ? and [refTable].[parentId] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -253,8 +241,8 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                   <connections>
                     <connection
                       refId="Package\Data_Download\DFT DatabyVariables\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -668,7 +656,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[staging].[Data_tmp]</property>
+                      name="OpenRowset">[temp].[Data_tmp]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -711,8 +699,8 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                   <connections>
                     <connection
                       refId="Package\Data_Download\DFT DatabyVariables\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -936,8 +924,8 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                   <connections>
                     <connection
                       refId="Package\Data_Download\DFT DatabyVariables\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1072,7 +1060,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
 ,	Value
 ,	AttributeId
 ,	REPLACE(zmienna.parentId,'P','') AS PARENTID
-from staging.Child_Variables as zmienna
+from staging.VARIABLES_DIMMS as zmienna
 	cross apply dbo.DataByVariable(zmienna.Id, null, 2015, 2019, 2, 100) as dane_dla_zmiennej</property>
                     <property
                       dataType="System.String"
@@ -1099,8 +1087,8 @@ from staging.Child_Variables as zmienna
                   <connections>
                     <connection
                       refId="Package\Data_Download\DFT DatabyVariables\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1397,14 +1385,14 @@ from staging.Child_Variables as zmienna
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\Data_Download\DFT DatabyVariables"
           TopLeft="8.5,47" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,188"
-          Size="204.8,231.2"
+          PanelSize="205,188"
+          Size="205,231"
           Id="Package\Data_Download"
           TopLeft="60,60" />
       </GraphLayout>
@@ -1454,9 +1442,7 @@ from staging.Child_Variables as zmienna
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1478,9 +1464,7 @@ from staging.Child_Variables as zmienna
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1546,5 +1530,62 @@ from staging.Child_Variables as zmienna
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_Download\DFT DatabyVariables\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[temp].[Data_tmp]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_Download\DFT DatabyVariables\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_Download\DFT DatabyVariables\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_Download\DFT DatabyVariables\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

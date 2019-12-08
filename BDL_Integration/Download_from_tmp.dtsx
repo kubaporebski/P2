@@ -7,26 +7,14 @@
   DTS:CreatorName="DESKTOP-0NUGCCL\burbo"
   DTS:DTSID="{47FA602B-6FA6-4041-94B9-1EB0F5AAEB39}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1045"
   DTS:ObjectName="Download_from_tmp"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{4C95084E-B5BB-445B-BA24-D99A8662F2EF}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{67B6718B-D1A4-49FC-97A7-22D8BD897852}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{BC6CF868-796F-483E-850B-1134580B5CF3}"
-      DTS:ObjectName="DESKTOP-0NUGCCL.BDL2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=BDL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -67,14 +55,14 @@
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [staging].[databyvariable]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[TempDataByVariable]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [staging].[databyvariable]) [refTable]
-where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGGREGATEID] = ? and [refTable].[UNITID] = ? and [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[NAME] = ? and [refTable].[YEAR] = ? and [refTable].[VALUE] = ? and [refTable].[ATTRIBUTEID] = ? and [refTable].[parentId] = ?</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[TempDataByVariable]) [refTable]
+where [refTable].[N1] = ? and [refTable].[N2] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
@@ -105,12 +93,12 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                     <property
                       dataType="System.String"
                       description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parentId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MEASUREUNITID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UNITID" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N1" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N2" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NAME" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YEAR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VALUE" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ATTRIBUTEID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AGGREGATEID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="VariableId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubjectId" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N1" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="N2" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MeasureUnitId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MeasureUnitName" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AggregateId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TerritorialUnitId" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Value" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AttributeId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VariableId]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeasureUnitId]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AggregateId]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNITID]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[N1]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[N2]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AttributeId]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[parentId]};</property>
+                      name="ParameterMap">#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[N1]};#{Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[N2]};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -123,8 +111,8 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                   <connections>
                     <connection
                       refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -133,55 +121,6 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                       refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input]"
                       name="Lookup Input">
                       <inputColumns>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[VariableId]"
-                          cachedDataType="i4"
-                          cachedName="VariableId"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VariableId]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">Id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[MeasureUnitId]"
-                          cachedDataType="i4"
-                          cachedName="MeasureUnitId"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeasureUnitId]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">MEASUREUNITID</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[UNITID]"
-                          cachedDataType="wstr"
-                          cachedLength="30"
-                          cachedName="UNITID"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNITID]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">UNITID</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
                         <inputColumn
                           refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[N1]"
                           cachedDataType="wstr"
@@ -216,105 +155,6 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                               name="CopyFromReferenceColumn" />
                           </properties>
                         </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Name]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Name"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">NAME</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Year]"
-                          cachedDataType="i4"
-                          cachedName="Year"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">YEAR</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Value]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Value"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">VALUE</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[AttributeId]"
-                          cachedDataType="i4"
-                          cachedName="AttributeId"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AttributeId]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">ATTRIBUTEID</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[parentId]"
-                          cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="parentId"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[parentId]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">parentId</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[AggregateId]"
-                          cachedDataType="i4"
-                          cachedName="AggregateId"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AggregateId]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">AGGREGATEID</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -327,49 +167,6 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                       name="Lookup Match Output"
                       synchronousInputId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Inputs[Lookup Input]">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Id]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Id]"
-                          name="Id"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">Id</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[MEASUREUNITID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[MEASUREUNITID]"
-                          name="MEASUREUNITID"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">MEASUREUNITID</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[UNITID]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Copy Column"
-                          length="30"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[UNITID]"
-                          name="UNITID"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">UNITID</property>
-                          </properties>
-                        </outputColumn>
                         <outputColumn
                           refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[N1]"
                           dataType="wstr"
@@ -398,93 +195,6 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                               dataType="System.String"
                               description="Specifies the column in the reference table from which a column is copied."
                               name="CopyFromReferenceColumn">N2</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[NAME]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Copy Column"
-                          length="255"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[NAME]"
-                          name="NAME"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">NAME</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[YEAR]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[YEAR]"
-                          name="YEAR"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">YEAR</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[VALUE]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Copy Column"
-                          length="255"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[VALUE]"
-                          name="VALUE"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">VALUE</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[ATTRIBUTEID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[ATTRIBUTEID]"
-                          name="ATTRIBUTEID"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">ATTRIBUTEID</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[parentId]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Copy Column"
-                          length="10"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[parentId]"
-                          name="parentId"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">parentId</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[AGGREGATEID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[AGGREGATEID]"
-                          name="AGGREGATEID"
-                          truncationRowDisposition="RedirectRow">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">AGGREGATEID</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -538,7 +248,7 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[staging].[databyvariable]</property>
+                      name="OpenRowset">[temp].[TempDataByVariable]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -581,8 +291,8 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                   <connections>
                     <connection
                       refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -594,25 +304,6 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MeasureUnitId]"
-                          cachedDataType="i4"
-                          cachedName="MeasureUnitId"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEASUREUNITID]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeasureUnitId]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AggregateId]"
-                          cachedDataType="i4"
-                          cachedName="AggregateId"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AGGREGATEID]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AggregateId]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UNITID]"
-                          cachedDataType="wstr"
-                          cachedLength="30"
-                          cachedName="UNITID"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UNITID]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNITID]" />
                         <inputColumn
                           refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[N1]"
                           cachedDataType="wstr"
@@ -627,66 +318,9 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                           cachedName="N2"
                           externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[N2]"
                           lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[N2]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Name"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
-                          cachedDataType="i4"
-                          cachedName="Year"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Value]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Value"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALUE]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AttributeId]"
-                          cachedDataType="i4"
-                          cachedName="AttributeId"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ATTRIBUTEID]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AttributeId]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[parentId]"
-                          cachedDataType="wstr"
-                          cachedLength="10"
-                          cachedName="parentId"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[parentId]" />
-                        <inputColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VariableId]"
-                          cachedDataType="i4"
-                          cachedName="VariableId"
-                          externalMetadataColumnId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                          lineageId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VariableId]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                          dataType="i4"
-                          name="Id" />
-                        <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parentId]"
-                          dataType="wstr"
-                          length="10"
-                          name="parentId" />
-                        <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEASUREUNITID]"
-                          dataType="i4"
-                          name="MEASUREUNITID" />
-                        <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UNITID]"
-                          dataType="wstr"
-                          length="30"
-                          name="UNITID" />
                         <externalMetadataColumn
                           refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[N1]"
                           dataType="wstr"
@@ -698,27 +332,51 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                           length="255"
                           name="N2" />
                         <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VariableId]"
+                          dataType="wstr"
+                          length="10"
+                          name="VariableId" />
+                        <externalMetadataColumn
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubjectId]"
+                          dataType="wstr"
+                          length="10"
+                          name="SubjectId" />
+                        <externalMetadataColumn
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitId]"
+                          dataType="i4"
+                          name="MeasureUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MeasureUnitName]"
+                          dataType="wstr"
+                          length="30"
+                          name="MeasureUnitName" />
+                        <externalMetadataColumn
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AggregateId]"
+                          dataType="i4"
+                          name="AggregateId" />
+                        <externalMetadataColumn
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritorialUnitId]"
+                          dataType="wstr"
+                          length="100"
+                          name="TerritorialUnitId" />
+                        <externalMetadataColumn
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                           dataType="wstr"
                           length="255"
-                          name="NAME" />
+                          name="Name" />
                         <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
                           dataType="i4"
-                          name="YEAR" />
+                          name="Year" />
                         <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALUE]"
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
                           dataType="wstr"
                           length="255"
-                          name="VALUE" />
+                          name="Value" />
                         <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ATTRIBUTEID]"
+                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AttributeId]"
                           dataType="i4"
-                          name="ATTRIBUTEID" />
-                        <externalMetadataColumn
-                          refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AGGREGATEID]"
-                          dataType="i4"
-                          name="AGGREGATEID" />
+                          name="AttributeId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -806,8 +464,8 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                   <connections>
                     <connection
                       refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -921,7 +579,7 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[staging].[Data_tmp]</property>
+                      name="OpenRowset">[temp].[Data_tmp]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -956,8 +614,8 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
                   <connections>
                     <connection
                       refId="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{232310D0-E5DB-449B-B21C-E389214BD070}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[destination_bdl]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1246,14 +904,14 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\Data_from_tmp_into_table\Data Flow Task"
           TopLeft="57,29" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="256.8,124.8"
-          Size="256.8,168"
+          PanelSize="257,125"
+          Size="257,168"
           Id="Package\Data_from_tmp_into_table"
           TopLeft="60,60" />
       </GraphLayout>
@@ -1299,9 +957,7 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1379,5 +1035,67 @@ where [refTable].[Id] = ? and [refTable].[MEASUREUNITID] = ? and [refTable].[AGG
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_from_tmp_into_table\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[temp].[TempDataByVariable]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data_from_tmp_into_table\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

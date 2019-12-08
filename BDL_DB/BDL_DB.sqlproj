@@ -70,13 +70,12 @@
     <Folder Include="dbo\Functions\" />
     <Folder Include="temp" />
     <Folder Include="bdl" />
+    <Folder Include="bdl\Tables" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="staging\Tables\TopSubjects.sql" />
-    <Build Include="staging\Tables\Subjects.sql" />
     <Build Include="dbo\Stored Procedures\RequestLog.sql" />
     <Build Include="Security\staging.sql" />
     <Build Include="dbo\Functions\Variables.sql" />
@@ -86,13 +85,6 @@
     <Build Include="dbo\Functions\Attributes.sql" />
     <Build Include="dbo\Functions\DataByVariable.sql" />
     <Build Include="dbo\Functions\Units.sql" />
-    <Build Include="staging\Tables\Logging.sql" />
-    <Build Include="staging\Tables\Variables.sql" />
-    <Build Include="staging\Tables\Attributes.sql" />
-    <Build Include="staging\Tables\Measures.sql" />
-    <Build Include="staging\Tables\Units.sql" />
-    <Build Include="staging\Tables\Variables_dimms.SQL" />
-    <Build Include="staging\Tables\Data.sql" />
     <Build Include="Security\temp.sql" />
     <Build Include="temp\TempVariable.sql" />
     <Build Include="temp\TempDataByVariable.sql" />
@@ -100,6 +92,13 @@
     <Build Include="bdl\ResultData.sql" />
     <Build Include="temp\Data_tmp.sql" />
     <Build Include="temp\Data_tmp_logging.sql" />
+    <Build Include="bdl\Tables\DimAttributes.sql" />
+    <Build Include="bdl\Tables\FactData.sql" />
+    <Build Include="bdl\Tables\DimMeasures.sql" />
+    <Build Include="bdl\Tables\DimSubjects.sql" />
+    <Build Include="bdl\Tables\DimTopSubjects.sql" />
+    <Build Include="staging\Tables\Logging.sql" />
+    <Build Include="staging\Tables\Variables_dimms.SQL" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />
@@ -117,5 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="BDL_DB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="bdl\Tables\DimUnits.sql" />
+    <Build Include="bdl\Tables\DimVariables.sql" />
   </ItemGroup>
 </Project>

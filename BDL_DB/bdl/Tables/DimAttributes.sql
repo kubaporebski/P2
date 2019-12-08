@@ -1,4 +1,4 @@
-﻿CREATE TABLE STAGING.Attributes
+﻿CREATE TABLE bdl.DimAttributes
 (
 	[Id] [int],
 	[Name] [nvarchar](255),

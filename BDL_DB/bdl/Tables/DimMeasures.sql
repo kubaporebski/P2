@@ -1,4 +1,4 @@
-﻿CREATE TABLE STAGING.Measures
+﻿CREATE TABLE [bdl].[DimMeasures]
 (
 	[Id] [int],
 	[Name] [nvarchar](255),

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [staging].[TopSubjects](
+﻿CREATE TABLE [bdl].[DimTopSubjects](
 	[Id] [nvarchar](10) NOT NULL,
 	[Name] [nvarchar](255) NULL,
 	[HasVariables] [bit] NULL,

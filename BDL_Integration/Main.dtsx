@@ -7,26 +7,14 @@
   DTS:CreatorName="PERSEI8\kuba"
   DTS:DTSID="{D864713E-6892-4FE5-B612-ABC21BFAAFA4}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1045"
   DTS:ObjectName="Main"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{13C82E99-18B5-441F-A1CE-DE5C04118A3E}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{4E2D4B65-5296-4A83-96F6-D4799EF39403}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{BC6CF868-796F-483E-850B-1134580B5CF3}"
-      DTS:ObjectName="DESKTOP-0NUGCCL.BDL2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=BDL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -200,8 +188,8 @@ where [refTable].[ID] = ?</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -359,8 +347,8 @@ where [refTable].[ID] = ?</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\Lookup 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -508,8 +496,8 @@ where [refTable].[ID] = ?</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -670,8 +658,8 @@ where [refTable].[ID] = ?</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -831,8 +819,8 @@ where [refTable].[ID] = ?</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\OLE DB Destination 1 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -992,8 +980,8 @@ where [refTable].[ID] = ?</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\OLE DB Destination 1 2.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1154,8 +1142,8 @@ WHERE PARENTID IN (208, 209, 213, 239)</property>
                   <connections>
                     <connection
                       refId="Package\GetData\DFT Children_Variables\OLE DB Source 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1846,8 +1834,8 @@ WHERE PARENTID IN (208, 209, 213, 239)</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\LOGGING_ERRORS.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2005,8 +1993,8 @@ WHERE PARENTID IN (208, 209, 213, 239)</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\LOGGING_ERRORS 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2178,8 +2166,8 @@ WHERE PARENTID IN (208, 209, 213, 239)</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\LOGGING_NO_MATCH_UPS.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2375,8 +2363,8 @@ where [refTable].[CODE] = ? and [refTable].[NAME] = ? and [refTable].[HASVARIABL
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -2675,8 +2663,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\Lookup 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -2823,8 +2811,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2996,8 +2984,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\OLE DB Destination 2.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3167,8 +3155,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllSubjects\OLE DB Source 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4051,8 +4039,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\LOGGING_ERRORS.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4210,8 +4198,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\LOGGING_ERRORS 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4383,8 +4371,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\LOGGING_NO_MATCH_UPS.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4578,8 +4566,8 @@ where [refTable].[CODE] = ? and [refTable].[NAME] = ? and [refTable].[HASVARIABL
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -4846,8 +4834,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\Lookup 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -4994,8 +4982,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5155,8 +5143,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\OLE DB Destination 2.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5326,8 +5314,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 01\OLE DB Source 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6088,8 +6076,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\LOGGING_ERRORS.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6247,8 +6235,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\LOGGING_ERRORS 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6420,8 +6408,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\LOGGING_NO_MATCH_UPS.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6613,8 +6601,8 @@ where [refTable].[CODE] = ? and [refTable].[NAME] = ? and [refTable].[HASVARIABL
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -6881,8 +6869,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\Lookup 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -7029,8 +7017,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -7190,8 +7178,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\OLE DB Destination 2.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -7361,8 +7349,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT AllVariables 02\OLE DB Source 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8096,8 +8084,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\Error_Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8255,8 +8243,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\Error_lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8467,8 +8455,8 @@ where [refTable].[ID] = ? and [refTable].[NAME] = ? and [refTable].[HASVARIABLES
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -8811,8 +8799,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\Lookup 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
                   </connections>
@@ -8959,8 +8947,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\No MatchUP.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -9118,8 +9106,8 @@ where [refTable].[id] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -9272,8 +9260,8 @@ from dbo.Subjects(null, 100)</property>
                   <connections>
                     <connection
                       refId="Package\Part1\DFT TopSubjects\OLE DB Source 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-0NUGCCL.BDL2]"
+                      connectionManagerID="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
+                      connectionManagerRefId="{BC6CF868-796F-483E-850B-1134580B5CF3}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -9877,13 +9865,17 @@ from dbo.Subjects(null, 100)</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188,41.6"
+          Size="188,42"
           Id="Package\GetData\DFT Children_Variables"
           TopLeft="20.3918452426926,36.7462196150217" />
         <NodeLayout
-          Size="196,41.6"
+          Size="196,42"
           Id="Package\GetData\EPT download_data_tmp"
           TopLeft="40.9796001640078,124.39664127842" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\GetData\EPT download_from_tmp"
+          TopLeft="49.9591921536638,225.774793960715" />
         <EdgeLayout
           Id="Package\GetData.PrecedenceConstraints[Constraint]"
           TopLeft="114.391845242693,78.3462196150217">
@@ -9918,10 +9910,6 @@ from dbo.Subjects(null, 100)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\GetData\EPT download_from_tmp"
-          TopLeft="49.9591921536638,225.774793960715" />
         <EdgeLayout
           Id="Package\GetData.PrecedenceConstraints[Constraint 1]"
           TopLeft="138.979600164008,165.99664127842">
@@ -9959,24 +9947,24 @@ from dbo.Subjects(null, 100)</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="297.6,347.2"
-          Size="297.6,390.4"
+          PanelSize="298,347"
+          Size="298,390"
           Id="Package\GetData"
           TopLeft="448.163272938297,200.21512887439" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Part1\DFT AllSubjects"
           TopLeft="33,87.5" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Part1\DFT AllVariables 01"
           TopLeft="19,174.5" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Part1\DFT AllVariables 02"
           TopLeft="19,277.5" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Part1\DFT TopSubjects"
           TopLeft="31,5.5" />
         <EdgeLayout
@@ -10048,8 +10036,8 @@ from dbo.Subjects(null, 100)</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,373.6"
-          Size="204.8,416.8"
+          PanelSize="205,374"
+          Size="205,417"
           Id="Package\Part1"
           TopLeft="169.959181595127,188.712605707562" />
         <EdgeLayout
@@ -10077,6 +10065,338 @@ from dbo.Subjects(null, 100)</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\GetData\DFT Children_Variables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\GetData\DFT Children_Variables\OLE DB Destination 1 1"
+          TopLeft="1546,627" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\GetData\DFT Children_Variables\Lookup"
+          TopLeft="1231,486" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\GetData\DFT Children_Variables\OLE DB Destination"
+          TopLeft="767,654" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\GetData\DFT Children_Variables\Sort"
+          TopLeft="1014,294" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\GetData\DFT Children_Variables\OLE DB Destination 1 2"
+          TopLeft="1053,655" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\GetData\DFT Children_Variables\OLE DB Destination 1"
+          TopLeft="1299,632" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\GetData\DFT Children_Variables\Lookup 1"
+          TopLeft="719,494" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\GetData\DFT Children_Variables\Data Conversion"
+          TopLeft="1053,381" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\GetData\DFT Children_Variables\OLE DB Source 1"
+          TopLeft="741,101" />
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Sort Output]"
+          TopLeft="1063,336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68,45"
+              Start="0,0"
+              End="68,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="64,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64,22.5"
+                    Point2="68,22.5"
+                    Point3="68,26.5" />
+                  <mssgle:LineSegment
+                    End="68,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[OLE DB Source Output]"
+          TopLeft="816,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="247,151"
+              Start="0,0"
+              End="247,143.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.5"
+                    Point2="0,75.5"
+                    Point3="4,75.5" />
+                  <mssgle:LineSegment
+                    End="243,75.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="243,75.5"
+                    Point2="247,75.5"
+                    Point3="247,79.5" />
+                  <mssgle:LineSegment
+                    End="247,143.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Lookup No Match Output1]"
+          TopLeft="780,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.5,118"
+              Start="0,0"
+              End="72.5,110.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55"
+                    Point2="0,59"
+                    Point3="4,59" />
+                  <mssgle:LineSegment
+                    End="68.5,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.5,59"
+                    Point2="72.5,59"
+                    Point3="72.5,63" />
+                  <mssgle:LineSegment
+                    End="72.5,110.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.55638671875,64,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Lookup No Match Output]"
+          TopLeft="1305,528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,104"
+              Start="0,0"
+              End="84,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4712041884817" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.4712041884817"
+                    Point2="0,42.4712041884817"
+                    Point3="4,42.4712041884817" />
+                  <mssgle:LineSegment
+                    End="80,42.4712041884817" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80,42.4712041884817"
+                    Point2="84,42.4712041884817"
+                    Point3="84,46.4712041884817" />
+                  <mssgle:LineSegment
+                    End="84,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.80638671875,47.4712041884817,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Lookup Match Output1]"
+          TopLeft="799,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="344,119"
+              Start="0,0"
+              End="344,111.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5242718446602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5242718446602"
+                    Point2="0,48.5242718446602"
+                    Point3="4,48.5242718446602" />
+                  <mssgle:LineSegment
+                    End="340,48.5242718446602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="340,48.5242718446602"
+                    Point2="344,48.5242718446602"
+                    Point3="344,52.5242718446602" />
+                  <mssgle:LineSegment
+                    End="344,111.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="123.80861328125,53.5242718446602,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Lookup Match Output]"
+          TopLeft="1231,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-390,8"
+              Start="0,0"
+              End="-382.5,8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-191,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191,0"
+                    Point2="-195,0"
+                    Point3="-195,4" />
+                  <mssgle:LineSegment
+                    End="-195,4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-195,4"
+                    Point2="-195,8"
+                    Point3="-199,8" />
+                  <mssgle:LineSegment
+                    End="-382.5,8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-243.19138671875,9,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Lookup Error Output]"
+          TopLeft="1313.75,528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="322.25,99"
+              Start="0,0"
+              End="322.25,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.521613832853" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.521613832853"
+                    Point2="0,34.521613832853"
+                    Point3="4,34.521613832853" />
+                  <mssgle:LineSegment
+                    End="318.25,34.521613832853" />
+                  <mssgle:CubicBezierSegment
+                    Point1="318.25,34.521613832853"
+                    Point2="322.25,34.521613832853"
+                    Point3="322.25,38.521613832853" />
+                  <mssgle:LineSegment
+                    End="322.25,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="115.25861328125,39.521613832853,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GetData\DFT Children_Variables.Paths[Data Conversion Output]"
+          TopLeft="1131,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.5,63"
+              Start="0,0"
+              End="156.5,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="152.5,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.5,31.5"
+                    Point2="156.5,31.5"
+                    Point3="156.5,35.5" />
+                  <mssgle:LineSegment
+                    End="156.5,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Part1\DFT AllSubjects">
     <LayoutInfo>
@@ -11603,338 +11923,6 @@ from dbo.Subjects(null, 100)</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-96.95890625,48.5,146.4178125,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\GetData\DFT Children_Variables">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\GetData\DFT Children_Variables\OLE DB Destination 1 1"
-          TopLeft="1546,627" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\GetData\DFT Children_Variables\Lookup"
-          TopLeft="1231,486" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\GetData\DFT Children_Variables\OLE DB Destination"
-          TopLeft="767,654" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\GetData\DFT Children_Variables\Sort"
-          TopLeft="1014,294" />
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\GetData\DFT Children_Variables\OLE DB Destination 1 2"
-          TopLeft="1053,655" />
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\GetData\DFT Children_Variables\OLE DB Destination 1"
-          TopLeft="1299,632" />
-        <NodeLayout
-          Size="121.6,41.6"
-          Id="Package\GetData\DFT Children_Variables\Lookup 1"
-          TopLeft="719,494" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\GetData\DFT Children_Variables\Data Conversion"
-          TopLeft="1053,381" />
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\GetData\DFT Children_Variables\OLE DB Source 1"
-          TopLeft="741,101" />
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Sort Output]"
-          TopLeft="1063,336">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68,45"
-              Start="0,0"
-              End="68,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="4,22.5" />
-                  <mssgle:LineSegment
-                    End="64,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64,22.5"
-                    Point2="68,22.5"
-                    Point3="68,26.5" />
-                  <mssgle:LineSegment
-                    End="68,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[OLE DB Source Output]"
-          TopLeft="816,143">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="247,151"
-              Start="0,0"
-              End="247,143.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,71.5"
-                    Point2="0,75.5"
-                    Point3="4,75.5" />
-                  <mssgle:LineSegment
-                    End="243,75.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="243,75.5"
-                    Point2="247,75.5"
-                    Point3="247,79.5" />
-                  <mssgle:LineSegment
-                    End="247,143.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Lookup No Match Output1]"
-          TopLeft="780,536">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="72.5,118"
-              Start="0,0"
-              End="72.5,110.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,55"
-                    Point2="0,59"
-                    Point3="4,59" />
-                  <mssgle:LineSegment
-                    End="68.5,59" />
-                  <mssgle:CubicBezierSegment
-                    Point1="68.5,59"
-                    Point2="72.5,59"
-                    Point3="72.5,63" />
-                  <mssgle:LineSegment
-                    End="72.5,110.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-19.55638671875,64,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Lookup No Match Output]"
-          TopLeft="1305,528">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84,104"
-              Start="0,0"
-              End="84,96.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.4712041884817" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.4712041884817"
-                    Point2="0,42.4712041884817"
-                    Point3="4,42.4712041884817" />
-                  <mssgle:LineSegment
-                    End="80,42.4712041884817" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80,42.4712041884817"
-                    Point2="84,42.4712041884817"
-                    Point3="84,46.4712041884817" />
-                  <mssgle:LineSegment
-                    End="84,96.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.80638671875,47.4712041884817,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Lookup Match Output1]"
-          TopLeft="799,536">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="344,119"
-              Start="0,0"
-              End="344,111.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5242718446602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.5242718446602"
-                    Point2="0,48.5242718446602"
-                    Point3="4,48.5242718446602" />
-                  <mssgle:LineSegment
-                    End="340,48.5242718446602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="340,48.5242718446602"
-                    Point2="344,48.5242718446602"
-                    Point3="344,52.5242718446602" />
-                  <mssgle:LineSegment
-                    End="344,111.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="123.80861328125,53.5242718446602,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Lookup Match Output]"
-          TopLeft="1231,507">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-390,8"
-              Start="0,0"
-              End="-382.5,8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-191,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-191,0"
-                    Point2="-195,0"
-                    Point3="-195,4" />
-                  <mssgle:LineSegment
-                    End="-195,4" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-195,4"
-                    Point2="-195,8"
-                    Point3="-199,8" />
-                  <mssgle:LineSegment
-                    End="-382.5,8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-243.19138671875,9,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Lookup Error Output]"
-          TopLeft="1313.75,528">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="322.25,99"
-              Start="0,0"
-              End="322.25,91.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.521613832853" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.521613832853"
-                    Point2="0,34.521613832853"
-                    Point3="4,34.521613832853" />
-                  <mssgle:LineSegment
-                    End="318.25,34.521613832853" />
-                  <mssgle:CubicBezierSegment
-                    Point1="318.25,34.521613832853"
-                    Point2="322.25,34.521613832853"
-                    Point3="322.25,38.521613832853" />
-                  <mssgle:LineSegment
-                    End="322.25,91.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="115.25861328125,39.521613832853,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GetData\DFT Children_Variables.Paths[Data Conversion Output]"
-          TopLeft="1131,423">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.5,63"
-              Start="0,0"
-              End="156.5,55.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="4,31.5" />
-                  <mssgle:LineSegment
-                    End="152.5,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.5,31.5"
-                    Point2="156.5,31.5"
-                    Point3="156.5,35.5" />
-                  <mssgle:LineSegment
-                    End="156.5,55.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

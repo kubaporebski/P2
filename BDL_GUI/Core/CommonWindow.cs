@@ -85,6 +85,7 @@ namespace BDL_GUI.Core
         {
             dgData = new DataGrid();
             dgData.HorizontalAlignment = HorizontalAlignment.Stretch;
+            dgData.IsReadOnly = true;
             
             SetRow(dgData, 0);
             return dgData;

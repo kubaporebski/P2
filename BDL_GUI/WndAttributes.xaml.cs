@@ -18,11 +18,11 @@ using System.Windows.Shapes;
 namespace BDL_GUI
 {
     /// <summary>
-    /// Interaction logic for WndMeasureUnits.xaml
+    /// Interaction logic for WndAttributes.xaml
     /// </summary>
-    public partial class WndMeasureUnits : Window, ICommon
+    public partial class WndAttributes : Window, ICommon
     {
-        public WndMeasureUnits()
+        public WndAttributes()
         {
             InitializeComponent();
             CommonWindow.Implement(this);
@@ -36,32 +36,34 @@ namespace BDL_GUI
             };
         }
 
-        private MeasureUnitResultList Download()
+        private AttributesResultList Download()
         {
-            return MeasureUnitResultList.Convert(DataGetter.Measures());
+            return AttributesResultList.Convert(DataGetter.Attributes());
         }
     }
 
-
-    public class MeasureUnitResultList : ResultList
+    public class AttributesResultList : ResultList
     {
-        
-        internal static MeasureUnitResultList Convert(IEnumerable enumerable)
+        internal static AttributesResultList Convert(IEnumerable enumerable)
         {
-            var murl = new MeasureUnitResultList();
-            murl.Items.AddRange(enumerable.ToList<object>());
-            return murl;
+            var arl = new AttributesResultList();
+            arl.Items.AddRange(enumerable.ToList<object>());
+            return arl;
         }
 
         protected override void ApplyImpl(DataGrid dg)
         {
+            
             dg.Columns[0].Header = "Id";
-            dg.Columns[1].Header = "Symbol";
-            dg.Columns[1].Width = new DataGridLength(0.3, DataGridLengthUnitType.Star);
 
-            dg.Columns[2].Header = "Opis";
-            dg.Columns[2].Width = new DataGridLength(0.5, DataGridLengthUnitType.Star);
+            dg.Columns[1].Header = "Nazwa";
+            dg.Columns[2].Width = new DataGridLength(80);
 
+            dg.Columns[2].Header = "Symbol";
+            dg.Columns[2].Width = new DataGridLength(80);
+
+            dg.Columns[3].Header = "Opis";
+            dg.Columns[3].Width = new DataGridLength(0.6, DataGridLengthUnitType.Star);
         }
     }
 }

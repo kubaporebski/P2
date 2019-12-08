@@ -60,6 +60,9 @@
     <Compile Include="Core\ICommon.cs" />
     <Compile Include="Core\ResultList.cs" />
     <Compile Include="Core\Tools.cs" />
+    <Compile Include="WndAttributes.xaml.cs">
+      <DependentUpon>WndAttributes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WndMeasureUnits.xaml.cs">
       <DependentUpon>WndMeasureUnits.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="R.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WndAttributes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -47,5 +47,11 @@ namespace BDL_GUI
             var w = new WndTerritorialUnits();
             w.ShowDialog();
         }
+
+        private void btnAttributes_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new WndAttributes();
+            w.ShowDialog();
+        }
     }
 }

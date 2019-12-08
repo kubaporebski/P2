@@ -38,21 +38,13 @@ namespace BDL_GUI
 
         private MeasureUnitResultList Download()
         {
-            return MeasureUnitResultList.Convert(DataGetter.Measures());
+            return ResultList.Convert<MeasureUnitResultList>(DataGetter.Measures());
         }
     }
 
 
     public class MeasureUnitResultList : ResultList
     {
-        
-        internal static MeasureUnitResultList Convert(IEnumerable enumerable)
-        {
-            var murl = new MeasureUnitResultList();
-            murl.Items.AddRange(enumerable.ToList<object>());
-            return murl;
-        }
-
         protected override void ApplyImpl(DataGrid dg)
         {
             dg.Columns[0].Header = "Id";

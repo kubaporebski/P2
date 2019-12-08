@@ -38,22 +38,14 @@ namespace BDL_GUI
 
         private AttributesResultList Download()
         {
-            return AttributesResultList.Convert(DataGetter.Attributes());
+            return ResultList.Convert<AttributesResultList>(DataGetter.Attributes());
         }
     }
 
     public class AttributesResultList : ResultList
     {
-        internal static AttributesResultList Convert(IEnumerable enumerable)
-        {
-            var arl = new AttributesResultList();
-            arl.Items.AddRange(enumerable.ToList<object>());
-            return arl;
-        }
-
         protected override void ApplyImpl(DataGrid dg)
         {
-            
             dg.Columns[0].Header = "Id";
 
             dg.Columns[1].Header = "Nazwa";

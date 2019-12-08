@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,20 @@ namespace BDL_GUI.Core
         {
             dg.ItemsSource = Items;
             ApplyImpl(dg);
+        }
+
+        /// <summary>
+        /// Konwersja do podrzędnego typu listy.
+        /// Metoda dodaje elementy z podanego `enumerable`.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable"></param>
+        /// <returns></returns>
+        public static T Convert<T>(IEnumerable enumerable) where T : ResultList, new()
+        {
+            var list = new T();
+            list.Items.AddRange(enumerable.ToList<object>());
+            return list;
         }
     }
 }

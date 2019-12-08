@@ -38,17 +38,12 @@ namespace BDL_GUI
 
         private ResultList Download()
         {
-            return TerritorialUnitsResultList.Convert(DataGetter.Units(100));
+            return ResultList.Convert<TerritorialUnitsResultList>(DataGetter.Units(100));
         }
     }
 
     public class TerritorialUnitsResultList : ResultList
     {
-        internal static ResultList Convert(IEnumerable enumerable)
-        {
-            throw new NotImplementedException();
-        }
-
         protected override void ApplyImpl(DataGrid dg)
         {
             throw new NotImplementedException();

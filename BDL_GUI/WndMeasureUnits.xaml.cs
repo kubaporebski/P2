@@ -47,13 +47,22 @@ namespace BDL_GUI
     {
         protected override void ApplyImpl(DataGrid dg)
         {
+            if (dg.Columns.Count == 0)
+                return;
+
             dg.Columns[0].Header = "Id";
             dg.Columns[1].Header = "Symbol";
             dg.Columns[1].Width = new DataGridLength(0.3, DataGridLengthUnitType.Star);
 
             dg.Columns[2].Header = "Opis";
             dg.Columns[2].Width = new DataGridLength(0.5, DataGridLengthUnitType.Star);
+        }
 
+        protected override bool FilterImpl(object item, string text)
+        {
+            var currentItem = item as MeasureUnitRow;
+            var checker = new RegexChecker() { Pattern = text };
+            return checker.Check(currentItem.Id.ToString(), currentItem.Name, currentItem.Description);
         }
     }
 }

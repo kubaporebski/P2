@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace BDL_GUI.Core
 {
@@ -17,6 +18,26 @@ namespace BDL_GUI.Core
         public static  List<T> ToList<T>(this IEnumerable collection)
         {
             return collection.Cast<T>().ToList();
+        }
+    }
+
+    /// <summary>
+    /// Pomocnicza klasa do odnajdywania tekstu (wyrażenia regularnego) w zadanej liście ciągów znaków.
+    /// </summary>
+    public class RegexChecker
+    {
+        /// <summary>
+        /// Ustawienie wyrażenie regularnego pod kątem którego sprawdzać będziemy ciągi znaków.
+        /// </summary>
+        public string Pattern
+        {
+            private get;
+            set;
+        }
+
+        public bool Check(params string[] values)
+        {
+            return values.Any(value => Regex.IsMatch(value, Pattern));
         }
     }
 }

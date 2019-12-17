@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace BDL_GUI.Core
 {
@@ -13,19 +15,29 @@ namespace BDL_GUI.Core
     /// </summary>
     public class CommonWindow : Grid
     {
+        private readonly Thickness BOTTOM_TOP_THICKNESS = new Thickness(0, 5, 0, 5);
+
         private Button btnDownload;
 
         private DataGrid dgData;
 
+        private Panel pFilter;
+
+        private TextBox txtFilterBy;
+
+        /// <summary>
+        /// Wynik działania operacji pobrania danych.
+        /// </summary>
+        private ResultList list;
+
         /// <summary>
         /// Właściwości okienka
         /// </summary>
-        private CommonWindowProperties properties;
+        private CommonWindowProperties properties { get; set; }
 
         // Konstruktor jest prywatny
-        private CommonWindow(CommonWindowProperties props)
+        private CommonWindow()
         {
-            properties = props;
             CreateEverything();
         }
 
@@ -37,21 +49,75 @@ namespace BDL_GUI.Core
             Margin = new Thickness(25);
             HorizontalAlignment = HorizontalAlignment.Stretch;
 
+            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50.0) });
             RowDefinitions.Add(new RowDefinition() { Height = new GridLength(0.5, GridUnitType.Star) });
-            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(75.0) });
+            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50.0) });
 
-            Children.Add(CreateDataGrid());
-            Children.Add(CreateDownloadButton());
+            AddChild(CreateFilter());
+            AddChild(CreateDataGrid());
+            AddChild(CreateDownloadButton());
+        }
+
+        private int currentRow = 0;
+
+        private void AddChild(UIElement child)
+        {
+            Children.Add(child);
+            SetRow(child, currentRow++);
+        }
+
+        private UIElement CreateFilter()
+        {
+            pFilter = new DockPanel() 
+            { 
+                LastChildFill = true,
+                Margin = BOTTOM_TOP_THICKNESS,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+
+            var lblFilterInfo = new Label()
+            {
+                Content = Application.Current.FindResource("lblFilterInfoContent")
+            };
+            pFilter.Children.Add(lblFilterInfo);
+            txtFilterBy = new TextBox()
+            {
+                Height = 25,
+                VerticalContentAlignment = VerticalAlignment.Center
+            };
+            txtFilterBy.TextChanged += TxtFilterBy_TextChanged;
+            pFilter.Children.Add(txtFilterBy);
+            return pFilter;
+        }
+
+        private void TxtFilterBy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (list == null)
+                return;
+
+            var text = (sender as TextBox).Text;
+            IEnumerable<object> newList = null;
+            try
+            {
+                newList = list.Filter(text);
+                list.Apply(dgData, newList);
+                txtFilterBy.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            }
+            catch (ArgumentException)
+            {
+                // błąd wyrażenia regularnego
+                txtFilterBy.Background = new SolidColorBrush(Color.FromRgb(200, 0, 0));
+            }
         }
 
         private UIElement CreateDownloadButton()
         {
             btnDownload = new Button()
             {
-                Content = "Pobierz"
+                Content = Application.Current.FindResource("btnDownloadContentDownload"),
+                Margin = BOTTOM_TOP_THICKNESS
             };
             btnDownload.Click += BtnDownload_Click;
-            SetRow(btnDownload, 1);
             return btnDownload;
         }
 
@@ -61,11 +127,13 @@ namespace BDL_GUI.Core
             do
             {
                 btnDownload.IsEnabled = false;
-                btnDownload.Content = (string)Application.Current.FindResource("btnDownloadContentWait");
+                btnDownload.Content = Application.Current.FindResource("btnDownloadContentWait");
+                
+                txtFilterBy.Clear();
 
                 try
                 {
-                    ResultList list = await properties.AsyncDownloadHandler();
+                    list = await properties.AsyncDownloadHandler();
                     list.Apply(dgData);
                     break;
                 }
@@ -78,7 +146,7 @@ namespace BDL_GUI.Core
             } while (run);
 
             btnDownload.IsEnabled = true;
-            btnDownload.Content = (string)Application.Current.FindResource("btnDownloadContentDownload");
+            btnDownload.Content = Application.Current.FindResource("btnDownloadContentDownload");
         }
 
         private UIElement CreateDataGrid()
@@ -87,7 +155,6 @@ namespace BDL_GUI.Core
             dgData.HorizontalAlignment = HorizontalAlignment.Stretch;
             dgData.IsReadOnly = true;
             
-            SetRow(dgData, 0);
             return dgData;
         }
 
@@ -96,12 +163,12 @@ namespace BDL_GUI.Core
         /// </summary>
         /// <param name="properties"></param>
         /// <returns></returns>
-        private static CommonWindow Instance(CommonWindowProperties properties)
+        private static CommonWindow Instance(CommonWindowProperties cwndprops)
         {
-            if (properties == null)
-                throw new ArgumentNullException(nameof(properties));
+            if (cwndprops == null)
+                throw new ArgumentNullException(nameof(cwndprops));
 
-            return new CommonWindow(properties);
+            return new CommonWindow() { properties = cwndprops };
         }
 
         /// <summary>

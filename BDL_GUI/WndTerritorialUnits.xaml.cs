@@ -48,5 +48,10 @@ namespace BDL_GUI
         {
             throw new NotImplementedException();
         }
+
+        protected override bool FilterImpl(object item, string text)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace BDL_GUI
 
         private void BntInfo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("GUI do BDL_DLL. Copyright MKM BI Enterprise Solutions.", "Info");
+            MessageBox.Show("Aplikacja okienkowa obsługująca bibliotekę BDL_DLL. Do celów testowych.\r\nCopyright MKM BI Enterprise Solutions.", "Informacje o programie");
         }
 
         private void BtnMeasureUnits_Click(object sender, RoutedEventArgs e)
@@ -52,6 +52,11 @@ namespace BDL_GUI
         {
             var w = new WndAttributes();
             w.ShowDialog();
+        }
+
+        private void btnConf_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Na chwilę obecną konfiguracja się robi...", "Proof-of-concept");
         }
     }
 }

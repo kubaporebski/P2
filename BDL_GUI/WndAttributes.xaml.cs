@@ -57,5 +57,10 @@ namespace BDL_GUI
             dg.Columns[3].Header = "Opis";
             dg.Columns[3].Width = new DataGridLength(0.6, DataGridLengthUnitType.Star);
         }
+
+        protected override bool FilterImpl(object item, string text)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

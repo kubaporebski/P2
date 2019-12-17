@@ -96,11 +96,10 @@ namespace BDL_GUI.Core
                 return;
 
             var text = (sender as TextBox).Text;
-            IEnumerable<object> newList = null;
             try
             {
-                newList = list.Filter(text);
-                list.Apply(dgData, newList);
+                var newList = list.Filter(text);
+                newList.Apply(dgData);
                 txtFilterBy.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             }
             catch (ArgumentException)

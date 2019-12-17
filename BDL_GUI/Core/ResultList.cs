@@ -31,9 +31,9 @@ namespace BDL_GUI.Core
         /// Użyj tej metody, jeśli chcesz zaaplikować wyniki do podanego datagrida.
         /// </summary>
         /// <param name="dg"></param>
-        public void Apply(DataGrid dg, IEnumerable<object> filteredItems = null)
+        public void Apply(DataGrid dg)
         {
-            dg.ItemsSource = filteredItems ?? Items; 
+            dg.ItemsSource = Items; 
             ApplyImpl(dg);
         }
 
@@ -62,16 +62,21 @@ namespace BDL_GUI.Core
 
         /// <summary>
         /// Filtrowanie zawartości z użyciem LINQ.
-        /// Jeśli choć w jednej kolumnie będzie zadany tekst (wyrażenie regularne), wówczas uznajemy rekord za znaleziony.
-        /// 
+        /// Jeśli choć w jednej kolumnie będzie zadany tekst (w postaci wyrażenia regularnego), wówczas uznajemy rekord za znaleziony.
+        /// Jeśli tekst jest pusty, zwracana jest oryginalna lista.
         /// </summary>
         /// <param name="text"></param>
-        public IEnumerable<object> Filter(string text)
+        public ResultList Filter(string text)
         {
             var query = from item in Items
                         where string.IsNullOrEmpty(text) || FilterImpl(item, text)
                         select item;
-            return query.ToList();
+
+            // nie możemy utworzyć instancji klasy abstrakcyjnej (a to niespodzianka!)
+            // toteż udajemy się po pomoc do reflektora
+            var filteredList = Activator.CreateInstance(GetType()) as ResultList;
+            filteredList.Items = query.ToList();
+            return filteredList;
         }
 
         public IEnumerator<object> GetEnumerator()

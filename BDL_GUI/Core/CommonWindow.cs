@@ -107,6 +107,11 @@ namespace BDL_GUI.Core
                 // błąd wyrażenia regularnego
                 txtFilterBy.Background = new SolidColorBrush(Color.FromRgb(200, 0, 0));
             }
+            catch (Exception ex)
+            {
+                // inny błąd - wyświetl szczegóły
+                MessageBox.Show(ex.Message, "Błąd podczas filtrowania tabeli", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private UIElement CreateDownloadButton()

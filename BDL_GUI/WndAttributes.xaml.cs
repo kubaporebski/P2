@@ -60,7 +60,9 @@ namespace BDL_GUI
 
         protected override bool FilterImpl(object item, string text)
         {
-            throw new NotImplementedException();
+            var currentItem = item as AttributeRow;
+            var checker = new RegexChecker() { Pattern = text };
+            return checker.Check(currentItem.Id.ToString(), currentItem.Name, currentItem.Symbol, currentItem.Description);
         }
     }
 }

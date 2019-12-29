@@ -31,13 +31,23 @@ namespace BDL_GUI.Core
         /// </summary>
         public string Pattern
         {
-            private get;
-            set;
+            get;
+            private set;
         }
 
         public bool Check(params string[] values)
         {
             return values.Any(value => Regex.IsMatch(value, Pattern));
+        }
+
+        /// <summary>
+        /// Zwrócenie instancji tej klasy.
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        public static RegexChecker Instance(string pattern)
+        {
+            return new RegexChecker() { Pattern = pattern };
         }
     }
 }

@@ -46,6 +46,9 @@ namespace BDL_GUI
     {
         protected override void ApplyImpl(DataGrid dg)
         {
+            if (dg.Columns.Count == 0)
+                return;
+
             dg.Columns[1].Header = "Nazwa";
             dg.Columns[2].Header = "Id nadrzędnej";
             dg.Columns[3].Header = "Poziom";
@@ -54,7 +57,7 @@ namespace BDL_GUI
         protected override bool FilterImpl(object item, string text)
         {
             var currentItem = item as UnitRow;
-            var checker = new RegexChecker() { Pattern = text };
+            var checker = RegexChecker.Instance(text);
             return checker.Check(currentItem.Id.ToString(), currentItem.Level.ToString(), currentItem.Name, currentItem.ParentId.ToString());
         }
     }

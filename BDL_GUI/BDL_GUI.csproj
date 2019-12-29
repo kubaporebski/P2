@@ -66,6 +66,9 @@
     <Compile Include="WndMeasureUnits.xaml.cs">
       <DependentUpon>WndMeasureUnits.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WndSubjects.xaml.cs">
+      <DependentUpon>WndSubjects.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WndTerritorialUnits.xaml.cs">
       <DependentUpon>WndTerritorialUnits.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WndMeasureUnits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WndSubjects.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

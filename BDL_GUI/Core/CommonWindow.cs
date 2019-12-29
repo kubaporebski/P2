@@ -83,7 +83,8 @@ namespace BDL_GUI.Core
             txtFilterBy = new TextBox()
             {
                 Height = 25,
-                VerticalContentAlignment = VerticalAlignment.Center
+                VerticalContentAlignment = VerticalAlignment.Center,
+                ToolTip = Application.Current.FindResource("txtFilterByToolTip")
             };
             txtFilterBy.TextChanged += TxtFilterBy_TextChanged;
             pFilter.Children.Add(txtFilterBy);

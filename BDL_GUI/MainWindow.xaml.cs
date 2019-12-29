@@ -27,7 +27,8 @@ namespace BDL_GUI
 
         private void BtnSubjects_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(new NotImplementedException().Message);
+            var w = new WndSubjects();
+            w.ShowDialog();
         }
 
         private void BntInfo_Click(object sender, RoutedEventArgs e)

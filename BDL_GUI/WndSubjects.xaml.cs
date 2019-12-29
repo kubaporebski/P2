@@ -1,7 +1,6 @@
 ﻿using BDL;
 using BDL_GUI.Core;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +17,11 @@ using System.Windows.Shapes;
 namespace BDL_GUI
 {
     /// <summary>
-    /// Interaction logic for WndMeasureUnits.xaml
+    /// Interaction logic for WndSubjects.xaml
     /// </summary>
-    public partial class WndMeasureUnits : Window, ICommon
+    public partial class WndSubjects : Window, ICommon
     {
-        public WndMeasureUnits()
+        public WndSubjects()
         {
             InitializeComponent();
             CommonWindow.Implement(this);
@@ -36,33 +35,26 @@ namespace BDL_GUI
             };
         }
 
-        private MeasureUnitResultList Download()
+        private ResultList Download()
         {
-            return ResultList.Convert<MeasureUnitResultList>(DataGetter.Measures());
+            return ResultList.Convert<SubjectResultList>(DataGetter.Subjects(null, 100));
         }
     }
 
 
-    public class MeasureUnitResultList : ResultList
+    public class SubjectResultList : ResultList
     {
         protected override void ApplyImpl(DataGrid dg)
         {
             if (dg.Columns.Count == 0)
                 return;
-
-            dg.Columns[0].Header = "Id";
-            dg.Columns[1].Header = "Symbol";
-            dg.Columns[1].Width = new DataGridLength(0.3, DataGridLengthUnitType.Star);
-
-            dg.Columns[2].Header = "Opis";
-            dg.Columns[2].Width = new DataGridLength(0.5, DataGridLengthUnitType.Star);
         }
 
         protected override bool FilterImpl(object item, string text)
         {
-            var currentItem = item as MeasureUnitRow;
+            var currentItem = item as SubjectRow;
             var checker = RegexChecker.Instance(text);
-            return checker.Check(currentItem.Id.ToString(), currentItem.Name, currentItem.Description);
+            return checker.Check(currentItem.Id.ToString(), currentItem.Name);
         }
     }
 }

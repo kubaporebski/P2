@@ -78,6 +78,12 @@ namespace BDL_GUI
         {
             if (dg.Columns.Count == 0)
                 return;
+
+            dg.Columns[1].Header = "Nazwa";
+
+            dg.Columns[2].Header = "Czy liść";
+
+            dg.Columns[3].Header = "Id tematów podrzędnych";
         }
 
         protected override bool FilterImpl(object item, string text)

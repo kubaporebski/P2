@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BDL_GUI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Program do obsługi Banku Danych Lokalnych")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("MKM BI Enterprise Solution")]
 [assembly: AssemblyProduct("BDL_GUI")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright MKM BI Enterprise Solution ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

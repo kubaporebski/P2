@@ -21,6 +21,12 @@ namespace BDL_GUI
     /// </summary>
     public partial class WndSubjects : Window, ICommon
     {
+
+        /// <summary>
+        /// Identyfikator tematu nadrzędnego.
+        /// </summary>
+        public string ParentSubjectId { get; set; }
+
         public WndSubjects()
         {
             InitializeComponent();
@@ -31,13 +37,37 @@ namespace BDL_GUI
         {
             return new CommonWindowProperties()
             {
-                DownloadHandler = Download
+                DownloadHandler = Download,
+                LoadedHandler = OnLoad
             };
         }
 
         private ResultList Download()
         {
-            return ResultList.Convert<SubjectResultList>(DataGetter.Subjects(null, 100));
+            return ResultList.Convert<SubjectResultList>(DataGetter.Subjects(ParentSubjectId, 100));
+        }
+
+        private void OnLoad(CommonWindow window)
+        {
+            window.DgData.MouseDoubleClick += DgData_MouseDoubleClick;
+        }
+
+        private void DgData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var dg = sender as DataGrid;
+            var item = dg.CurrentItem as SubjectRow;
+            if (item.HasVariables)
+            {
+                MessageBox.Show("Brak tematów podrzędnych dla wybranego tematu", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var wnd = new WndSubjects()
+            {
+                ParentSubjectId = item.Id,
+                Title = $"Tematy podrzędne dla: {item.Name}"
+            };
+            wnd.ShowDialog();
         }
     }
 
@@ -54,7 +84,7 @@ namespace BDL_GUI
         {
             var currentItem = item as SubjectRow;
             var checker = RegexChecker.Instance(text);
-            return checker.Check(currentItem.Id.ToString(), currentItem.Name);
+            return checker.Check(currentItem.Id, currentItem.Name);
         }
     }
 }

@@ -15,15 +15,27 @@ namespace BDL_GUI.Core
     /// </summary>
     public class CommonWindow : Grid
     {
-        private readonly Thickness BOTTOM_TOP_THICKNESS = new Thickness(0, 5, 0, 5);
+        public readonly Thickness BOTTOM_TOP_THICKNESS = new Thickness(0, 5, 0, 5);
 
-        private Button btnDownload;
+        /// <summary>
+        /// Przycisk do pobierania danych z BDL.
+        /// </summary>
+        public Button BtnDownload { get; private set; }
 
-        private DataGrid dgData;
+        /// <summary>
+        /// Grid z danymi.
+        /// </summary>
+        public DataGrid DgData { get; private set; }
 
-        private Panel pFilter;
+        /// <summary>
+        /// Panel z filtrem do grida.
+        /// </summary>
+        public Panel PFilter { get; private set; }
 
-        private TextBox txtFilterBy;
+        /// <summary>
+        /// Tekst zawierający wyrażenie regularne filtrujące grida.
+        /// </summary>
+        public TextBox TxtFilterBy { get; private set; }
 
         /// <summary>
         /// Wynik działania operacji pobrania danych.
@@ -68,7 +80,7 @@ namespace BDL_GUI.Core
 
         private UIElement CreateFilter()
         {
-            pFilter = new DockPanel() 
+            PFilter = new DockPanel() 
             { 
                 LastChildFill = true,
                 Margin = BOTTOM_TOP_THICKNESS,
@@ -79,16 +91,16 @@ namespace BDL_GUI.Core
             {
                 Content = Application.Current.FindResource("lblFilterInfoContent")
             };
-            pFilter.Children.Add(lblFilterInfo);
-            txtFilterBy = new TextBox()
+            PFilter.Children.Add(lblFilterInfo);
+            TxtFilterBy = new TextBox()
             {
                 Height = 25,
                 VerticalContentAlignment = VerticalAlignment.Center,
                 ToolTip = Application.Current.FindResource("txtFilterByToolTip")
             };
-            txtFilterBy.TextChanged += TxtFilterBy_TextChanged;
-            pFilter.Children.Add(txtFilterBy);
-            return pFilter;
+            TxtFilterBy.TextChanged += TxtFilterBy_TextChanged;
+            PFilter.Children.Add(TxtFilterBy);
+            return PFilter;
         }
 
         private void TxtFilterBy_TextChanged(object sender, TextChangedEventArgs e)
@@ -100,13 +112,13 @@ namespace BDL_GUI.Core
             try
             {
                 var newList = list.Filter(text);
-                newList.Apply(dgData);
-                txtFilterBy.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                newList.Apply(DgData);
+                TxtFilterBy.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             }
             catch (ArgumentException)
             {
                 // błąd wyrażenia regularnego
-                txtFilterBy.Background = new SolidColorBrush(Color.FromRgb(200, 0, 0));
+                TxtFilterBy.Background = new SolidColorBrush(Color.FromRgb(200, 0, 0));
             }
             catch (Exception ex)
             {
@@ -117,13 +129,13 @@ namespace BDL_GUI.Core
 
         private UIElement CreateDownloadButton()
         {
-            btnDownload = new Button()
+            BtnDownload = new Button()
             {
                 Content = Application.Current.FindResource("btnDownloadContentDownload"),
                 Margin = BOTTOM_TOP_THICKNESS
             };
-            btnDownload.Click += BtnDownload_Click;
-            return btnDownload;
+            BtnDownload.Click += BtnDownload_Click;
+            return BtnDownload;
         }
 
         private async void BtnDownload_Click(object sender, RoutedEventArgs e)
@@ -131,15 +143,15 @@ namespace BDL_GUI.Core
             var run = true;
             do
             {
-                btnDownload.IsEnabled = false;
-                btnDownload.Content = Application.Current.FindResource("btnDownloadContentWait");
+                BtnDownload.IsEnabled = false;
+                BtnDownload.Content = Application.Current.FindResource("btnDownloadContentWait");
                 
-                txtFilterBy.Clear();
+                TxtFilterBy.Clear();
 
                 try
                 {
                     list = await properties.AsyncDownloadHandler();
-                    list.Apply(dgData);
+                    list.Apply(DgData);
                     break;
                 }
                 catch (Exception ex)
@@ -150,17 +162,17 @@ namespace BDL_GUI.Core
                 }
             } while (run);
 
-            btnDownload.IsEnabled = true;
-            btnDownload.Content = Application.Current.FindResource("btnDownloadContentDownload");
+            BtnDownload.IsEnabled = true;
+            BtnDownload.Content = Application.Current.FindResource("btnDownloadContentDownload");
         }
 
         private UIElement CreateDataGrid()
         {
-            dgData = new DataGrid();
-            dgData.HorizontalAlignment = HorizontalAlignment.Stretch;
-            dgData.IsReadOnly = true;
+            DgData = new DataGrid();
+            DgData.HorizontalAlignment = HorizontalAlignment.Stretch;
+            DgData.IsReadOnly = true;
             
-            return dgData;
+            return DgData;
         }
 
         /// <summary>
@@ -182,8 +194,8 @@ namespace BDL_GUI.Core
         /// <param name="wnd"></param>
         public static void Implement(ICommon wnd)
         {
-            var cwnd = Instance(wnd.GetProperties());
-            wnd.Content = cwnd;
+            var wndCommon = Instance(wnd.GetProperties());
+            wnd.Content = wndCommon;
 
             // to jest niefajne
             // zrobiłbym abstrakcyjną klasę pośredniczączą (np. `MiddleWindow : Window, ICommon`), ale! 
@@ -195,6 +207,7 @@ namespace BDL_GUI.Core
                 w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             }
 
+            wndCommon.properties.LoadedHandler(wndCommon);
         }
     }
 }

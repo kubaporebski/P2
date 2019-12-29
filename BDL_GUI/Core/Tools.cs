@@ -19,6 +19,17 @@ namespace BDL_GUI.Core
         {
             return collection.Cast<T>().ToList();
         }
+
+        /// <summary>
+        /// Pomocnicza metoda do właściwości, zamieniająca zwyczajny handler pobierający dane, na taki niezwyczajny - asynchroniczny.
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<ResultList> AsyncDownloadHandler(this CommonWindowProperties properties)
+        {
+            var tsk = new Task<ResultList>(properties.DownloadHandler);
+            tsk.Start();
+            return await tsk;
+        }
     }
 
     /// <summary>

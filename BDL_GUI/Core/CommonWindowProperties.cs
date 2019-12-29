@@ -14,12 +14,7 @@ namespace BDL_GUI.Core
         /// </summary>
         public Func<ResultList> DownloadHandler { get; set; }
 
-        public async Task<ResultList> AsyncDownloadHandler()
-        {
-            var tsk = new Task<ResultList>(DownloadHandler);
-            tsk.Start();
-            return await tsk;
-        }
+        public Action<CommonWindow> LoadedHandler { get; set; }
     }
 
 

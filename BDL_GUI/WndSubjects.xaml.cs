@@ -21,10 +21,6 @@ namespace BDL_GUI
     /// </summary>
     public partial class WndSubjects : Window, ICommon
     {
-
-        /// <summary>
-        /// Identyfikator tematu nadrzędnego.
-        /// </summary>
         public string ParentSubjectId { get; set; }
 
         public WndSubjects()
@@ -56,18 +52,28 @@ namespace BDL_GUI
         {
             var dg = sender as DataGrid;
             var item = dg.CurrentItem as SubjectRow;
+            Window nextWindow;
+
             if (item.HasVariables)
             {
-                MessageBox.Show("Brak tematów podrzędnych dla wybranego tematu", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                //MessageBox.Show("Brak tematów podrzędnych dla wybranego tematu", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
+                // return;
+                nextWindow = new WndVariables()
+                {
+                    ParentSubjectId = item.Id,
+                    Title = $"Zmienne dla tematu: {item.Name}"
+                };
+            }
+            else
+            {
+                nextWindow = new WndSubjects()
+                {
+                    ParentSubjectId = item.Id,
+                    Title = $"Tematy podrzędne dla: {item.Name}"
+                };
             }
 
-            var wnd = new WndSubjects()
-            {
-                ParentSubjectId = item.Id,
-                Title = $"Tematy podrzędne dla: {item.Name}"
-            };
-            wnd.ShowDialog();
+            nextWindow.ShowDialog();
         }
     }
 

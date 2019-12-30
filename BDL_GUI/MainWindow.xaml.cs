@@ -44,7 +44,6 @@ namespace BDL_GUI
 
         private void BtnUnits_Click(object sender, RoutedEventArgs e)
         {
-
             var w = new WndTerritorialUnits();
             w.ShowDialog();
         }
@@ -59,5 +58,16 @@ namespace BDL_GUI
         {
             MessageBox.Show("Na chwilę obecną konfiguracja się robi...", "Proof-of-concept");
         }
+
+        private void ButtonMouseEnter(object sender, MouseEventArgs e)
+        {
+            lblInfo.Content = (sender as Button).Tag;
+        }
+
+        private void ButtonMouseLeave(object sender, MouseEventArgs e)
+        {
+            lblInfo.Content = "";
+        }
+        
     }
 }

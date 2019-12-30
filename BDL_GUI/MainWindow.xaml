@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDL_GUI"
         mc:Ignorable="d"
-        Title="Bank Danych Lokalnych" Height="261.716" Width="541.955" WindowStartupLocation="CenterScreen">
+        Title="Bank Danych Lokalnych" Height="286.812" Width="541.955" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnSubjects" Content="Tematy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="BtnSubjects_Click" />
-        <Button x:Name="btnConf" Content="Konfiguracja" HorizontalAlignment="Left" Margin="363,188,0,0" VerticalAlignment="Top" Width="75" Click="btnConf_Click"/>
-        <Button x:Name="bntInfo" Content="Informacje" HorizontalAlignment="Left" Margin="443,188,0,0" VerticalAlignment="Top" Width="75" Click="BntInfo_Click"/>
-        <Button x:Name="btnUnits" Content="Jednostki terytorialne" HorizontalAlignment="Left" Margin="181,10,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="BtnUnits_Click"/>
-        <Button x:Name="btnMeasureUnits" Content="Jednostki miar" HorizontalAlignment="Left" Margin="352,10,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="BtnMeasureUnits_Click"/>
-        <Button x:Name="btnAttributes" Content="Atrybuty" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="btnAttributes_Click"/>
+        <Button x:Name="btnSubjects" Content="Tematy" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="BtnSubjects_Click" MouseEnter="ButtonMouseEnter" MouseLeave="ButtonMouseLeave" Tag="Wyświetlenie tematów"/>
+        <Button x:Name="btnConf" Content="Konfiguracja" HorizontalAlignment="Left" Margin="363,217,0,0" VerticalAlignment="Top" Width="75" Click="btnConf_Click"/>
+        <Button x:Name="bntInfo" Content="Informacje" HorizontalAlignment="Left" Margin="443,217,0,0" VerticalAlignment="Top" Width="75" Click="BntInfo_Click"/>
+        <Button x:Name="btnUnits" Content="Jednostki terytorialne" HorizontalAlignment="Left" Margin="181,10,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="BtnUnits_Click" MouseEnter="ButtonMouseEnter" MouseLeave="ButtonMouseLeave" Tag="Wyświetlenie listy jednostek terytorialnych (województwa, gminy, itd.)"/>
+        <Button x:Name="btnMeasureUnits" Content="Jednostki miar" HorizontalAlignment="Left" Margin="352,10,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="BtnMeasureUnits_Click" MouseEnter="ButtonMouseEnter" MouseLeave="ButtonMouseLeave" Tag="Wyświetlenie jednostek miar (kg, metr, itd.)"/>
+        <Button x:Name="btnAttributes" Content="Atrybuty" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Height="75" Click="btnAttributes_Click" MouseEnter="ButtonMouseEnter" MouseLeave="ButtonMouseLeave" Tag="Wyświetlenie atrybutów (specjalnych metadanych)"/>
+        <Label x:Name="lblInfo" Content="" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

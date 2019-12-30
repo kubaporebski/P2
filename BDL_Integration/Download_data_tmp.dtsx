@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-0NUGCCL\burbo"
   DTS:DTSID="{68889BAA-4E1E-4073-A18C-DCFD47A49505}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
   DTS:LocaleID="1045"
   DTS:ObjectName="Download_data_tmp"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{00F90DCD-8396-4E14-8A62-882F5C320765}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{A04A0C58-39E5-49E9-84F3-36266BD430EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -185,13 +185,13 @@
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [temp].[Data_tmp]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [temp].[Data_tmp]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [temp].[Data_tmp]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [temp].[Data_tmp]) [refTable]
 where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId] = ? and [refTable].[AggregateId] = ? and [refTable].[Name] = ? and [refTable].[Year] = ? and [refTable].[Value] = ? and [refTable].[AttributeId] = ? and [refTable].[VariableId] = ? and [refTable].[UNITID] = ? and [refTable].[parentId] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -665,7 +665,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -890,7 +890,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1048,7 +1048,7 @@ where [refTable].[N1] = ? and [refTable].[N2] = ? and [refTable].[MeasureUnitId]
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
 	zmienna.Id as VariableId
 , 	zmienna.MeasureUnitId
 , 	AggregateId
@@ -1410,7 +1410,7 @@ from staging.VARIABLES_DIMMS as zmienna
         <NodeLayout
           Size="171,42"
           Id="Package\Data_Download\DFT DatabyVariables\OLE DB Destination"
-          TopLeft="1098,516" />
+          TopLeft="1096,518" />
         <NodeLayout
           Size="150,42"
           Id="Package\Data_Download\DFT DatabyVariables\OLE DB Source"
@@ -1469,25 +1469,37 @@ from staging.VARIABLES_DIMMS as zmienna
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data_Download\DFT DatabyVariables.Paths[Lookup No Match Output]"
-          TopLeft="1182.5,453">
+          TopLeft="1164,453">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63"
+              EndConnector="17.5,65"
               Start="0,0"
-              End="0,55.5">
+              End="17.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5" />
+                    End="0,22.544502617801" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.544502617801"
+                    Point2="0,26.544502617801"
+                    Point3="4,26.544502617801" />
+                  <mssgle:LineSegment
+                    End="13.5,26.544502617801" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,26.544502617801"
+                    Point2="17.5,26.544502617801"
+                    Point3="17.5,30.544502617801" />
+                  <mssgle:LineSegment
+                    End="17.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,21.9453125,111.6127734375,11.609375"
+              BoundingBox="-47.05638671875,31.544502617801,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

@@ -1,0 +1,5 @@
+﻿CREATE TABLE [fact].[Subcategory]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[N2] NVARCHAR(255)
+)

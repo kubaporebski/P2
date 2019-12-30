@@ -71,6 +71,7 @@
     <Folder Include="temp" />
     <Folder Include="bdl" />
     <Folder Include="bdl\Tables" />
+    <Folder Include="fact" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
@@ -99,6 +100,16 @@
     <Build Include="bdl\Tables\DimTopSubjects.sql" />
     <Build Include="staging\Tables\Logging.sql" />
     <Build Include="staging\Tables\Variables_dimms.SQL" />
+    <Build Include="Security\fact.sql" />
+    <Build Include="fact\DimAttributes.sql" />
+    <Build Include="fact\DimMeasures.sql" />
+    <Build Include="fact\DimSubjects.sql" />
+    <Build Include="fact\DimTopSubjects.sql" />
+    <Build Include="fact\DimUnits.sql" />
+    <Build Include="fact\DimVariables.sql" />
+    <Build Include="fact\Category.sql" />
+    <Build Include="fact\Subcategory.sql" />
+    <Build Include="fact\FactData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

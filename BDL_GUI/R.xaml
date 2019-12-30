@@ -4,7 +4,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     
     <system:String x:Key="btnDownloadContentDownload">Pobierz</system:String>
-    <system:String x:Key="btnDownloadContentWait">Czekaj...</system:String>
+    <system:String x:Key="btnDownloadContentWait">Trwa pobieranie danych. Czekaj...</system:String>
     <system:String x:Key="lblFilterInfoContent">Filtr: </system:String>
     <system:String x:Key="txtFilterByToolTip">Wyrażenie regularne (case-sensitive)</system:String>
 

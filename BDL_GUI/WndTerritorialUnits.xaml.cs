@@ -22,6 +22,8 @@ namespace BDL_GUI
     /// </summary>
     public partial class WndTerritorialUnits : Window, ICommon
     {
+        public const string SESSION_KEY = "SavedTerritorialUnit";
+
         public WndTerritorialUnits() 
         {
             InitializeComponent();
@@ -32,8 +34,22 @@ namespace BDL_GUI
         {
             return new CommonWindowProperties()
             {
-                DownloadHandler = Download
+                DownloadHandler = Download,
+                LoadedHandler = OnLoaded
             };
+        }
+
+        private void OnLoaded(CommonWindow wnd)
+        {
+            wnd.DgData.MouseDoubleClick += DgData_MouseDoubleClick;
+        }
+
+        private void DgData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var currentItem = (sender as DataGrid).CurrentItem as UnitRow;
+            Application.Current.Properties[SESSION_KEY] = currentItem;
+
+            MessageBox.Show("Zapamiętano wybraną jednostkę terytorialną.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private ResultList Download()

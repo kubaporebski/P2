@@ -207,7 +207,7 @@ namespace BDL_GUI.Core
                 w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             }
 
-            wndCommon.properties.LoadedHandler(wndCommon);
+            wndCommon.properties.LoadedHandler?.Invoke(wndCommon);
         }
     }
 }

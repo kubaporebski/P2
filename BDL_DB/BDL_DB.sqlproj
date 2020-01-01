@@ -110,6 +110,16 @@
     <Build Include="fact\Category.sql" />
     <Build Include="fact\Subcategory.sql" />
     <Build Include="fact\FactData.sql" />
+    <Build Include="dbo\Stored Procedures\DIMATTRIBUTES_IN.sql" />
+    <Build Include="dbo\Stored Procedures\DIMMEASURES_IN.sql" />
+    <Build Include="dbo\Stored Procedures\DIMTOPSUBJECTS_IN.sql" />
+    <Build Include="dbo\Stored Procedures\DIMSUBJECTS_IN.sql" />
+    <Build Include="dbo\Stored Procedures\DIMUNITS_IN.sql" />
+    <Build Include="dbo\Stored Procedures\DIMVARIABLES_IN.sql" />
+    <Build Include="dbo\Stored Procedures\CATEGORY_IN.sql" />
+    <Build Include="dbo\Stored Procedures\SUBCATEGORY_IN.sql" />
+    <Build Include="dbo\Stored Procedures\FACTDATA_IN.sql" />
+    <Build Include="dbo\Stored Procedures\INSERTS.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assemblies\BDL.dll" />

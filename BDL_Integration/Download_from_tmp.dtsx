@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Download_from_tmp"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{3E206141-8F6F-4E63-8CB6-E3DDE1098910}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{28590A5C-2E69-465E-9491-2A590751A5D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -45,54 +45,20 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Data_from_tmp_into_table\Insert N1_Category"
+          DTS:refId="Package\Data_from_tmp_into_table\INSERTS INTO FACT TABLES"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{9330A701-A42A-44E2-92B0-0AFF726D1642}"
+          DTS:DTSID="{3158D3A3-247E-4CF8-81C3-910EE655E549}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Insert N1_Category"
+          DTS:ObjectName="INSERTS INTO FACT TABLES"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{232310D0-E5DB-449B-B21C-E389214BD070}"
-              SQLTask:SqlStatementSource="insert into fact.Category&#xA;select ROW_NUMBER() over (order by a.n1 asc) as ID, a.n1 from (select distinct n1 from temp.TempDataByVariable where n1 not in (select N1 from fact.Category)) a" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Data_from_tmp_into_table\INSERT_INTO_FACTDATA"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{8F983338-5267-4443-BC02-52AE8552D039}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="INSERT_INTO_FACTDATA"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{232310D0-E5DB-449B-B21C-E389214BD070}"
-              SQLTask:SqlStatementSource="INSERT INTO FACT.FACTDATA &#xA;&#x9;(&#xA;&#x9;&#x9;ID&#xA;&#x9;,&#x9;PARENTID&#xA;&#x9;,&#x9;MEASUREUNITID&#xA;&#x9;,&#x9;UNITID&#xA;&#x9;,&#x9;N1_ID&#xA;&#x9;,&#x9;N2_ID&#xA;&#x9;,&#x9;NAME&#xA;&#x9;,&#x9;YEAR&#xA;&#x9;,&#x9;VALUE&#xA;&#x9;,&#x9;ATTRIBUTEID&#xA;&#x9;,&#x9;AGGREGATEID&#xA;&#x9;,&#x9;SUBJECT_ID&#xA;&#x9;,&#x9;TOPSUBJECT_ID&#xA;&#x9;,&#x9;DIMVARIABLES_ID&#xA;&#x9;)&#xA;SELECT&#xA;&#x9;F.ID AS ID&#xA;,&#x9;S.ID AS PARENTID&#xA;,&#x9;F.MEASUREUNITID&#xA;,&#x9;F.UNITID&#xA;,&#x9;C.ID AS N1_ID&#xA;,&#x9;SC.ID AS N2_ID&#xA;,&#x9;F.NAME&#xA;,&#x9;F.YEAR&#xA;,&#x9;F.VALUE&#xA;,&#x9;F.ATTRIBUTEID&#xA;,&#x9;F.AGGREGATEID&#xA;,&#x9;S.ID AS SUBJECT_ID&#xA;,&#x9;T.ID AS TOPSUBJECT_ID&#xA;,&#x9;DV.Id AS DIMVARIABLES_ID&#xA;FROM&#xA;&#x9;BDL.FACTDATA F&#xA;,&#x9;TEMP.DATA_TMP V&#xA;,&#x9;BDL.DimVariables DV&#xA;,&#x9;BDL.DIMSUBJECTS S&#xA;,&#x9;BDL.DIMTOPSUBJECTS T&#xA;,&#x9;FACT.CATEGORY C&#xA;,&#x9;FACT.SUBCATEGORY SC&#xA;WHERE&#xA;&#x9;F.ID=V.VARIABLEID&#xA;AND V.parentId=DV.Id&#xA;AND&#x9;DV.PARENTID=S.ID&#xA;AND S.PARENTID=T.ID&#xA;AND&#x9;C.N1=F.N1&#xA;AND&#x9;SC.N2=F.N2&#xA;AND F.ID NOT IN (SELECT ID FROM FACT.FactData)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Data_from_tmp_into_table\Insert_N2_Subcategory"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{980051FA-340B-424D-B5BF-A53C927D5FFD}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Insert_N2_Subcategory"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{232310D0-E5DB-449B-B21C-E389214BD070}"
-              SQLTask:SqlStatementSource="insert into fact.Subcategory&#xA;select ROW_NUMBER() over (order by a.n2 asc) as ID, a.n2 from (select distinct n2 from temp.TempDataByVariable where n2 not in (select n2 from fact.Subcategory)) a" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="EXEC [DBO].[INSERTS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -969,27 +935,11 @@ where [refTable].[N1] = ? and [refTable].[N2] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{3550AA7C-2DBB-4EDB-8157-0CA243EE40DD}"
+          DTS:DTSID="{EFB4CF8D-9631-4BB7-A798-4DF03C367804}"
           DTS:From="Package\Data_from_tmp_into_table\Data into BDL_FactData"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Data_from_tmp_into_table\Insert N1_Category" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{2EFF3F78-BD6F-4EB8-85B3-E2B0A8FCE7F1}"
-          DTS:From="Package\Data_from_tmp_into_table\Insert N1_Category"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Data_from_tmp_into_table\Insert_N2_Subcategory" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{8E48D8BC-BF22-432B-A0FE-5C5600E3FC4B}"
-          DTS:From="Package\Data_from_tmp_into_table\Insert_N2_Subcategory"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Data_from_tmp_into_table\INSERT_INTO_FACTDATA" />
+          DTS:To="Package\Data_from_tmp_into_table\INSERTS INTO FACT TABLES" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -1004,15 +954,15 @@ where [refTable].[N1] = ? and [refTable].[N2] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="111,42"
-          Id="Package\Data_from_tmp_into_table\N1_N2"
-          TopLeft="79,24" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="192,42"
           Id="Package\Data_from_tmp_into_table\Data into BDL_FactData"
           TopLeft="38,111" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\Data_from_tmp_into_table\N1_N2"
+          TopLeft="79,24" />
         <EdgeLayout
           Id="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint]"
           TopLeft="134.25,66">
@@ -1036,75 +986,23 @@ where [refTable].[N1] = ? and [refTable].[N2] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="171,42"
-          Id="Package\Data_from_tmp_into_table\Insert N1_Category"
-          TopLeft="54,195" />
+          Size="216,42"
+          Id="Package\Data_from_tmp_into_table\INSERTS INTO FACT TABLES"
+          TopLeft="28,222" />
         <EdgeLayout
           Id="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint 1]"
-          TopLeft="136.75,153">
+          TopLeft="135,153">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42"
+              EndConnector="0,69"
               Start="0,0"
-              End="0,34.5">
+              End="0,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Data_from_tmp_into_table\Insert_N2_Subcategory"
-          TopLeft="39,282" />
-        <EdgeLayout
-          Id="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint 2]"
-          TopLeft="136.75,237">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="202,42"
-          Id="Package\Data_from_tmp_into_table\INSERT_INTO_FACTDATA"
-          TopLeft="29,375" />
-        <EdgeLayout
-          Id="Package\Data_from_tmp_into_table.PrecedenceConstraints[Constraint 3]"
-          TopLeft="132,324">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
+                    End="0,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

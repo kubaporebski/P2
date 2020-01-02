@@ -1,5 +1,7 @@
-﻿SELECT
-  staging.Data_tmp.VariableId
+﻿with cte as (
+SELECT
+  staging.Data_tmp.VariableId,
+  v.CODE, v.Name as vname
   ,staging.Data_tmp.MeasureUnitId
   ,staging.Data_tmp.AggregateId	
   ,staging.Data_tmp.UNITID
@@ -11,7 +13,10 @@
   ,staging.Data_tmp.AttributeId
   ,staging.Data_tmp.parentId
 FROM
-  staging.Data_tmp
+  staging.Data_tmp join staging.AllVariables v on staging.Data_tmp.parentId=v.Id
+  )
+  select distinct code from cte
+
 
 go
 

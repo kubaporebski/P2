@@ -4,6 +4,7 @@
 	[Name] [nvarchar](255) NULL,
 	[HasVariables] [bit] NULL,
 	[Children] [nvarchar](1024) NULL,
-	[CODE] [nvarchar](255) NULL
+	[CODE] [nvarchar](255) NULL,
+	[LogDateTime] datetime2 default current_timestamp
 ) ON [PRIMARY]
 GO

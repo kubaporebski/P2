@@ -26,7 +26,19 @@ namespace BDL_GUI.Core
         /// <returns></returns>
         public static async Task<ResultList> AsyncDownloadHandler(this CommonWindowProperties properties)
         {
-            var tsk = new Task<ResultList>(properties.DownloadHandler);
+            Task<ResultList> tsk;
+
+            var attrs = properties.DownloadHandler.Method.GetCustomAttributes(typeof(CachedAttribute), true);
+            if (attrs != null && attrs.Length > 0)
+            {
+                var attr = attrs[0] as CachedAttribute;
+                tsk = new Task<ResultList>(attr.Valid ? attr.GetData : properties.DownloadHandler);
+            }
+            else
+            {
+                tsk = new Task<ResultList>(properties.DownloadHandler);
+            }
+
             tsk.Start();
             return await tsk;
         }

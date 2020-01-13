@@ -24,6 +24,8 @@ namespace BDL_GUI
     {
         public const string SESSION_KEY = "SavedTerritorialUnit";
 
+        public UnitRow TerritorialUnit { get; private set; }
+
         public WndTerritorialUnits() 
         {
             InitializeComponent();
@@ -47,7 +49,8 @@ namespace BDL_GUI
         private void DgData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var currentItem = (sender as DataGrid).CurrentItem as UnitRow;
-            Application.Current.Properties[SESSION_KEY] = currentItem;
+            //Application.Current.Properties[SESSION_KEY] = currentItem;
+            TerritorialUnit = currentItem;
 
             MessageBox.Show("Zapamiętano wybraną jednostkę terytorialną.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
         }

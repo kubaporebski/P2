@@ -58,13 +58,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\CachedAttribute.cs" />
     <Compile Include="Core\CommonWindow.cs" />
     <Compile Include="Core\CommonWindowProperties.cs" />
     <Compile Include="Core\ICommon.cs" />
     <Compile Include="Core\ResultList.cs" />
+    <Compile Include="Core\Session.cs" />
     <Compile Include="Core\Tools.cs" />
     <Compile Include="WndAttributes.xaml.cs">
       <DependentUpon>WndAttributes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WndChoose.xaml.cs">
+      <DependentUpon>WndChoose.xaml</DependentUpon>
     </Compile>
     <Compile Include="WndData.xaml.cs">
       <DependentUpon>WndData.xaml</DependentUpon>
@@ -98,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WndAttributes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WndChoose.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

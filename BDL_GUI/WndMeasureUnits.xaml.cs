@@ -36,6 +36,7 @@ namespace BDL_GUI
             };
         }
 
+        [Cached]
         private MeasureUnitResultList Download()
         {
             return ResultList.Convert<MeasureUnitResultList>(DataGetter.Measures());

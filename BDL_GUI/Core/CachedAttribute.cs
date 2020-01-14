@@ -1,20 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace BDL_GUI.Core
 {
+    /// <summary>
+    /// Niektóre dane możemy swobodnie przechowywać w cache.
+    /// Dotyczy to np. jednostek terytorialnych albo jednostek miar. 
+    /// </summary>
     public class CachedAttribute : Attribute
     {
-        public ResultList SavedData { get; set; }
+        private ResultList data;
+        
+        private DateTime lastWriteTime = DateTime.MinValue;
 
-        public DateTime LastAccessTime { get; set; } = DateTime.MinValue;
-
-        public int TimeoutSeconds { get; set; } = 60;
-
-        public CachedAttribute()
-        {
-            // TODO !!!
-            System.Diagnostics.Debug.Write("CachedAttribute konstruktor");
-        }
+        /// <summary>
+        /// Czas ważności (sekundy). Domyślnie 120 sekund, co równoważne jest dwum minutom.
+        /// </summary>
+        public uint TimeoutSeconds { get; set; } = 120;
 
         /// <summary>
         /// Czy można pobrać zapamiętane dane z cache?
@@ -23,22 +26,23 @@ namespace BDL_GUI.Core
         {
             get
             {
-                var diff = DateTime.Now - LastAccessTime;
+                var diff = DateTime.Now - lastWriteTime;
                 return diff.TotalSeconds <= TimeoutSeconds;
             }
         }
 
         /// <summary>
-        /// Pobranie danych: albo zapamiętanych w cache albo świeżych.
+        /// Pobranie lub zapisanie danych do cache.
         /// </summary>
-        /// <returns></returns>
-        public ResultList GetData()
+        public ResultList Data
         {
-            var diff = DateTime.Now - LastAccessTime;
-            if (diff.Seconds > TimeoutSeconds)
-                return null;
+            get => data;
 
-            return SavedData;
+            set
+            {
+                lastWriteTime = DateTime.Now;
+                data = value;
+            }
         }
     }
 }

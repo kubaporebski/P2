@@ -156,8 +156,7 @@ namespace BDL_GUI.Core
                 }
                 catch (Exception ex)
                 {
-                    var msgBoxRet = MessageBox.Show(
-                        $"Wystąpił błąd podczas pobierania danych:\r\n{ex.Message}. Czy ponowić próbę?", "Usterka!", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    var msgBoxRet = MessageBox.Show(Application.Current.FindResource("btnDownloadErrorText").ToString().Replace("[MESSAGE]", ex.Message), Application.Current.FindResource("btnDownloadErrorTitle").ToString(), MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
                     run = (msgBoxRet == MessageBoxResult.Yes);
                 }
             } while (run);

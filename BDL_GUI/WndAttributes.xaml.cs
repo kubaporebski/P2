@@ -36,6 +36,7 @@ namespace BDL_GUI
             };
         }
 
+        [Cached]
         private AttributesResultList Download()
         {
             return ResultList.Convert<AttributesResultList>(DataGetter.Attributes());

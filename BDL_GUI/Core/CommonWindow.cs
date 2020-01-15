@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,8 @@ namespace BDL_GUI.Core
     public class CommonWindow : Grid
     {
         public readonly Thickness BOTTOM_TOP_THICKNESS = new Thickness(0, 5, 0, 5);
+
+        private volatile bool progress = false;
 
         /// <summary>
         /// Przycisk do pobierania danych z BDL.
@@ -105,7 +108,7 @@ namespace BDL_GUI.Core
 
         private void TxtFilterBy_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (list == null)
+            if (list == null || progress)
                 return;
 
             var text = (sender as TextBox).Text;
@@ -150,6 +153,7 @@ namespace BDL_GUI.Core
 
                 try
                 {
+                    progress = true;
                     list = await properties.AsyncDownloadHandler();
                     list.Apply(DgData);
                     break;
@@ -158,6 +162,10 @@ namespace BDL_GUI.Core
                 {
                     var msgBoxRet = MessageBox.Show(Application.Current.FindResource("btnDownloadErrorText").ToString().Replace("[MESSAGE]", ex.Message), Application.Current.FindResource("btnDownloadErrorTitle").ToString(), MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
                     run = (msgBoxRet == MessageBoxResult.Yes);
+                }
+                finally
+                {
+                    progress = false;
                 }
             } while (run);
 
@@ -204,9 +212,22 @@ namespace BDL_GUI.Core
             {
                 w.ShowInTaskbar = false;
                 w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                w.Owner = App.Current.MainWindow;
+                w.KeyUp += Wnd_KeyUp;
             }
 
             wndCommon.properties.LoadedHandler?.Invoke(wndCommon);
+        }
+
+        /// <summary>
+        /// Zamknięcie okienka gdy wciśniemy [ESC].
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void Wnd_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Escape)
+                (sender as Window).Close();
         }
     }
 }

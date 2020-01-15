@@ -15,9 +15,9 @@ namespace BDL_GUI.Core
         private DateTime lastWriteTime = DateTime.MinValue;
 
         /// <summary>
-        /// Czas ważności (sekundy). Domyślnie 120 sekund, co równoważne jest dwum minutom.
+        /// Czas ważności (sekundy). Domyślnie 300 sekund, co równoważne jest pięciu minutom.
         /// </summary>
-        public uint TimeoutSeconds { get; set; } = 120;
+        public uint TimeoutSeconds { get; set; } = 300;
 
         /// <summary>
         /// Czy można pobrać zapamiętane dane z cache?

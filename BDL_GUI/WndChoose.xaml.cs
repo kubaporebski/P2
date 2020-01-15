@@ -27,6 +27,7 @@ namespace BDL_GUI
         public WndChoose(VariablesRow variable)
         {
             InitializeComponent();
+            Owner = App.Current.MainWindow;
             Variable = variable;
         }
 
@@ -46,8 +47,14 @@ namespace BDL_GUI
         private void BtnTerritorialUnit_Click(object sender, RoutedEventArgs e)
         {
             var wndTU = new WndTerritorialUnits();
-            wndTU.ShowDialog();
-            SavedTerritorialUnit = wndTU.TerritorialUnit;
+            var dialog = wndTU.ShowDialog();
+            if (dialog.HasValue && dialog.Value)
+            {
+                SavedTerritorialUnit = wndTU.TerritorialUnit;
+                lblTU.Content = SavedTerritorialUnit.Name;
+            }
+
+
         }
     }
 }

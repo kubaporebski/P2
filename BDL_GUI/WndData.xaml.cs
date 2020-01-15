@@ -28,13 +28,14 @@ namespace BDL_GUI
             InitializeComponent();
             InputData = input;
             CommonWindow.Implement(this);
+
+            Title = $"Dane dla zmiennej: {InputData.Variable.N1}" + (string.IsNullOrEmpty(InputData.Variable.N1) ? "" : $" / {InputData.Variable.N2}");
         }
 
         public CommonWindowProperties GetProperties()
         {
             return new CommonWindowProperties()
             {
-                
                 DownloadHandler = Download
             };
         }
@@ -68,6 +69,10 @@ namespace BDL_GUI
         }
     }
 
+    /// <summary>
+    /// Model danych dla danych.
+    /// Pozbierane wymagane informacje, aby móc pobrać konkretne dane.
+    /// </summary>
     public class Model
     {
         /// <summary>

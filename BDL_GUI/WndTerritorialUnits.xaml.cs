@@ -48,8 +48,15 @@ namespace BDL_GUI
         {
             var currentItem = (sender as DataGrid).CurrentItem as UnitRow;
             TerritorialUnit = currentItem;
+            
 
             MessageBox.Show("Zapamiętano wybraną jednostkę terytorialną.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public new bool? ShowDialog()
+        {
+            var ret = base.ShowDialog();
+            return (TerritorialUnit != null);
         }
 
         [Cached]

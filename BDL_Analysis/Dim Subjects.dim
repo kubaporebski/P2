@@ -1,0 +1,255 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a9119596-a071-4bcf-a7a3-f4e7b8009ab3" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Subjects</ID>
+  <Name>Dim Subjects</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="f56a207f-5674-491c-a94e-bbc72025f419">
+    <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="7940b207-bef2-46a3-9dc2-32e27c4628ed">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="cacf336a-04ba-464e-984e-dd4594d26010">
+      <ID>Id</ID>
+      <Name>Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ea73225d-24e3-40aa-be4e-967ab8f79220">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3b930753-2994-430e-b6de-1ea1806c5bc3">
+            <TableID>fact_DimSubjects</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1fb5d25d-a983-4383-b796-2dff5f340422">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="58bdb6ce-dac3-4c5e-9f90-cfa60bc1cc8b">
+          <TableID>fact_DimSubjects</TableID>
+          <ColumnID>Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="5596d784-92cc-4888-9fc3-17a923f8afe2">
+          <AttributeID>Has Variables</AttributeID>
+          <Name>Has Variables</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f2efad7f-15f4-49ee-b536-5bcc73947829">
+          <AttributeID>Children</AttributeID>
+          <Name>Children</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="41adeaee-5b73-4909-982f-2bcb8c96384e">
+          <AttributeID>CODE</AttributeID>
+          <Name>CODE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0123ac30-c524-4886-9c73-234f112257c2">
+          <AttributeID>Dim Top Subjects - Id</AttributeID>
+          <Name>Dim Top Subjects - Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="da518a98-3681-4689-8029-b158f0c524f1">
+      <ID>Has Variables</ID>
+      <Name>Has Variables</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="62dd8d43-cccd-451f-8778-a61cc66562dc">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8816b5fb-efc2-4431-beab-e297d8cbb225">
+            <TableID>fact_DimSubjects</TableID>
+            <ColumnID>HasVariables</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2f880239-efe9-4b1b-9138-2dc95016c600">
+      <ID>Children</ID>
+      <Name>Children</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e66b77f3-2bea-442b-b3aa-80f63d93bf1f">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3e465824-1629-40fe-8509-176e7aaeea8a">
+            <TableID>fact_DimSubjects</TableID>
+            <ColumnID>Children</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="392b7c18-f39f-4168-8455-d36969035dab">
+      <ID>CODE</ID>
+      <Name>CODE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="030b1e8f-e9d2-4b33-97a9-83e243aa80d6">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1cd161b3-4ab4-4af1-877e-9d1e7f6d3a4b">
+            <TableID>fact_DimSubjects</TableID>
+            <ColumnID>CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="34cb8196-3053-422c-bc55-c46ad186fc1e">
+      <ID>Dim Top Subjects - Id</ID>
+      <Name>Dim Top Subjects - Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="082759b5-c38c-4fae-98d4-20400500d680">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c4043bd1-6c33-4f2f-beb2-f2c0e42b951c">
+            <TableID>fact_DimTopSubjects</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="41e6cf1b-ebe3-4dd7-aca7-6dac2385b041">
+          <AttributeID>Name</AttributeID>
+          <Name>Name_</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a5136cb6-3ab3-4c84-83e3-eb8fefed90b5">
+          <AttributeID>Dim Top Subjects - Has Variables</AttributeID>
+          <Name>Dim Top Subjects - Has Variables</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="54a2a831-49e7-4440-96b9-44fac0743f31">
+          <AttributeID>Dim Top Subjects - Children</AttributeID>
+          <Name>Dim Top Subjects - Children</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c289d1c9-89dd-4d78-8950-6e6cd1b3cf3e">
+          <AttributeID>Dim Top Subjects - CODE</AttributeID>
+          <Name>Dim Top Subjects - CODE</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b2811605-9db4-40a6-ac6d-826e10598eee">
+      <ID>Name</ID>
+      <Name>Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="75721c9f-5210-4571-b061-fe0cf806aa03">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="496dab94-f309-4692-b968-a8222d136b7d">
+            <TableID>fact_DimTopSubjects</TableID>
+            <ColumnID>Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f434742c-9316-49b1-aea0-b25832fa3aaf">
+      <ID>Dim Top Subjects - Has Variables</ID>
+      <Name>Dim Top Subjects - Has Variables</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="72730cb7-c987-42de-aec2-789c5d6714b0">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8c80cbb8-ea1e-4743-b1d6-0835ab690333">
+            <TableID>fact_DimTopSubjects</TableID>
+            <ColumnID>HasVariables</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="81e09b20-44f6-4522-a0f1-dfd38c54e4b2">
+      <ID>Dim Top Subjects - Children</ID>
+      <Name>Dim Top Subjects - Children</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="125544f6-7519-4cf6-b391-2794e65284c3">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6c62d87a-f818-44de-b6d7-b2d4483d7d91">
+            <TableID>fact_DimTopSubjects</TableID>
+            <ColumnID>Children</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a4f607d4-cb22-4717-ba1e-234f7caf1e08">
+      <ID>Dim Top Subjects - CODE</ID>
+      <Name>Dim Top Subjects - CODE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d73f5c58-2dcb-44bf-b94e-f7b803a37dde">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="01e42b95-7d63-4381-9822-fec5157c76c7">
+            <TableID>fact_DimTopSubjects</TableID>
+            <ColumnID>CODE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

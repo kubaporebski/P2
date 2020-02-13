@@ -1,0 +1,185 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="6eb453f5-b4d2-4d4d-a14e-5e4a38368ed4" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>KOSTKA</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Category</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f66653f4-75b7-4f63-9573-78559df30108">
+          <ID>Category</ID>
+          <Name>Category</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="73cf6eb3-e44a-4a7f-93ff-60e7122a3b61">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_Category</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>v Fact Data</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f5edbc28-50f9-485d-9dac-6b599d69eb40">
+          <ID>v Fact Data</ID>
+          <Name>v Fact Data</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0bd3ccb0-617f-407c-b067-d3c93c01fcb1">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>dbo_vFactData</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Subcategory</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="28019c07-357f-4127-9360-26d87a4e6356">
+          <ID>Subcategory</ID>
+          <Name>Subcategory</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="93d999dd-6e52-4455-9163-647733d858fe">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_Subcategory</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Variables</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="faff88c5-7902-4486-94c6-3fb435a2140d">
+          <ID>Dim Variables</ID>
+          <Name>Dim Variables</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e8263a3c-aaf3-442d-8c2a-f3e89332b544">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_DimVariables</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Units</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c707fd68-a11c-4228-b858-2e7b3cc76173">
+          <ID>Dim Units</ID>
+          <Name>Dim Units</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8c0ecdf5-0628-4854-87ed-1c9d5298decf">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_DimUnits</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Top Subjects</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0abc5ca3-262e-47e0-8d82-f9fdbe8e9004">
+          <ID>Dim Top Subjects</ID>
+          <Name>Dim Top Subjects</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3574aeba-e46b-47f0-9d8c-3d491ba27608">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_DimTopSubjects</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Subjects</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ce8b7019-374a-4dc3-8942-abd68b76ddb7">
+          <ID>Dim Subjects</ID>
+          <Name>Dim Subjects</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="992fd766-a29c-4b04-8c93-77a88400f476">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_DimSubjects</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Measures</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="19c001df-3ec8-4b3d-b7cd-c7b22e0733e8">
+          <ID>Dim Measures</ID>
+          <Name>Dim Measures</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="42162401-ccf6-46cc-9469-13d2f6d94cca">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_DimMeasures</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Attributes</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="42f91e4c-d35d-40ed-8f64-c3c388bac3f8">
+          <ID>Dim Attributes</ID>
+          <Name>Dim Attributes</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="dfa1cc5e-0d3d-4d2b-8399-fb27751d16d2">
+            <DataSourceViewID>BDL NEW NEW</DataSourceViewID>
+            <TableID>fact_DimAttributes</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [fact].[FactData](
+    [PrimaryKey] [int] not null identity(1,1) primary key,
 	[Id] [int] NOT NULL,
 	[parentId] [nvarchar](10) NOT NULL,
 	[MEASUREUNITID] [int] NULL,

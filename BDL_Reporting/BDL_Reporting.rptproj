@@ -58,6 +58,9 @@
   <ItemGroup>
     <Report Include="FINAL_REPORT.rdl" />
     <Report Include="OurFirstReport1.rdl" />
+    <Report Include="REPORT_fixed.rdl" />
+    <Report Include="REPORT_ROADTYPE.rdl" />
+    <Report Include="REPORT_VEHFUEL.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>

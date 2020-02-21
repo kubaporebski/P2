@@ -1,0 +1,970 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c53c3d7d-5d84-4f8e-aa9c-64c639cf067a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>BDLSSASCUBE</ID>
+  <Name>BDLSSASCUBE</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="1d090199-fa0d-445b-89c3-04fa914bf16b">
+      <ID>Dim Attributes</ID>
+      <Name>Dim Attributes</Name>
+      <DimensionID>Dim Attributes</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5425d7e8-9994-4d4a-ba4d-ff6293739831">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="08a2ebc3-d43b-4f02-ab83-9d6a994e2b95">
+      <ID>Dim Measures</ID>
+      <Name>Dim Measures</Name>
+      <DimensionID>Dim Measures</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="58a8aca5-17a6-4d23-bfe7-9a678f3a8ee9">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="4ed2faf9-0208-42c7-a6fa-685ba01b3a91">
+      <ID>Subcategory</ID>
+      <Name>Subcategory</Name>
+      <DimensionID>Subcategory</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="6f71453e-93df-4185-880a-5e3f46e1d88d">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c4641933-6941-4efc-a582-61658fd73842">
+      <ID>Dim Subjects</ID>
+      <Name>Dim Subjects</Name>
+      <DimensionID>Dim Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d1896d0b-3074-45c9-b71f-a0345edf6ae4">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="074b4c3d-ff5c-42d2-805b-ff4a1451d3a5">
+          <AttributeID>Parent Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="69bac472-84f4-46d1-9da7-5d56886f9056">
+      <ID>Dim Top Subjects</ID>
+      <Name>Dim Top Subjects</Name>
+      <DimensionID>Dim Top Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="47d99f5d-246c-4c4d-a079-27c82d3bcdfe">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="6dc02076-dde7-45f3-b95c-e39e98310ac7">
+      <ID>Dim Units</ID>
+      <Name>Dim Units</Name>
+      <DimensionID>Dim Units</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b159f428-a090-4998-b3d3-f6c52bc45a8f">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="08e7dee2-bf1a-4b5a-a454-0070d964ce88">
+      <ID>Dim Variables</ID>
+      <Name>Dim Variables</Name>
+      <DimensionID>Dim Variables</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="0769131d-86d9-4640-8fc7-59c97cd26a13">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ddf8197f-705b-42b6-99a9-bb573e5c44e9">
+          <AttributeID>Parent Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="a68dd39a-9c8b-4c1b-91ae-d2c74cc855f5">
+      <ID>TOPSUBJECT</ID>
+      <Name>TOPSUBJECT</Name>
+      <DimensionID>Dim Top Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="365b829f-2251-457d-b219-396e63c9fe9f">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="edbed4ef-c517-44ce-b8dc-a53618456012">
+      <ID>SUBJECT</ID>
+      <Name>SUBJECT</Name>
+      <DimensionID>Dim Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8bcdf60a-a33b-4543-be88-89a6f85798c3">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b70472b4-571f-4caa-97af-507b07335a1b">
+          <AttributeID>Parent Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="8d220c35-7dd2-4cd9-844d-9f93da4b7a6f">
+      <ID>Category</ID>
+      <Name>Category</Name>
+      <DimensionID>Category</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c0d6f417-fb29-4665-9122-76d896147af8">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="aad73c2b-82f9-4f82-bfea-ae782cde30eb">
+      <ID>DIMVARIABLES - Parent</ID>
+      <Name>DIMVARIABLES - Parent</Name>
+      <DimensionID>Dim Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ad5e7382-7b5e-4515-9d4a-9ea9d8cfaf7a">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="188fe1bf-8067-4037-85d1-017acbd07f5d">
+          <AttributeID>Parent Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="eee3905f-c746-4c7b-bfc2-51956c187fe1">
+      <ID>DIMVARIABLES - Parent - Parent</ID>
+      <Name>DIMVARIABLES - Parent - Parent</Name>
+      <DimensionID>Dim Top Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="405753d2-2251-4246-b01d-90027d34dfb1">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="3d857265-1bd1-4524-ab1f-8b0bcfab2436">
+      <ID>SUBJECT - Parent</ID>
+      <Name>SUBJECT - Parent</Name>
+      <DimensionID>Dim Top Subjects</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2ebe8df4-29c1-4f76-bdff-b93571d20cbf">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="c67a48d7-67b8-4de1-a0ff-aaf8567cc2b3">
+      <ID>Dim Attributes</ID>
+      <Name>Dim Attributes</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="3a20329c-86e9-443f-8d4e-bf7dc962ecaa">
+          <ID>Dim Attributes Count</ID>
+          <Name>Dim Attributes Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="b6e03179-51db-47a0-b1bb-4dc89ccfcf1f">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="ccda4a29-a29f-4702-a9df-664cff86739f">
+              <TableID>fact_DimAttributes</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="ff02a61b-16ba-4e85-8e09-ed5dc289ad1d">
+          <CubeDimensionID>Dim Attributes</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="457bbd80-c5fe-4468-a77d-0b1d456b518e">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e718a13a-f75e-4194-a66e-0a12e934fc6d">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="40fbada5-2297-4c9b-971d-5a64700ebdc1">
+                    <TableID>fact_DimAttributes</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="07a4043c-1268-4a50-965b-0b31bcb3be94">
+      <ID>Dim Measures</ID>
+      <Name>Dim Measures</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="75161d9b-5981-48dd-9e53-9ce5b0d62194">
+          <ID>Dim Measures Count</ID>
+          <Name>Dim Measures Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="ce4d6c3d-becc-4342-b988-c0f846fa0f16">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="0f404de7-658d-47b0-8cb8-028ab5136737">
+              <TableID>fact_DimMeasures</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="ae6471dc-3903-4b19-996d-2f6ebb4d9cfa">
+          <CubeDimensionID>Dim Measures</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="558f5589-f503-4d57-ba5b-df3ee5c7eaa2">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="05739254-4ed3-4f26-91b9-0b29d14a7e8e">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="deb85538-b2a3-4503-84c8-b6f733f160f3">
+                    <TableID>fact_DimMeasures</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="62cceb54-cc00-4e18-bec9-64e18741a30c">
+      <ID>Subcategory</ID>
+      <Name>Subcategory</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="57913099-dfe8-4925-8209-41694ae3bc35">
+          <ID>Subcategory Count</ID>
+          <Name>Subcategory Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="c006b725-448f-4750-96ba-eba68aeb6590">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="e1c30efa-0672-4f47-992d-47bf079f5299">
+              <TableID>fact_Subcategory</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="404ddb60-fbf6-4f52-abac-345beef74675">
+          <CubeDimensionID>Subcategory</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4cc05dd3-7833-43f5-a4a9-38d09cfdf757">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="88541b6f-3ebe-4547-bee3-61994d1048c5">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="883bee14-a009-4abb-903f-090903c8deaa">
+                    <TableID>fact_Subcategory</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="d584d519-372f-4730-b010-f0ea94c87ee0">
+      <ID>Dim Subjects</ID>
+      <Name>Dim Subjects</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="d0a97291-7fc6-43ed-80af-27c7da56f6e0">
+          <ID>Dim Subjects Count</ID>
+          <Name>Dim Subjects Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="dd70b4f2-7733-495d-bfea-550f6c0323fc">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="1a86d4c4-4629-473f-b6a2-933b27ed40a2">
+              <TableID>fact_DimSubjects</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="6eb71c82-51c9-4e33-bae9-e874fc42d8b6">
+          <CubeDimensionID>Dim Subjects</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="21fbc56d-4c87-430a-9994-0d6c838c8d1a">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="55d03cb5-1d49-4e1a-ac09-b226f079f15b">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5c3237be-9b81-40c5-b51c-fa7a8d8cca01">
+                    <TableID>fact_DimSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="97909d49-b032-4886-a4bc-efda40515617">
+          <CubeDimensionID>Dim Top Subjects</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="3870461e-d3ef-43bd-a2a1-95a3849569a6">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="52f3dbc7-d700-4167-96af-b61e5aaaf1f5">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9cebc2ce-e568-4d16-a7c4-4ba3ca5e018c">
+                    <TableID>fact_DimSubjects</TableID>
+                    <ColumnID>parentId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="a2a44d95-4305-4df0-bae6-b6ff35460966">
+          <CubeDimensionID>SUBJECT</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6decfb37-6f16-4388-af4b-b8872a15048f">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="68e5e75c-cd9f-461e-87a3-89a21da4468b">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c18c8351-648d-4279-b01d-41807cdb657e">
+                    <TableID>fact_DimSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="4594bb3b-54a2-4eba-9cb7-7eab48bc41bd">
+          <CubeDimensionID>DIMVARIABLES - Parent</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2f5ed306-15b8-4c72-8c0c-bd577b8ad5ca">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ee70e771-e6f6-4a28-b41b-c8455e4bd018">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="aa780bdf-a50e-427a-80d3-6c13a18e4f50">
+                    <TableID>fact_DimSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="ea956e67-66c4-49f2-9532-d1edb605879d">
+      <ID>Dim Top Subjects</ID>
+      <Name>Dim Top Subjects</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="01e882f7-c323-4ec8-a41c-77200a4281e9">
+          <ID>Dim Top Subjects Count</ID>
+          <Name>Dim Top Subjects Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="37c82620-1c99-4cb0-8d02-b519d528fd5e">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="264d491f-2058-4f7e-a2cd-3f023d103b02">
+              <TableID>fact_DimTopSubjects</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="838136a7-4141-4a8d-946b-3814208ed36c">
+          <CubeDimensionID>Dim Top Subjects</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2369be7a-f23c-486b-bee2-2ac9102f86f4">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="48199e82-604e-442a-adc6-db52c41e7102">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="50337dd4-cf30-4ce6-ae16-955c55724d8d">
+                    <TableID>fact_DimTopSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="4d72abd3-5a03-495c-8319-80756559d527">
+          <CubeDimensionID>TOPSUBJECT</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="c03e0c86-32a8-414c-a33b-4fe09ce483f4">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="99ba79d4-0bf9-4916-bff9-30b4011811aa">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a895d72e-a4e7-4638-b66e-a337557636d8">
+                    <TableID>fact_DimTopSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="2f90a766-e0d2-44fd-9772-3798a5bdf0dd">
+          <CubeDimensionID>DIMVARIABLES - Parent - Parent</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="8d081b2a-87c9-495c-94d6-94a0e641f8d4">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="affd50b1-d4c6-435c-afec-7b3df39f85d8">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9fd34ab7-bc37-4a5e-b206-04c40e0e7d1d">
+                    <TableID>fact_DimTopSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="530acf5d-c0ad-4312-a8a5-6543cb338920">
+          <CubeDimensionID>SUBJECT - Parent</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e28019e4-fff8-45cc-a26f-9dc2f63bee70">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8c8f70bd-bc4a-47c2-b443-4ee1ad718313">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c1f467c9-db7a-4fbc-90d0-04b62ef84213">
+                    <TableID>fact_DimTopSubjects</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="0eb4c8fb-71bf-473b-abdc-8e7f50bdc972">
+      <ID>Dim Units</ID>
+      <Name>Dim Units</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="65606012-7a26-4aac-b5fd-4f551a48eae2">
+          <ID>Level</ID>
+          <Name>Level</Name>
+          <Source dwd:design-time-name="4ad44592-d462-4672-bdc2-212e6cb40f72">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="21a38167-dbe6-4de7-aeeb-4f41c1dbb103">
+              <TableID>fact_DimUnits</TableID>
+              <ColumnID>Level</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="71885dae-a326-4738-a5a9-889f838db68c">
+          <ID>Dim Units Count</ID>
+          <Name>Dim Units Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="7a396313-a452-46d1-b633-98d09ae5db6a">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="f412bbcf-25ed-46d9-8589-2ae3deabd322">
+              <TableID>fact_DimUnits</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="a60e3cd9-e9b1-4e4b-86c2-4eea6314a84c">
+          <CubeDimensionID>Dim Units</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b509f006-fcaa-4616-a08a-4dad0930edcc">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b9d542e9-7884-4a97-bc0c-c39b7c0ba8a8">
+                  <DataType>WChar</DataType>
+                  <DataSize>30</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6bda83ae-9f2a-4afd-9316-bf415900c5f7">
+                    <TableID>fact_DimUnits</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="03d80e13-4d94-428a-9308-4ce722d5ed1e">
+      <ID>Dim Variables</ID>
+      <Name>Dim Variables</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="237577fa-a479-4a2f-9294-de4718c6f75b">
+          <ID>Dim Variables Count</ID>
+          <Name>Dim Variables Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="76ecad91-9c00-4316-a62d-f4595044f672">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="e696359d-5ce5-4bdc-984b-59b7203cd275">
+              <TableID>fact_DimVariables</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="7976b30d-80e5-45a6-b291-94db7f495e8e">
+          <CubeDimensionID>Dim Variables</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ed5f4e8e-fc34-4151-8931-2a4fc6112f66">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4ceb3a21-2314-4246-a439-8e7b5348b901">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="74461a91-f537-4517-9f73-04ef36b6088f">
+                    <TableID>fact_DimVariables</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="fc6b6b99-b797-478b-b964-150936c85506">
+          <CubeDimensionID>Dim Subjects</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d9699f2f-fa7e-48fb-88d3-d076881d1dc1">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c2c9e429-7dc6-425d-a307-36d379458259">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5c918890-8c36-4379-a8c7-53541bf46936">
+                    <TableID>fact_DimVariables</TableID>
+                    <ColumnID>parentId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="6cb3059f-bb05-479c-80f8-d848405af48a">
+          <CubeDimensionID>Dim Top Subjects</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="36cb432f-0d0e-4e13-99b2-b668cd377c13">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Subjects</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Parent Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="36eae020-2467-463c-b9af-b484e1d2950f">
+      <ID>Fact Data</ID>
+      <Name>Fact Data</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="5ba1dac8-78a9-4bc0-bf64-30ce1f4d5ea0">
+          <ID>Id</ID>
+          <Name>Id</Name>
+          <Source dwd:design-time-name="efb94cd0-7370-405c-907b-6d33187f34de">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b5f188a9-e9ae-4355-b75c-815fad30a304">
+              <TableID>fact_FactData</TableID>
+              <ColumnID>Id</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="86246e31-8596-4a0d-8ca2-c9f1947a275d">
+          <ID>YEAR</ID>
+          <Name>YEAR</Name>
+          <Source dwd:design-time-name="de5edf7b-a265-42b9-a13f-59f4e1c6e77b">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="9c599f7c-66fa-498f-b028-706b620617e7">
+              <TableID>fact_FactData</TableID>
+              <ColumnID>YEAR</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="ac12573d-c4af-4f1d-98ce-8648f71b91a9">
+          <ID>AGGREGATEID</ID>
+          <Name>AGGREGATEID</Name>
+          <Source dwd:design-time-name="f40d9e43-adcc-4384-a191-5ef2544eaf4f">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="13bc26e5-1635-4974-ba05-989885db86d2">
+              <TableID>fact_FactData</TableID>
+              <ColumnID>AGGREGATEID</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b033afb2-dd01-450b-8eed-c5cb5bfe73bc">
+          <ID>Fact Data Count</ID>
+          <Name>Fact Data Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="1e0c28c7-aea9-4c8e-ad4a-599aabf9679f">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="389b26d5-d589-4903-b8b8-7f54f0699580">
+              <TableID>fact_FactData</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="52a3c83e-62ed-462d-9837-20aef530ab01">
+          <CubeDimensionID>TOPSUBJECT</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a50b6d3b-e5b5-4054-94ec-373492ef3c0b">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="56c52b4c-1754-40d4-ae9f-8042b632bcc0">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="966904ba-d55a-4908-9bd1-2b5e4b42ed8b">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>TOPSUBJECT_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="68997540-11c2-4a35-a1ed-2dd0d00e6cd1">
+          <CubeDimensionID>Dim Variables</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="33855960-610f-48dc-9bb9-2d1de551ee47">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7419472c-a961-4ca7-821b-3b3bd41571ef">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="46306179-7f44-487f-b786-d128b40f1390">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>DIMVARIABLES_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c34f5a74-11c8-41c3-bc00-444d1186ec3a">
+          <CubeDimensionID>Dim Measures</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="0b8ebe5e-6fdb-4fdb-b506-66528ed93068">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a4b46481-cea7-4fdf-9c20-352d5b0d3948">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a2c5b429-7edb-43aa-8e8c-f39650eca477">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>MEASUREUNITID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a7699b63-fcba-4ae7-b983-c6418e3a0cf4">
+          <CubeDimensionID>Category</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="055c6ee4-9d6b-47cc-9548-e9ba2499ef2e">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="07d5614f-b504-4b10-85a4-99b83d365920">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7896fa20-0edb-4d80-81ba-cedd7c89f399">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>N1_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a33ec61f-c017-4e9a-ac5d-2abd459b2209">
+          <CubeDimensionID>SUBJECT</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="38181799-f024-4903-9136-edf7e6e713c7">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="66c7dc66-ed1d-4303-b969-904523ddd699">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="754ab653-6021-4e1c-91c9-086c7783f777">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>SUBJECT_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ce134e26-37bc-4f8d-a311-43352fda380b">
+          <CubeDimensionID>Dim Units</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="172ff5f7-9199-44ba-8860-950a67c58579">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="61f1ca5f-842a-47f8-82f4-1549c7703740">
+                  <DataType>WChar</DataType>
+                  <DataSize>30</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="885fa352-b498-415b-b323-73426d43446d">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>UNITID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0c753a6b-7a32-4d47-b312-0af1a086e138">
+          <CubeDimensionID>Subcategory</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bec30c9f-3bbb-4b7e-ab67-d18cefacee92">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="19314d38-668d-4fb9-88a6-f388f6999c37">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="40cc79ea-1431-42cf-b8ba-764cb38ab71d">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>N2_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="9124e756-4e4b-4008-a0b0-8d6ed128b72e">
+          <CubeDimensionID>Dim Attributes</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b0b338b5-43b9-47f9-8124-883094d8b688">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8a36cd11-d0f7-4c85-982a-84b0804a23ac">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2b967c43-91d7-4781-bce4-1b3931654281">
+                    <TableID>fact_FactData</TableID>
+                    <ColumnID>ATTRIBUTEID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="c0be4aeb-ec2d-46ff-a5e0-7b632dddc83a">
+          <CubeDimensionID>DIMVARIABLES - Parent</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="baacd404-bb70-4205-add9-536032c50715">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>Dim Variables</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Parent Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="60c17923-ce0e-486b-929b-d07c584e925e">
+          <CubeDimensionID>DIMVARIABLES - Parent - Parent</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="0ce873be-6244-4aa5-89e1-94c26512e701">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>DIMVARIABLES - Parent</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Parent Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="c0e82c2f-53a6-4861-ba83-746b0701bed0">
+          <CubeDimensionID>SUBJECT - Parent</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b37cdd51-5552-4d08-b81d-e083c41e74a8">
+              <AttributeID>Id</AttributeID>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+          <IntermediateCubeDimensionID>SUBJECT</IntermediateCubeDimensionID>
+          <IntermediateGranularityAttributeID>Parent Id</IntermediateGranularityAttributeID>
+          <Materialization>Regular</Materialization>
+          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="171d5e67-93b1-4cf8-b44f-0b02cbb015b7">
+      <ID>Category</ID>
+      <Name>Category</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="1d1e2201-a8b5-45f9-9635-ac3690f3c658">
+          <ID>Category Count</ID>
+          <Name>Category Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="984cdf24-f66c-4f8e-86e0-273aa877896a">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="87da55d1-bfc7-4f58-b6ef-52f979451c75">
+              <TableID>fact_Category</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="91b42a0f-c627-4883-9039-4a0b7932f3f4">
+          <CubeDimensionID>Category</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="420463bf-74a0-4041-8714-b8d062127e8b">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c254482e-bea6-4ed5-b548-b436bf69d8e0">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f6a2bbbb-91db-444c-9703-a99188c4c8d5">
+                    <TableID>fact_Category</TableID>
+                    <ColumnID>Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="d8211033-4136-4da9-8eeb-2b65a6802cdd">
+    <DataSourceViewID>BDLSSAS</DataSourceViewID>
+  </Source>
+</Cube>

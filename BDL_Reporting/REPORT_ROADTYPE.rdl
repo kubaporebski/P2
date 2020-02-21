@@ -13,7 +13,7 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>CUBE_REPORTS</DataSourceName>
-        <CommandText>SELECT NON EMPTY { [Measures].[Decimal Value] } ON COLUMNS, NON EMPTY { ([v Fact Data].[N2].[N2].ALLMEMBERS * [v Fact Data].[YEAR].[YEAR].ALLMEMBERS * [Dim Units].[Id].[Id].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [v Fact Data].[N2].&amp;[ekspresowe], [v Fact Data].[N2].&amp;[autostrady], [v Fact Data].[N2].&amp;[miejskie], [v Fact Data].[N2].&amp;[zamiejskie] } ) ON COLUMNS FROM ( SELECT ( { [Dim Units].[Id].&amp;[011200000000], [Dim Units].[Id].&amp;[071400000000], [Dim Units].[Id].&amp;[012400000000] } ) ON COLUMNS FROM [KOSTKA])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+        <CommandText> SELECT NON EMPTY { [Measures].[Decimal Value] } ON COLUMNS, NON EMPTY { ([v Fact Data].[N2].[N2].ALLMEMBERS * [v Fact Data].[YEAR].[YEAR].ALLMEMBERS * [Dim Units].[Id].[Id].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [v Fact Data].[N2].&amp;[ekspresowe], [v Fact Data].[N2].&amp;[autostrady], [v Fact Data].[N2].&amp;[miejskie], [v Fact Data].[N2].&amp;[zamiejskie] } ) ON COLUMNS FROM ( SELECT ( { [Dim Units].[Id].&amp;[011200000000], [Dim Units].[Id].&amp;[071400000000], [Dim Units].[Id].&amp;[012400000000] } ) ON COLUMNS FROM [Cube])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
         <rd:DesignerState>
           <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
             <CommandType>MDX</CommandType>
@@ -72,7 +72,7 @@
                 </Items>
               </Select>
               <AutoExecute>false</AutoExecute>
-              <From>KOSTKA</From>
+              <From>Cube</From>
               <Filter>
                 <FilterItems>
                   <FilterItem>
@@ -119,7 +119,7 @@
               </QueryProperties>
             </QuerySpecification>
             <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Decimal Value] } ON COLUMNS, NON EMPTY { ([v Fact Data].[N2].[N2].ALLMEMBERS * [v Fact Data].[YEAR].[YEAR].ALLMEMBERS * [Dim Units].[Id].[Id].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [v Fact Data].[N2].&amp;[ekspresowe], [v Fact Data].[N2].&amp;[autostrady], [v Fact Data].[N2].&amp;[miejskie], [v Fact Data].[N2].&amp;[zamiejskie] } ) ON COLUMNS FROM ( SELECT ( { [Dim Units].[Id].&amp;[011200000000], [Dim Units].[Id].&amp;[071400000000], [Dim Units].[Id].&amp;[012400000000] } ) ON COLUMNS FROM [KOSTKA])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+              <Statement> SELECT NON EMPTY { [Measures].[Decimal Value] } ON COLUMNS, NON EMPTY { ([v Fact Data].[N2].[N2].ALLMEMBERS * [v Fact Data].[YEAR].[YEAR].ALLMEMBERS * [Dim Units].[Id].[Id].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [v Fact Data].[N2].&amp;[ekspresowe], [v Fact Data].[N2].&amp;[autostrady], [v Fact Data].[N2].&amp;[miejskie], [v Fact Data].[N2].&amp;[zamiejskie] } ) ON COLUMNS FROM ( SELECT ( { [Dim Units].[Id].&amp;[011200000000], [Dim Units].[Id].&amp;[071400000000], [Dim Units].[Id].&amp;[012400000000] } ) ON COLUMNS FROM [Cube])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
               <ParameterDefinitions />
             </Query>
           </QueryDefinition>

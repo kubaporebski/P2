@@ -23,6 +23,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8EB4487-DE94-4BB2-AE48-8EB05495A9C5}"
 	ProjectSection(SolutionItems) = preProject
 		Documentation\BDL_VISIO.vsdx = Documentation\BDL_VISIO.vsdx
+		Documentation\Dokumentacja projektu P3.pdf = Documentation\Dokumentacja projektu P3.pdf
 		Documentation\README_ETL.txt = Documentation\README_ETL.txt
 	EndProjectSection
 EndProject
